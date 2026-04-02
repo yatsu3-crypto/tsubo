@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>円皮鍼セルフケアガイド</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf7f2;
+    --warm: #f5ede0;
+    --accent: #8b4513;
+    --accent2: #c17f3a;
+    --gold: #d4a853;
+    --sage: #7a9e7e;
+    --soft-red: #c0392b;
+    --muted: #6b5c4e;
+    --border: #d4c4b0;
+    --shadow: rgba(139,69,19,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: var(--ink);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .header-icon {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .header-text h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    color: var(--paper);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .header-text p {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 16px 40px;
+  }
+
+  /* ===== STEP INDICATOR ===== */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 16px;
+    gap: 0;
+  }
+  .step-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .step-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .step-dot.done {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: white;
+  }
+  .step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+  .step-line.done { background: var(--sage); }
+  .step-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 20px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .step-labels span { text-align: center; width: 28px; }
+
+  /* ===== SCREENS ===== */
+  .screen { display: none; animation: fadeIn 0.4s ease; }
+  .screen.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ===== CARD ===== */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .badge {
+    font-size: 10px;
+    background: var(--gold);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ===== SYMPTOM GRID ===== */
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .symptom-btn {
+    background: var(--warm);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .symptom-btn:hover {
+    border-color: var(--accent2);
+    background: #fef3e2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  .symptom-btn.selected {
+    border-color: var(--accent);
+    background: #fdf0e8;
+  }
+  .symptom-btn .emoji { font-size: 28px; display: block; margin-bottom: 6px; }
+  .symptom-btn .label { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .symptom-btn .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ===== CHECK LIST ===== */
+  .check-list { display: flex; flex-direction: column; gap: 10px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: var(--warm);
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .check-item:hover { border-color: var(--accent2); }
+  .check-item.checked { border-color: var(--accent); background: #fdf0e8; }
+  .check-box {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    transition: all 0.2s;
+    margin-top: 1px;
+  }
+  .check-item.checked .check-box {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .check-text { font-size: 14px; color: var(--ink); line-height: 1.6; }
+
+  /* ===== TSUBO RESULT CARD ===== */
+  .tsubo-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .tsubo-header {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    padding: 20px 24px;
+    color: white;
+  }
+  .tsubo-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-bottom: 4px;
+  }
+  .tsubo-name-ja {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+  .tsubo-name-en {
+    font-size: 13px;
+    opacity: 0.8;
+    font-style: italic;
+  }
+  .tsubo-body { padding: 20px 24px; }
+
+  .info-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .info-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .info-badge.difficulty-easy { background: #e8f5e9; color: #2e7d32; }
+  .info-badge.difficulty-medium { background: #fff3e0; color: #e65100; }
+  .info-badge.who { background: #e3f2fd; color: #1565c0; }
+
+  .location-box {
+    background: var(--warm);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .location-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .location-text { font-size: 14px; color: var(--ink); line-height: 1.8; }
+  .location-tip {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .effect-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .effect-tag {
+    font-size: 12px;
+    background: #fdf0e8;
+    color: var(--accent);
+    border: 1px solid #f0d0b4;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* ===== HOW TO USE ===== */
+  .howto-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .howto-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .howto-content { flex: 1; }
+  .howto-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .howto-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .howto-warning {
+    background: #fff8e1;
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    color: #6d4c00;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+  .howto-danger {
+    background: #ffebee;
+    border-left: 3px solid var(--soft-red);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 12px;
+    color: #c62828;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .btn-primary:hover { background: #7a3010; transform: translateY(-1px); box-shadow: 0 4px 16px var(--shadow); }
+  .btn-primary:disabled { background: var(--border); cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-secondary {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+  }
+  .btn-secondary:hover { background: #fdf0e8; }
+
+  .notice-box {
+    background: #e8f4e8;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: #2e5f2e;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .notice-icon { font-size: 16px; flex-shrink: 0; }
+
+  .section-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 20px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-heading::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* ===== ILLUSTRATION ===== */
+  .body-illustration {
+    background: var(--warm);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .body-svg { width: 100%; max-width: 280px; height: auto; }
+  .tsubo-dot {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { r: 7; opacity: 1; }
+    50% { r: 10; opacity: 0.7; }
+  }
+
+  /* ===== RESULT HEADER ===== */
+  .result-intro {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b3e 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    color: white;
+  }
+  .result-intro-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .result-intro-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .result-intro-desc {
+    font-size: 13px;
+    opacity: 0.8;
+    line-height: 1.8;
+  }
+
+  /* tsubo count badge */
+  .count-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .expand-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 12px 0;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .expand-content { display: none; padding-top: 12px; }
+  .expand-content.open { display: block; }
+
+  .caution-list { display: flex; flex-direction: column; gap: 8px; }
+  .caution-item {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .caution-item::before {
+    content: '✗';
+    color: var(--soft-red);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* swipe hint */
+  .swipe-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 8px 0 16px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== PRINT BUTTON ===== */
+  .btn-print {
+    width: 100%;
+    padding: 15px;
+    background: #1a5c2a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-print:hover { background: #134520; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,92,42,0.25); }
+
+  /* ===== TSUBO SELECT UI ===== */
+  .select-hint {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    padding: 10px 0 14px;
+    letter-spacing: 0.03em;
+  }
+
+  .tsubo-card { position: relative; cursor: pointer; transition: box-shadow 0.2s; }
+  .tsubo-card:hover { box-shadow: 0 4px 20px rgba(139,69,19,0.18); }
+  .tsubo-card.selected-card {
+    outline: 3px solid #1a5c2a;
+    box-shadow: 0 4px 20px rgba(26,92,42,0.2);
+  }
+  .tsubo-check {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: transparent;
+    transition: all 0.2s;
+  }
+  .tsubo-card.selected-card .tsubo-check {
+    background: #1a5c2a;
+    border-color: #1a5c2a;
+    color: white;
+  }
+
+  /* ===== SELECT BAR (sticky bottom) ===== */
+  .select-bar {
+    position: sticky;
+    bottom: 16px;
+    background: #1a1a2e;
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px 0 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    z-index: 50;
+  }
+  #selectCount {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .btn-print-sel {
+    background: #1a5c2a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-print-sel:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+  }
+  .btn-print-sel:not(:disabled):hover { background: #134520; }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    .header, .step-indicator, .step-labels,
+    .screen, .btn-primary, .btn-secondary, .btn-print,
+    .notice-box { display: none !important; }
+
+    #printArea {
+      display: block !important;
+      position: static;
+      width: 100%;
+    }
+    @page { margin: 12mm; size: A4; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🪡</div>
+  <div class="header-text">
+    <h1>円皮鍼セルフケアガイド</h1>
+    <p>症状から探す・ツボの位置・貼り方まで</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Step Indicator -->
+  <div class="step-indicator" id="stepIndicator">
+    <div class="step-dot active" id="dot1">1</div>
+    <div class="step-line" id="line1"></div>
+    <div class="step-dot" id="dot2">2</div>
+    <div class="step-line" id="line2"></div>
+    <div class="step-dot" id="dot3">3</div>
+    <div class="step-line" id="line3"></div>
+    <div class="step-dot" id="dot4">4</div>
+  </div>
+  <div class="step-labels">
+    <span>症状</span>
+    <span></span>
+    <span>体質</span>
+    <span></span>
+    <span>ツボ</span>
+    <span></span>
+    <span>貼り方</span>
+  </div>
+
+  <!-- ====== SCREEN 1: SELECT SYMPTOM ====== -->
+  <div class="screen active" id="screen1">
+    <div class="card">
+      <div class="card-title">気になる症状を選んでください</div>
+      <div class="card-desc">今いちばんつらい症状を選んでください。当てはまるものを1つ選んでください。</div>
+    </div>
+
+    <div class="symptom-grid" id="symptomGrid">
+      <button class="symptom-btn" onclick="selectSymptom('headache', this)">
+        <span class="emoji">🤕</span>
+        <span class="label">頭痛</span>
+        <span class="sub">頭が痛い・重い</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('shoulder', this)">
+        <span class="emoji">💪</span>
+        <span class="label">肩こり</span>
+        <span class="sub">首・肩の張り</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('insomnia', this)">
+        <span class="emoji">😴</span>
+        <span class="label">不眠</span>
+        <span class="sub">眠れない・浅い</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('fatigue', this)">
+        <span class="emoji">😩</span>
+        <span class="label">倦怠感</span>
+        <span class="sub">疲れ・だるさ</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('stomachache', this)">
+        <span class="emoji">🫃</span>
+        <span class="label">胃の不調</span>
+        <span class="sub">胃痛・もたれ</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('menstrual', this)">
+        <span class="emoji">🌸</span>
+        <span class="label">月経痛</span>
+        <span class="sub">生理痛・不順</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('stiffback', this)">
+        <span class="emoji">🔙</span>
+        <span class="label">腰痛</span>
+        <span class="sub">腰が痛い・重い</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('coldness', this)">
+        <span class="emoji">🥶</span>
+        <span class="label">冷え</span>
+        <span class="sub">手足の冷え</span>
+      </button>
+      <button class="symptom-btn" onclick="selectSymptom('nasalcong', this)">
+        <span class="emoji">🤧</span>
+        <span class="label">鼻詰まり</span>
+        <span class="sub">鼻づまり・鼻水</span>
+      </button>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button class="btn-primary" id="btnToStep2" onclick="goToStep2()" disabled>
+        次へ：体質チェック →
+      </button>
+    </div>
+
+    <div class="notice-box" style="margin-top: 16px;">
+      <span class="notice-icon">⚕️</span>
+      <span>円皮鍼は補助的なセルフケアです。強い痛みや長く続く症状は必ず医師にご相談ください。</span>
+    </div>
+  </div>
+
+  <!-- ====== SCREEN 2: CONSTITUTION CHECK ====== -->
+  <div class="screen" id="screen2">
+    <div class="card">
+      <div class="card-title">体質チェック <span class="badge">当てはまるものを選ぶ</span></div>
+      <div class="card-desc" id="checkDesc">いくつでも選んでください。より自分に近いものを選ぶと、ぴったりのツボが見つかります。</div>
+    </div>
+
+    <div class="check-list" id="checkList"></div>
+
+    <div style="margin-top: 20px;">
+      <button class="btn-primary" onclick="goToStep3()">ツボを見つける →</button>
+      <button class="btn-secondary" onclick="goToStep1()">← 症状を選び直す</button>
+    </div>
+  </div>
+
+  <!-- ====== SCREEN 3: TSUBO RESULT ====== -->
+  <div class="screen" id="screen3">
+    <div class="result-intro">
+      <div class="result-intro-label">✦ あなたへのおすすめツボ</div>
+      <div class="result-intro-title" id="resultTitle">おすすめのツボが見つかりました</div>
+      <div class="result-intro-desc" id="resultDesc"></div>
+    </div>
+
+    <div class="select-hint">☑️ 今日貼りたいツボにチェックを入れてください</div>
+    <div id="tsuboCards"></div>
+
+    <div class="select-bar" id="selectBar">
+      <span id="selectCount">0か所 選択中</span>
+      <button class="btn-print-sel" id="btnPrintSel" onclick="printSheet()" disabled>
+        🖨️ 選んだツボを印刷
+      </button>
+    </div>
+
+    <div style="margin-top: 8px;">
+      <button class="btn-primary" onclick="goToStep4()">円皮鍼の貼り方を確認する →</button>
+      <button class="btn-secondary" onclick="goToStep2()">← 体質チェックに戻る</button>
+    </div>
+  </div>
+
+  <!-- ====== SCREEN 4: HOW TO USE ====== -->
+  <div class="screen" id="screen4">
+    <div class="card">
+      <div class="card-title">円皮鍼の貼り方</div>
+      <div class="card-desc">以下の手順でご自宅で安全に貼ることができます。</div>
+    </div>
+
+    <div class="section-heading">準備するもの</div>
+    <div class="card">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 14px;">
+          <span style="font-size: 24px;">🪡</span>
+          <div>
+            <div style="font-weight: 500;">円皮鍼（パッチ型）</div>
+            <div style="font-size: 12px; color: var(--muted);">薬局やドラッグストアで購入可能。「パッチ鍼」「置き鍼」とも言います</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 14px;">
+          <span style="font-size: 24px;">💧</span>
+          <div>
+            <div style="font-weight: 500;">清潔なタオル・ティッシュ</div>
+            <div style="font-size: 12px; color: var(--muted);">貼る部位の汚れ・汗を拭き取るために使います</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">貼り方の手順</div>
+    <div class="card">
+      <div class="howto-steps">
+        <div class="howto-step">
+          <div class="step-num">1</div>
+          <div class="howto-content">
+            <div class="howto-title">貼る場所を清潔にする</div>
+            <div class="howto-desc">ツボの部位を乾いたタオルやティッシュで軽く拭き、汗や汚れを取り除いてください。</div>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="step-num">2</div>
+          <div class="howto-content">
+            <div class="howto-title">ツボの位置を確認する</div>
+            <div class="howto-desc">前の画面で確認したツボの位置に、指で軽く押してみます。「じーんとする」「少し気持ちいい」と感じる場所がツボです。</div>
+            <div class="howto-warning">💡 完全に正確でなくても大丈夫。だいたいの位置で効果があります。</div>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="step-num">3</div>
+          <div class="howto-content">
+            <div class="howto-title">パックから取り出す</div>
+            <div class="howto-desc">シール部分に指が触れないよう、台紙を持ってパックを開封します。パッチ鍼はとても小さいので落とさないよう注意してください。</div>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="step-num">4</div>
+          <div class="howto-content">
+            <div class="howto-title">ツボに貼り付ける</div>
+            <div class="howto-desc">台紙ごとツボに当て、上から軽く押します。台紙をそっとはがしてください。鍼先が皮膚にしっかり当たっていることを確認します。</div>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="step-num">5</div>
+          <div class="howto-content">
+            <div class="howto-title">そのまま生活する</div>
+            <div class="howto-desc">貼ったまま日常生活を送ってください。目安は<strong>1〜2日間</strong>（1〜2泊）です。入浴時に貼り替えるか、はがしてください。</div>
+            <div class="howto-warning">⏰ 最長でも2日以上貼り続けないでください。皮膚トラブルの原因になります。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">こんなときはすぐにはがす</div>
+    <div class="card">
+      <div class="caution-list">
+        <div class="caution-item">貼った部位が赤くなる・かゆくなる・痛みが強くなる</div>
+        <div class="caution-item">皮膚に発疹・炎症が出た</div>
+        <div class="caution-item">気分が悪くなった・めまいがした</div>
+        <div class="caution-item">水の中に入る（プール・海水浴など）</div>
+      </div>
+      <div class="howto-danger" style="margin-top: 12px;">
+        ⚕️ 症状が悪化したり、異常を感じたらすぐにはがし、医師にご相談ください。
+      </div>
+    </div>
+
+    <div class="section-heading">円皮鍼を使えない方</div>
+    <div class="card">
+      <div class="caution-list">
+        <div class="caution-item">金属アレルギーがある方（チタン製もご相談ください）</div>
+        <div class="caution-item">妊娠中の方（特定のツボは使用できません）</div>
+        <div class="caution-item">皮膚に炎症・傷がある部位</div>
+        <div class="caution-item">ペースメーカーを使用している方</div>
+        <div class="caution-item">お子様・高齢の方（必ず医師・鍼灸師に相談）</div>
+      </div>
+    </div>
+
+    <div class="notice-box">
+      <span class="notice-icon">🏥</span>
+      <span>当院でもツボの場所の確認・円皮鍼の貼り付け指導を行っています。ご不明な点はお気軽にスタッフにお声がけください。</span>
+    </div>
+
+    <div style="margin-top: 8px;">
+      <button class="btn-primary" onclick="goToStep1()">
+        🔄 最初からやり直す
+      </button>
+      <button class="btn-secondary" onclick="goToStep3()">← ツボの選択に戻る</button>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ===== PRINT AREA (hidden until print) ===== -->
+<div id="printArea" style="display:none;"></div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const SYMPTOMS = {
+  headache: {
+    label: '頭痛',
+    checks: [
+      { id: 'heavy', text: '頭が重だるく、湿度が高いと悪化する' },
+      { id: 'throbbing', text: '脈打つような痛み・顔が赤っぽい・熱感がある' },
+      { id: 'stress', text: 'イライラ・怒りっぽい・張った痛み・胸がつかえる' },
+      { id: 'dull', text: '疲れやすい・息切れ・脈が弱い（鈍痛）' },
+      { id: 'dizzy', text: 'めまいがある・爪の赤みが薄い（貧血気味）' },
+      { id: 'night', text: '夜に手足がほてる・寝汗をかく' },
+    ],
+    tsubo: {
+      heavy:    ['fuchi', 'tousei', 'hyakue'],
+      throbbing:['nadei', 'goukoku'],
+      stress:   ['taishio', 'kanshi'],
+      dull:     ['ashisanri', 'hyakue'],
+      dizzy:    ['sanneiko', 'kekkai'],
+      night:    ['fukuryu', 'sanneiko'],
+      default:  ['fuchi', 'tousei', 'hyakue'],
+    }
+  },
+  shoulder: {
+    label: '肩こり',
+    checks: [
+      { id: 'hot', text: 'めまい・血圧が高め・顔が赤っぽい' },
+      { id: 'stress', text: 'イライラ・憂うつ・怒りっぽい' },
+      { id: 'blood', text: 'ドライアイ・眼精疲労・足がつりやすい' },
+    ],
+    tsubo: {
+      hot:    ['taishio', 'kuchii'],
+      stress: ['kanshi', 'kenchiku'],
+      blood:  ['sanneiko', 'taishio'],
+      default:['keni', 'tensho', 'koukei'],
+    }
+  },
+  insomnia: {
+    label: '不眠',
+    checks: [
+      { id: 'worry', text: 'イライラ・怒りっぽい・顔が赤い' },
+      { id: 'tired', text: '疲れがとれない・おどおどしやすい・息切れ' },
+      { id: 'pale', text: '顔色がさえない・舌の赤みが薄い' },
+      { id: 'hot', text: '少し眠ると目が覚める・夜に手足がほてる' },
+    ],
+    tsubo: {
+      worry:  ['taishio', 'naidei'],
+      tired:  ['ashisanri', 'tammon'],
+      pale:   ['sanneiko', 'kekkai'],
+      hot:    ['shokai', 'jinsho'],
+      default:['shinmon', 'shinsho', 'shintei'],
+    }
+  },
+  fatigue: {
+    label: '倦怠感',
+    checks: [
+      { id: 'eye', text: '眼精疲労がひどい' },
+      { id: 'memory', text: '記憶力が落ちた気がする' },
+      { id: 'mental', text: '精神的な疲労感がある' },
+      { id: 'depressed', text: '抑うつ感がある' },
+      { id: 'legs', text: '下肢に力が入らない' },
+    ],
+    tsubo: {
+      eye:      ['taishio', 'komei'],
+      memory:   ['taike', 'jinsho'],
+      mental:   ['shinmon', 'taike'],
+      depressed:['taishio', 'kansho'],
+      legs:     ['chukan', 'sanneiko'],
+      default:  ['ashisanri', 'kikai', 'kangen'],
+    }
+  },
+  stomachache: {
+    label: '胃の不調',
+    checks: [
+      { id: 'stress', text: 'ストレスや怒り・イライラすると悪化する' },
+      { id: 'cold', text: '冷えると悪化・温めると楽になる・四肢が冷える' },
+    ],
+    tsubo: {
+      stress:['taishio', 'naikan'],
+      cold:  ['kangen', 'meimom'],
+      default:['ryokyu', 'chukan', 'ashisanri'],
+    }
+  },
+  menstrual: {
+    label: '月経痛',
+    checks: [
+      { id: 'stasis', text: '刺すような痛み・暗い血の色・血塊が混じる' },
+      { id: 'cold', text: '温めると楽・腰がだるい・寒がり' },
+      { id: 'weak', text: '押さえると楽・出血量が少ない・倦怠感' },
+    ],
+    tsubo: {
+      stasis:['taishio', 'kekkai', 'kikai'],
+      cold:  ['kangen', 'meimom'],
+      weak:  ['kikai', 'kekkai', 'sanneiko'],
+      default:['shikyu', 'chiki', 'sanneiko'],
+    }
+  },
+  stiffback: {
+    label: '腰痛',
+    checks: [
+      { id: 'side', text: '腰の右または左が主に痛む' },
+      { id: 'center', text: '腰の中央あたりが主に痛む' },
+    ],
+    tsubo: {
+      side:  ['iin', 'daichosho'],
+      center:['suiko', 'koukei'],
+      default:['yoshiro', 'yotsubo', 'youme'],
+    }
+  },
+  coldness: {
+    label: '冷え',
+    checks: [
+      { id: 'yang', text: 'よくうとうとする・足腰が弱い・寒がり・手足の冷え' },
+      { id: 'qi', text: '食後に眠くなる・倦怠感・息切れ・疲れやすい' },
+    ],
+    tsubo: {
+      yang:['kangen', 'taike'],
+      qi:  ['kikai', 'ashisanri'],
+      default:['sanneiko', 'kekkai', 'kangen'],
+    }
+  },
+  nasalcong: {
+    label: '鼻詰まり',
+    checks: [
+      { id: 'humid', text: '頭が重だるい・鼻水が粘る・湿度が高いと悪化する' },
+      { id: 'heat', text: '鼻水が黄色く粘る・顔がほてる・尿の色が濃い' },
+      { id: 'weak', text: '鼻詰まりの程度が一定しない・寒冷刺激でひどくなる・疲れやすい' },
+    ],
+    tsubo: {
+      humid: ['goukoku', 'rekkyu', 'fuchi'],
+      heat:  ['goukoku', 'rekkyu'],
+      weak:  ['taien', 'ashisanri'],
+      default: ['geiko', 'intou', 'jyosei', 'fuchi'],
+    }
+  }
+};
+
+// Tsubo dictionary
+const TSUBO = {
+  fuchi: {
+    name: '風池', nameEn: 'Fengchi / GB20',
+    who: 'GB20',
+    location: '後頭部の髪の生え際、首の太い筋（僧帽筋）の外側のくぼみ。頭を傾けると見つけやすい。',
+    locationTip: '💡 両手の親指を頭の後ろに回し、後頭部の骨の下のくぼみを押してみてください。',
+    effects: ['頭痛', '肩こり', 'めまい', '鼻づまり', '目の疲れ'],
+    difficulty: 'easy',
+    illus: 'back_head',
+  },
+  tousei: {
+    name: '通天', nameEn: 'Tongtian / BL7',
+    who: 'BL7',
+    location: '頭頂部から少し前方、左右それぞれ頭の中心線から1.5寸外側。',
+    locationTip: '💡 頭頂部の少し前、真ん中から指2本分外側あたり。',
+    effects: ['頭痛', '鼻づまり', '嗅覚異常'],
+    difficulty: 'medium',
+    illus: 'top_head',
+  },
+  hyakue: {
+    name: '百会', nameEn: 'Baihui / GV20',
+    who: 'GV20',
+    location: '頭頂部のほぼ中央。両耳を結んだ線の真ん中、前髪の生え際から7寸の場所。',
+    locationTip: '💡 頭の一番高い部分。両耳の上端を直線で結んだちょうど真ん中あたりです。',
+    effects: ['頭痛', '頭重感', 'めまい', '不眠', '気力アップ'],
+    difficulty: 'easy',
+    illus: 'top_head',
+  },
+  goukoku: {
+    name: '合谷', nameEn: 'Hegu / LI4',
+    who: 'LI4',
+    location: '手の甲側、親指と人さし指の骨が合わさる少し手前のくぼみ。人さし指側の骨の際。',
+    locationTip: '💡 反対の手の親指を人さし指と親指の間に押し込み、親指先端が当たる部分です。',
+    effects: ['頭痛', '歯痛', '肩こり', '便秘', '鼻づまり', '免疫力向上'],
+    difficulty: 'easy',
+    illus: 'hand',
+  },
+  nadei: {
+    name: '内庭', nameEn: 'Neiting / ST44',
+    who: 'ST44',
+    location: '足の甲側、第2指（人さし指）と第3指（中指）の間、水かきの少し上。',
+    locationTip: '💡 足の人さし指と中指のつけ根（水かき）の少し上の皮膚の上。',
+    effects: ['熱っぽい頭痛', '歯痛', '消化器の熱感', '足の痛み'],
+    difficulty: 'easy',
+    illus: 'foot',
+  },
+  taishio: {
+    name: '太衝', nameEn: 'Taichong / LR3',
+    who: 'LR3',
+    location: '足の甲、親指と第2指（人さし指）の骨が合わさる少し手前のくぼみ。',
+    locationTip: '💡 足の親指と人さし指の間を、足首方向になぞっていき、骨と骨がぶつかる手前のくぼみ。',
+    effects: ['頭痛', 'イライラ', '目の疲れ', '月経不順', '腰痛', 'ストレス'],
+    difficulty: 'easy',
+    illus: 'foot',
+  },
+  kanshi: {
+    name: '肝俞', nameEn: 'Ganshu / BL18',
+    who: 'BL18',
+    location: '背中側、第9胸椎棘突起の下のくぼみから左右に1.5寸外側。',
+    locationTip: '💡 背中の真ん中あたり（肩甲骨の下端の高さより少し下）から両側に指2本分外側。',
+    effects: ['肝機能サポート', 'ストレス', '目の疲れ', '月経不順', 'イライラ'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  sanneiko: {
+    name: '三陰交', nameEn: 'Sanyinjiao / SP6',
+    who: 'SP6',
+    location: '内くるぶしの一番高い部分から上へ指4本分（3寸）、すねの骨（脛骨）の内側のきわ。',
+    locationTip: '💡 内くるぶしから指4本分上に上がったところ、すねの骨の内側を押してみてください。',
+    effects: ['冷え', '月経痛', 'むくみ', '疲れ', '不眠', '消化器の不調'],
+    difficulty: 'easy',
+    illus: 'leg_inner',
+  },
+  kekkai: {
+    name: '血海', nameEn: 'Xuehai / SP10',
+    who: 'SP10',
+    location: '膝のお皿（膝蓋骨）の内側上端から上へ指3本（2寸）、太ももの内側の筋肉上。',
+    locationTip: '💡 膝を曲げて、反対の手で膝頭を覆ったとき、親指の先端が当たる部分です。',
+    effects: ['月経痛', '月経不順', '皮膚のかゆみ', '血行促進'],
+    difficulty: 'easy',
+    illus: 'leg_inner',
+  },
+  ashisanri: {
+    name: '足三里', nameEn: 'Zusanli / ST36',
+    who: 'ST36',
+    location: 'すねの前面、膝のお皿（膝蓋骨）の下端から指4本（3寸）下の前脛骨筋上。',
+    locationTip: '💡 膝の下の丸いくぼみ（犢鼻）から指4本分下。すねの骨の外側の際を押すと少し響く感覚があります。',
+    effects: ['疲れ', '胃腸の不調', '食欲不振', '免疫力向上', '下肢の痛み'],
+    difficulty: 'easy',
+    illus: 'leg_outer',
+  },
+  kikai: {
+    name: '気海', nameEn: 'Qihai / CV6',
+    who: 'CV6',
+    location: 'お腹の正中線上（おへそと恥骨の間）、おへそから下へ指2本（1.5寸）のところ。',
+    locationTip: '💡 おへそのすぐ下、指2本分のところを軽く押すと少し響く感覚があります。',
+    effects: ['疲れ', '元気が出ない', '冷え', '月経不順', '消化器の不調'],
+    difficulty: 'easy',
+    illus: 'abdomen',
+  },
+  kangen: {
+    name: '関元', nameEn: 'Guanyuan / CV4',
+    who: 'CV4',
+    location: 'お腹の正中線上、おへそから下へ指4本（3寸）のところ。',
+    locationTip: '💡 おへそから指4本分下のところ。冷えやすい方は、ここを温めるだけでも効果的です。',
+    effects: ['冷え', '月経痛', '疲労', '腰痛', '生殖機能サポート'],
+    difficulty: 'easy',
+    illus: 'abdomen',
+  },
+  shinmon: {
+    name: '神門', nameEn: 'Shenmen / HT7',
+    who: 'HT7',
+    location: '手首の内側、小指側の腱の内側（尺側）のくぼみ。手首の横じわの上。',
+    locationTip: '💡 手首の内側の横ジワの上、小指側の腱（ぴんと張った腱）の内側のくぼみです。',
+    effects: ['不眠', '動悸', 'ストレス', '不安感', '精神的疲労'],
+    difficulty: 'easy',
+    illus: 'wrist',
+  },
+  shinsho: {
+    name: '心俞', nameEn: 'Xinshu / BL15',
+    who: 'BL15',
+    location: '背中側、第5胸椎棘突起の下から左右1.5寸外側。肩甲骨の内側上部あたり。',
+    locationTip: '💡 背骨の上部から数えて第5番目の椎骨の下、背骨から指2本分外側。',
+    effects: ['動悸', '不眠', '精神的疲労', '心臓機能サポート'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  shintei: {
+    name: '神庭', nameEn: 'Shenting / GV24',
+    who: 'GV24',
+    location: '前髪の生え際の真ん中（正中線上）から上へ0.5寸のところ。',
+    locationTip: '💡 おでこの生え際のちょうど真ん中から、少し上のところです。',
+    effects: ['不眠', '頭痛', '精神安定', '記憶力向上'],
+    difficulty: 'easy',
+    illus: 'face',
+  },
+  tammon: {
+    name: '胆俞', nameEn: 'Danshu / BL19',
+    who: 'BL19',
+    location: '背中側、第10胸椎棘突起の下から左右1.5寸外側。',
+    locationTip: '💡 肝俞（背中の真ん中やや下）のすぐ下の位置。',
+    effects: ['胆汁分泌サポート', 'ストレスから来る不眠', '口の苦み'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  shokai: {
+    name: '照海', nameEn: 'Zhaohai / KI6',
+    who: 'KI6',
+    location: '内くるぶしの直下、くぼみのところ。',
+    locationTip: '💡 内くるぶしのとがった部分のすぐ下のくぼみを押してみてください。',
+    effects: ['不眠（熱タイプ）', 'のどの乾き', '月経不順', '足の冷え'],
+    difficulty: 'easy',
+    illus: 'foot',
+  },
+  jinsho: {
+    name: '腎俞', nameEn: 'Shenshu / BL23',
+    who: 'BL23',
+    location: '腰部、第2腰椎棘突起の下から左右1.5寸外側（ウエストの高さあたり）。',
+    locationTip: '💡 腰の中心（ウエスト）の高さで、背骨の両側に指2本分外側。じーんとする部位です。',
+    effects: ['腰痛', '疲労', '冷え', '老化予防', '耳鳴り', '頻尿'],
+    difficulty: 'easy',
+    illus: 'back',
+  },
+  keni: {
+    name: '肩井', nameEn: 'Jianjing / GB21',
+    who: 'GB21',
+    location: '肩の一番高いところ。大椎（首の付け根）と肩先の中間点。',
+    locationTip: '💡 首の付け根と肩の先端のちょうど中間あたり。押すと気持ちのいい張りを感じる部位。',
+    effects: ['肩こり', '頭痛', '首の痛み', 'ストレス'],
+    difficulty: 'easy',
+    illus: 'shoulder',
+  },
+  tensho: {
+    name: '天髎', nameEn: 'Tianliao / TE15',
+    who: 'TE15',
+    location: '肩甲骨の上角部分から上のくぼみ（肩井の内側下方）。',
+    locationTip: '💡 肩甲骨の上の角あたりを押すと、肩こりの中心にあたることが多い部位です。',
+    effects: ['肩こり', '頚肩腕症候群', '腕のしびれ'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  koukei: {
+    name: '後渓', nameEn: 'Houxi / SI3',
+    who: 'SI3',
+    location: '手を握ったとき小指の下にできる長いシワの先端（外側）。',
+    locationTip: '💡 軽く手を握ったとき、小指の下のふくらみの外側の端を押してみてください。',
+    effects: ['肩こり', '寝ちがえ', '腰痛', '首の痛み', '耳鳴り'],
+    difficulty: 'easy',
+    illus: 'hand',
+  },
+  kuchii: {
+    name: '曲池', nameEn: 'Quchi / LI11',
+    who: 'LI11',
+    location: '肘を曲げたときにできる肘の横シワの外側端。',
+    locationTip: '💡 肘を90度に曲げると、肘の外側に横シワができます。そのシワの一番外側の端です。',
+    effects: ['高血圧', '肩こり', '皮膚トラブル', '発熱', '炎症'],
+    difficulty: 'easy',
+    illus: 'arm',
+  },
+  kenchiku: {
+    name: '間使', nameEn: 'Jianshi / PC5',
+    who: 'PC5',
+    location: '前腕の内側、手首の横ジワから上へ指3本（2寸）。中央の2本の腱の間。',
+    locationTip: '💡 手首の内側から肘方向に指3本分上がったところ、2本の腱のちょうど間。',
+    effects: ['ストレス', '動悸', '精神的緊張', '吐きけ'],
+    difficulty: 'easy',
+    illus: 'arm',
+  },
+  naikan: {
+    name: '内関', nameEn: 'Neiguan / PC6',
+    who: 'PC6',
+    location: '前腕の内側、手首の横ジワから上へ指3本（2寸）。2本の腱の間（間使と同じ高さ付近）。',
+    locationTip: '💡 手首から指3本（2寸）上、2本の腱の間。乗り物酔いにも有名なツボです。',
+    effects: ['吐きけ', '胃の不調', '動悸', 'ストレス', '胸のつかえ'],
+    difficulty: 'easy',
+    illus: 'arm',
+  },
+  ryokyu: {
+    name: '梁丘', nameEn: 'Liangqiu / ST34',
+    who: 'ST34',
+    location: '膝のお皿（膝蓋骨）の外上端から指2本（2寸）上、太ももの前外側。',
+    locationTip: '💡 膝のお皿の外側の角から、太もも方向に指2本ほど上がったところ。急性の胃痛に有名。',
+    effects: ['急性胃痛', '膝の痛み'],
+    difficulty: 'easy',
+    illus: 'leg_outer',
+  },
+  chukan: {
+    name: '中脘', nameEn: 'Zhongwan / CV12',
+    who: 'CV12',
+    location: 'お腹の正中線上、おへそと胸の骨（剣状突起）の真ん中のところ。',
+    locationTip: '💡 みぞおちとおへそのちょうど中間点。胃のすぐ前にあたる部位です。',
+    effects: ['胃痛', '食欲不振', '吐きけ', '胃もたれ', '消化促進'],
+    difficulty: 'easy',
+    illus: 'abdomen',
+  },
+  meimom: {
+    name: '命門', nameEn: 'Mingmen / GV4',
+    who: 'GV4',
+    location: '腰部、背骨（第2腰椎）の棘突起の下（腎俞と同じ高さ、背骨の真ん中）。',
+    locationTip: '💡 おへその真後ろにある背骨のくぼみ。ここを温めると体全体が温まります。',
+    effects: ['腰痛', '冷え', '疲労', '腎機能サポート', '月経痛'],
+    difficulty: 'easy',
+    illus: 'back',
+  },
+  shikyu: {
+    name: '子宮（奇穴）', nameEn: 'Zigong / EX-CA1',
+    who: 'EX-CA1',
+    location: 'おへそから下へ指4本（3寸）（関元の高さ）、そこから左右に指4本（3寸）外側。',
+    locationTip: '💡 関元（おへそから指4本下）と同じ高さで、そこから左右に指4本分外側に位置します。',
+    effects: ['月経痛', '月経不順', '子宮機能サポート'],
+    difficulty: 'medium',
+    illus: 'abdomen',
+  },
+  chiki: {
+    name: '地機', nameEn: 'Diji / SP8',
+    who: 'SP8',
+    location: '膝内側（脛骨内側上顆）の下から指3本（3寸）下、脛骨の内側のきわ。',
+    locationTip: '💡 膝の内側のでっぱりから指3本分下、すねの骨の内側を押してみてください。',
+    effects: ['月経痛', '月経不順', '脾胃の不調'],
+    difficulty: 'easy',
+    illus: 'leg_inner',
+  },
+  iin: {
+    name: '委中', nameEn: 'Weizhong / BL40',
+    who: 'BL40',
+    location: '膝の裏（膝窩）の中央、横シワの真ん中。',
+    locationTip: '💡 膝の裏の中央の横シワのちょうど真ん中。押すと少し響く感覚があります。',
+    effects: ['腰痛', '坐骨神経痛', '膝の痛み', '下肢の疲れ'],
+    difficulty: 'easy',
+    illus: 'leg_back',
+  },
+  daichosho: {
+    name: '大腸俞', nameEn: 'Dachangshu / BL25',
+    who: 'BL25',
+    location: '腰部、第4腰椎棘突起の下から左右1.5寸外側。骨盤の上端（腸骨稜）の高さあたり。',
+    locationTip: '💡 骨盤の一番高い部分（腸骨稜）の高さで、背骨から指2本分外側。',
+    effects: ['腰痛', '便秘', '下痢', '大腸機能サポート'],
+    difficulty: 'easy',
+    illus: 'back',
+  },
+  suiko: {
+    name: '水溝', nameEn: 'Shuigou / GV26',
+    who: 'GV26',
+    location: '人中（鼻と上唇の間のくぼんだ溝）の上1/3のところ。',
+    locationTip: '💡 鼻の下と上唇の間の縦のくぼみ（人中）の、鼻側の1/3のところ。',
+    effects: ['急性腰痛', '気付け（気絶したとき）'],
+    difficulty: 'easy',
+    illus: 'face',
+  },
+  yoshiro: {
+    name: '養老', nameEn: 'Yanglao / SI6',
+    who: 'SI6',
+    location: '手首の尺骨茎状突起（手首の小指側の骨の出っ張り）の際のくぼみ。',
+    locationTip: '💡 手首の小指側にある丸い骨（尺骨茎状突起）のすぐ際のくぼみ。',
+    effects: ['腰痛', '肩こり', '目の疲れ', '老化予防'],
+    difficulty: 'medium',
+    illus: 'wrist',
+  },
+  yotsubo: {
+    name: '腰痛点（奇穴）', nameEn: 'Yaotongdian / EX-UE7',
+    who: 'EX-UE7',
+    location: '手の甲側に2か所。第2・3中手骨間と、第4・5中手骨間の中央（それぞれ）。',
+    locationTip: '💡 手の甲の指の付け根と手首の中間あたり、人さし指/中指の間と、薬指/小指の間のそれぞれ中央。',
+    effects: ['急性腰痛', 'ぎっくり腰'],
+    difficulty: 'medium',
+    illus: 'hand',
+  },
+  youme: {
+    name: '腰眼（奇穴）', nameEn: 'Yaoyan / EX-B7',
+    who: 'EX-B7',
+    location: '第4腰椎棘突起の下から左右に指4本（3.5寸）外側のくぼみ。',
+    locationTip: '💡 骨盤上端の高さの背骨から指4本外側。自分で押しにくい場合はご家族に押してもらってください。',
+    effects: ['腰痛', '腎機能サポート'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  taike: {
+    name: '太渓', nameEn: 'Taixi / KI3',
+    who: 'KI3',
+    location: '内くるぶしとアキレス腱の間のくぼみ。内くるぶしの高さ。',
+    locationTip: '💡 内くるぶしとアキレス腱のちょうど間。内くるぶしと同じ高さのくぼみを押してみてください。',
+    effects: ['冷え', '腰痛', '疲労', '耳鳴り', '不眠（熱タイプ）', '老化予防'],
+    difficulty: 'easy',
+    illus: 'foot',
+  },
+  fukuryu: {
+    name: '復溜', nameEn: 'Fuliu / KI7',
+    who: 'KI7',
+    location: '内くるぶしの高さから上へ指2本（2寸）、アキレス腱の前際。',
+    locationTip: '💡 内くるぶしから指2本分上、アキレス腱の前を押してみてください。',
+    effects: ['夜間のほてり', '寝汗', '冷え（陰虚タイプ）', '腰痛'],
+    difficulty: 'easy',
+    illus: 'foot',
+  },
+  komei: {
+    name: '光明', nameEn: 'Guangming / GB37',
+    who: 'GB37',
+    location: '外くるぶしの先端から上へ指7本（5寸）、ひこつ（腓骨）の前際。',
+    locationTip: '💡 外くるぶしから指7本分上の腓骨の前際。眼精疲労に特に効果的なツボです。',
+    effects: ['目の疲れ', '視力低下', '頭痛', '光に敏感'],
+    difficulty: 'easy',
+    illus: 'leg_outer',
+  },
+  kansho: {
+    name: '肝俞', nameEn: 'Ganshu / BL18',
+    who: 'BL18',
+    location: '背中側、第9胸椎棘突起の下から左右1.5寸外側。',
+    locationTip: '💡 肩甲骨の下端と同じ高さの背骨から、両側に指2本分外側。',
+    effects: ['ストレス', '目の疲れ', '抑うつ', '月経不順'],
+    difficulty: 'medium',
+    illus: 'back',
+  },
+  // ===== 鼻詰まり専用ツボ =====
+  geiko: {
+    name: '迎香', nameEn: 'Yingxiang / LI20',
+    who: 'LI20',
+    location: '小鼻（鼻翼）の外側のふくらみの横、鼻唇溝（ほうれい線）の上端のくぼみ。',
+    locationTip: '💡 小鼻のわきを指で押すと少しくぼんでいるところ。左右両側に1つずつあります。鼻づまりの特効穴として有名です。',
+    effects: ['鼻詰まり', '鼻水', '鼻炎', 'アレルギー性鼻炎', '嗅覚低下', '顔面神経痛'],
+    difficulty: 'easy',
+    illus: 'face',
+  },
+  intou: {
+    name: '印堂（奇穴）', nameEn: 'Yintang / EX-HN3',
+    who: 'EX-HN3',
+    location: '眉と眉の間（眉間）の真ん中。',
+    locationTip: '💡 両眉の内側の端を直線で結んだちょうど真ん中（眉間の中央）。押すとじーんとする感覚があります。',
+    effects: ['鼻詰まり', '頭痛', '眼精疲労', '精神安定', '不眠'],
+    difficulty: 'easy',
+    illus: 'face',
+  },
+  jyosei: {
+    name: '上星', nameEn: 'Shangxing / GV23',
+    who: 'GV23',
+    location: '前髪の生え際の真ん中（正中線上）から上へ指1本（1寸）のところ。',
+    locationTip: '💡 おでこの生え際の真ん中から、頭頂部方向に指1本分入ったところ。',
+    effects: ['鼻詰まり', '鼻出血', '頭痛', '目の充血'],
+    difficulty: 'easy',
+    illus: 'face',
+  },
+  rekkyu: {
+    name: '列欠', nameEn: 'Lieque / LU7',
+    who: 'LU7',
+    location: '手首の内側、親指側。手首の横ジワから上へ指2本（1.5寸）、橈骨茎状突起のすぐ上のくぼみ。',
+    locationTip: '💡 両手の人さし指を上にして交差させ、人さし指の先が手首に当たる部分。鼻・肺の症状全般に使う重要なツボです。',
+    effects: ['鼻詰まり', '鼻水', 'せき', 'ぜんそく', '首・肩の痛み', 'むくみ'],
+    difficulty: 'easy',
+    illus: 'wrist',
+  },
+  taien: {
+    name: '太淵', nameEn: 'Taiyuan / LU9',
+    who: 'LU9',
+    location: '手首の内側の横ジワ上、親指側の橈骨動脈（脈を感じる部位）のすぐ外側のくぼみ。',
+    locationTip: '💡 手首の内側のシワの上、親指のつけ根側に脈が感じられる場所のすぐ外（親指側）のくぼみ。',
+    effects: ['鼻詰まり（気虚タイプ）', 'せき', '息切れ', '肺機能サポート', '疲れやすい'],
+    difficulty: 'easy',
+    illus: 'wrist',
+  },
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let selectedSymptom = null;
+let selectedChecks = [];
+let recommendedTsubos = [];
+let selectedTsubos = new Set();
+
+function toggleTsubo(key, card) {
+  if (selectedTsubos.has(key)) {
+    selectedTsubos.delete(key);
+    card.classList.remove('selected-card');
+  } else {
+    selectedTsubos.add(key);
+    card.classList.add('selected-card');
+  }
+  updateSelectBar();
+}
+
+function updateSelectBar() {
+  const n = selectedTsubos.size;
+  document.getElementById('selectCount').textContent = `${n}か所 選択中`;
+  const btn = document.getElementById('btnPrintSel');
+  btn.disabled = (n === 0);
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goToStep1() {
+  selectedSymptom = null;
+  selectedChecks = [];
+  document.querySelectorAll('.symptom-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('btnToStep2').disabled = true;
+  showScreen('screen1');
+  updateStepIndicator(1);
+}
+
+function selectSymptom(key, btn) {
+  selectedSymptom = key;
+  document.querySelectorAll('.symptom-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('btnToStep2').disabled = false;
+}
+
+function goToStep2() {
+  if (!selectedSymptom) return;
+  const sym = SYMPTOMS[selectedSymptom];
+  // Build check list
+  const cl = document.getElementById('checkList');
+  cl.innerHTML = '';
+  sym.checks.forEach(c => {
+    const div = document.createElement('div');
+    div.className = 'check-item';
+    div.dataset.id = c.id;
+    div.innerHTML = `
+      <div class="check-box">✓</div>
+      <div class="check-text">${c.text}</div>
+    `;
+    div.onclick = () => {
+      div.classList.toggle('checked');
+    };
+    cl.appendChild(div);
+  });
+  showScreen('screen2');
+  updateStepIndicator(2);
+}
+
+function goToStep3() {
+  const sym = SYMPTOMS[selectedSymptom];
+  // Collect checked
+  selectedChecks = Array.from(document.querySelectorAll('.check-item.checked')).map(el => el.dataset.id);
+
+  // Determine tsubos
+  let tsuboKeys = [];
+  if (selectedChecks.length === 0) {
+    tsuboKeys = sym.tsubo.default;
+  } else {
+    const keySet = new Set();
+    selectedChecks.forEach(cid => {
+      const keys = sym.tsubo[cid] || sym.tsubo.default;
+      keys.forEach(k => keySet.add(k));
+    });
+    // Always include default main tsubo
+    (sym.tsubo.default || []).slice(0,2).forEach(k => keySet.add(k));
+    tsuboKeys = Array.from(keySet).slice(0, 4);
+  }
+
+  recommendedTsubos = tsuboKeys.filter(k => TSUBO[k]);
+
+  // Build result
+  document.getElementById('resultTitle').textContent =
+    `「${sym.label}」に効くツボが ${recommendedTsubos.length}か所見つかりました`;
+  document.getElementById('resultDesc').textContent =
+    `今日貼りたいツボにチェックを入れて印刷できます。まず1〜2か所から試してみましょう。`;
+
+  const container = document.getElementById('tsuboCards');
+  container.innerHTML = '';
+  // reset selection
+  selectedTsubos = new Set();
+  updateSelectBar();
+
+  recommendedTsubos.forEach((key, i) => {
+    const t = TSUBO[key];
+    if (!t) return;
+    const card = document.createElement('div');
+    card.className = 'tsubo-card';
+    card.dataset.key = key;
+    card.innerHTML = `
+      <div class="tsubo-check">✓</div>
+      <div class="tsubo-header">
+        <div class="tsubo-label">おすすめ ツボ ${i+1}</div>
+        <div class="tsubo-name-ja">${t.name}</div>
+        <div class="tsubo-name-en">${t.nameEn}</div>
+      </div>
+      <div class="tsubo-body">
+        <div class="info-row">
+          <span class="info-badge ${t.difficulty === 'easy' ? 'difficulty-easy' : 'difficulty-medium'}">
+            ${t.difficulty === 'easy' ? '📍 見つけやすい' : '📍 少し慣れが必要'}
+          </span>
+          <span class="info-badge who">WHO ${t.who}</span>
+        </div>
+        <div class="location-box">
+          <div class="location-title">📌 ツボの場所</div>
+          <div class="location-text">${t.location}</div>
+          <div class="location-tip">${t.locationTip}</div>
+        </div>
+        <div class="location-title" style="font-size:12px; font-weight:500; color:var(--accent); letter-spacing:0.08em; margin-bottom:8px;">✦ 効果が期待できる症状</div>
+        <div class="effect-list">
+          ${t.effects.map(e => `<span class="effect-tag">${e}</span>`).join('')}
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => toggleTsubo(key, card));
+    container.appendChild(card);
+  });
+
+  showScreen('screen3');
+  updateStepIndicator(3);
+}
+
+function goToStep4() {
+  showScreen('screen4');
+  updateStepIndicator(4);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateStepIndicator(step) {
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById('dot' + i);
+    dot.classList.remove('active', 'done');
+    if (i < step) dot.classList.add('done');
+    else if (i === step) dot.classList.add('active');
+  }
+  for (let i = 1; i <= 3; i++) {
+    const line = document.getElementById('line' + i);
+    line.classList.remove('done');
+    if (i < step) line.classList.add('done');
+  }
+}
+
+// ============================================================
+// PRINT
+// ============================================================
+function printSheet() {
+  const sym = SYMPTOMS[selectedSymptom];
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+
+  const printKeys = Array.from(selectedTsubos);
+  if (printKeys.length === 0) return;
+
+  const tsuboRows = printKeys.map((key, i) => {
+    const t = TSUBO[key];
+    if (!t) return '';
+    return `
+      <div style="border:1px solid #c8b89a; border-radius:10px; padding:14px 16px; margin-bottom:12px; page-break-inside:avoid;">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:8px;">
+          <span style="background:#8b4513; color:white; font-size:11px; padding:2px 8px; border-radius:20px; white-space:nowrap;">ツボ ${i+1}</span>
+          <span style="font-size:20px; font-weight:700; color:#1a1a2e; font-family:'Noto Serif JP',serif;">${t.name}</span>
+          <span style="font-size:11px; color:#888; font-style:italic;">${t.nameEn}</span>
+        </div>
+        <div style="background:#faf0e6; border-radius:8px; padding:10px 12px; margin-bottom:8px;">
+          <div style="font-size:11px; font-weight:600; color:#8b4513; margin-bottom:4px; letter-spacing:0.06em;">📌 場所の探し方</div>
+          <div style="font-size:13px; line-height:1.8; color:#1a1a2e;">${t.location}</div>
+          <div style="font-size:12px; color:#6b5c4e; margin-top:6px; padding-top:6px; border-top:1px dashed #d4c4b0;">${t.locationTip}</div>
+        </div>
+        <div style="font-size:11px; color:#6b5c4e;">
+          効果：${t.effects.join('　')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <title>円皮鍼セルフケアシート</title>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+          font-family: 'Noto Sans JP', sans-serif;
+          color: #1a1a2e;
+          background: white;
+          padding: 28px 32px;
+          font-size: 13px;
+          line-height: 1.7;
+        }
+        /* Header */
+        .print-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          border-bottom: 3px solid #8b4513;
+          padding-bottom: 12px;
+          margin-bottom: 18px;
+        }
+        .clinic-name {
+          font-family: 'Noto Serif JP', serif;
+          font-size: 13px;
+          color: #6b5c4e;
+        }
+        .sheet-title {
+          font-family: 'Noto Serif JP', serif;
+          font-size: 22px;
+          font-weight: 600;
+          color: #8b4513;
+          letter-spacing: 0.04em;
+        }
+        .sheet-subtitle {
+          font-size: 12px;
+          color: #888;
+          margin-top: 2px;
+        }
+        .print-meta {
+          font-size: 11px;
+          color: #888;
+          text-align: right;
+          line-height: 1.6;
+        }
+        /* Section */
+        .section-title {
+          font-family: 'Noto Serif JP', serif;
+          font-size: 14px;
+          font-weight: 600;
+          color: #1a1a2e;
+          border-left: 4px solid #8b4513;
+          padding-left: 10px;
+          margin: 18px 0 10px;
+        }
+        /* Howto */
+        .howto-row {
+          display: flex;
+          gap: 10px;
+          align-items: flex-start;
+          margin-bottom: 10px;
+        }
+        .step-circle {
+          width: 24px; height: 24px;
+          border-radius: 50%;
+          background: #1a1a2e;
+          color: white;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 12px; font-weight: 600;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+        .howto-title { font-size: 13px; font-weight: 500; }
+        .howto-desc { font-size: 12px; color: #555; }
+        .warn-box {
+          background: #fff8e1;
+          border-left: 3px solid #d4a853;
+          padding: 6px 10px;
+          font-size: 11px;
+          color: #6d4c00;
+          margin-top: 5px;
+          border-radius: 0 6px 6px 0;
+        }
+        .danger-box {
+          background: #ffebee;
+          border-left: 3px solid #c0392b;
+          padding: 6px 10px;
+          font-size: 11px;
+          color: #c62828;
+          margin-top: 5px;
+          border-radius: 0 6px 6px 0;
+        }
+        /* Caution */
+        .caution-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 5px 16px;
+        }
+        .caution-row {
+          display: flex;
+          gap: 6px;
+          font-size: 12px;
+          color: #1a1a2e;
+          align-items: flex-start;
+        }
+        .caution-x { color: #c0392b; font-weight: bold; flex-shrink: 0; }
+        /* Footer */
+        .print-footer {
+          margin-top: 20px;
+          padding-top: 12px;
+          border-top: 1px solid #d4c4b0;
+          font-size: 11px;
+          color: #888;
+          display: flex;
+          justify-content: space-between;
+        }
+        @media print {
+          body { padding: 16px 20px; }
+          @page { margin: 12mm; size: A4; }
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Header -->
+      <div class="print-header">
+        <div>
+          <div class="sheet-title">円皮鍼 セルフケアシート</div>
+          <div class="sheet-subtitle">症状：${sym.label}　／　今日のツボ ${printKeys.length}か所</div>
+        </div>
+        <div class="print-meta">
+          発行日：${dateStr}<br>
+          ご不明な点はスタッフへ
+        </div>
+      </div>
+
+      <!-- Tsubo Section -->
+      <div class="section-title">① 今日貼るツボ（${printKeys.length}か所）</div>
+      ${tsuboRows}
+
+      <!-- How to -->
+      <div class="section-title">② 円皮鍼の貼り方</div>
+      <div class="howto-row">
+        <div class="step-circle">1</div>
+        <div><div class="howto-title">貼る場所を清潔にする</div>
+        <div class="howto-desc">乾いたタオルやティッシュで汗・汚れを拭き取る。</div></div>
+      </div>
+      <div class="howto-row">
+        <div class="step-circle">2</div>
+        <div><div class="howto-title">ツボの位置を確認する</div>
+        <div class="howto-desc">指で軽く押して「じーんとする」「気持ちいい」と感じる場所を探す。</div>
+        <div class="warn-box">💡 完全に正確でなくても大丈夫。だいたいの位置で効果があります。</div></div>
+      </div>
+      <div class="howto-row">
+        <div class="step-circle">3</div>
+        <div><div class="howto-title">パックから取り出す</div>
+        <div class="howto-desc">シール部分に指が触れないよう台紙を持って開封する。</div></div>
+      </div>
+      <div class="howto-row">
+        <div class="step-circle">4</div>
+        <div><div class="howto-title">ツボに貼り付ける</div>
+        <div class="howto-desc">台紙ごとツボに当て上から軽く押す。台紙をそっとはがす。</div></div>
+      </div>
+      <div class="howto-row">
+        <div class="step-circle">5</div>
+        <div><div class="howto-title">そのまま生活する</div>
+        <div class="howto-desc">目安は <strong>1〜2日間</strong>。入浴時に貼り替えるかはがす。</div>
+        <div class="warn-box">⏰ 2日以上貼り続けないでください。皮膚トラブルの原因になります。</div></div>
+      </div>
+
+      <!-- Remove immediately -->
+      <div class="section-title">③ すぐにはがすとき</div>
+      <div class="caution-grid">
+        <div class="caution-row"><span class="caution-x">✗</span>赤くなる・かゆくなる・痛みが増す</div>
+        <div class="caution-row"><span class="caution-x">✗</span>皮膚に発疹・炎症が出た</div>
+        <div class="caution-row"><span class="caution-x">✗</span>気分が悪い・めまいがした</div>
+        <div class="caution-row"><span class="caution-x">✗</span>水の中に入るとき（プール・海など）</div>
+      </div>
+      <div class="danger-box" style="margin-top:8px;">⚕️ 症状が悪化・異常を感じたらすぐにはがし、医師にご相談ください。</div>
+
+      <!-- Cannot use -->
+      <div class="section-title">④ 円皮鍼を使えない方</div>
+      <div class="caution-grid">
+        <div class="caution-row"><span class="caution-x">✗</span>金属アレルギーがある方</div>
+        <div class="caution-row"><span class="caution-x">✗</span>妊娠中の方</div>
+        <div class="caution-row"><span class="caution-x">✗</span>皮膚に炎症・傷がある部位</div>
+        <div class="caution-row"><span class="caution-x">✗</span>ペースメーカー使用中の方</div>
+      </div>
+
+      <!-- Footer -->
+      <div class="print-footer">
+        <span>このシートはご自宅でのセルフケア補助用です。症状が続く場合は必ず受診してください。</span>
+        <span>円皮鍼セルフケアガイド</span>
+      </div>
+    </body>
+    </html>
+  `;
+
+  const printArea = document.getElementById('printArea');
+  printArea.innerHTML = html;
+  printArea.style.display = 'block';
+  window.print();
+  // 印刷後に非表示に戻す
+  setTimeout(() => { printArea.style.display = 'none'; }, 1000);
+}
+</script>
+</body>
+</html>
