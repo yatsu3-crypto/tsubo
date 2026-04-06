@@ -238,6 +238,15 @@
     opacity: 0.85;
     margin-bottom: 4px;
   }
+  .tsubo-name-ja ruby { display: inline; }
+  .tsubo-name-ja rt {
+    font-size: 11px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.85);
+  }
+
   .tsubo-name-ja {
     font-family: 'Noto Serif JP', serif;
     font-size: 26px;
@@ -1090,7 +1099,7 @@ const SYMPTOMS = {
 // Tsubo dictionary
 const TSUBO = {
   fuchi: {
-    name: '風池', nameEn: 'Fengchi / GB20',
+    name: '風池', nameRuby: 'ふうち', nameEn: 'Fengchi / GB20',
     who: 'GB20',
     location: '後頭部の髪の生え際、首の太い筋（僧帽筋）の外側のくぼみ。頭を傾けると見つけやすい。',
     locationTip: '💡 両手の親指を頭の後ろに回し、後頭部の骨の下のくぼみを押してみてください。',
@@ -1099,7 +1108,7 @@ const TSUBO = {
     illus: 'back_head',
   },
   tousei: {
-    name: '通天', nameEn: 'Tongtian / BL7',
+    name: '通天', nameRuby: 'つうてん', nameEn: 'Tongtian / BL7',
     who: 'BL7',
     location: '頭頂部から少し前方、左右それぞれ頭の中心線から1.5寸外側。',
     locationTip: '💡 頭頂部の少し前、真ん中から指2本分外側あたり。',
@@ -1108,7 +1117,7 @@ const TSUBO = {
     illus: 'top_head',
   },
   hyakue: {
-    name: '百会', nameEn: 'Baihui / GV20',
+    name: '百会', nameRuby: 'ひゃくえ', nameEn: 'Baihui / GV20',
     who: 'GV20',
     location: '頭頂部のほぼ中央。両耳を結んだ線の真ん中、前髪の生え際から7寸の場所。',
     locationTip: '💡 頭の一番高い部分。両耳の上端を直線で結んだちょうど真ん中あたりです。',
@@ -1117,7 +1126,7 @@ const TSUBO = {
     illus: 'top_head',
   },
   goukoku: {
-    name: '合谷', nameEn: 'Hegu / LI4',
+    name: '合谷', nameRuby: 'ごうこく', nameEn: 'Hegu / LI4',
     who: 'LI4',
     location: '手の甲側、親指と人さし指の骨が合わさる少し手前のくぼみ。人さし指側の骨の際。',
     locationTip: '💡 反対の手の親指を人さし指と親指の間に押し込み、親指先端が当たる部分です。',
@@ -1126,7 +1135,7 @@ const TSUBO = {
     illus: 'hand',
   },
   nadei: {
-    name: '内庭', nameEn: 'Neiting / ST44',
+    name: '内庭', nameRuby: 'ないてい', nameEn: 'Neiting / ST44',
     who: 'ST44',
     location: '足の甲側、第2指（人さし指）と第3指（中指）の間、水かきの少し上。',
     locationTip: '💡 足の人さし指と中指のつけ根（水かき）の少し上の皮膚の上。',
@@ -1135,7 +1144,7 @@ const TSUBO = {
     illus: 'foot',
   },
   taishio: {
-    name: '太衝', nameEn: 'Taichong / LR3',
+    name: '太衝', nameRuby: 'たいしょう', nameEn: 'Taichong / LR3',
     who: 'LR3',
     location: '足の甲、親指と第2指（人さし指）の骨が合わさる少し手前のくぼみ。',
     locationTip: '💡 足の親指と人さし指の間を、足首方向になぞっていき、骨と骨がぶつかる手前のくぼみ。',
@@ -1144,7 +1153,7 @@ const TSUBO = {
     illus: 'foot',
   },
   kanshi: {
-    name: '肝俞', nameEn: 'Ganshu / BL18',
+    name: '肝俞', nameRuby: 'かんゆ', nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '背中側、第9胸椎棘突起の下のくぼみから左右に1.5寸外側。',
     locationTip: '💡 背中の真ん中あたり（肩甲骨の下端の高さより少し下）から両側に指2本分外側。',
@@ -1153,7 +1162,7 @@ const TSUBO = {
     illus: 'back',
   },
   sanneiko: {
-    name: '三陰交', nameEn: 'Sanyinjiao / SP6',
+    name: '三陰交', nameRuby: 'さんいんこう', nameEn: 'Sanyinjiao / SP6',
     who: 'SP6',
     location: '内くるぶしの一番高い部分から上へ指4本分（3寸）、すねの骨（脛骨）の内側のきわ。',
     locationTip: '💡 内くるぶしから指4本分上に上がったところ、すねの骨の内側を押してみてください。',
@@ -1162,7 +1171,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   kekkai: {
-    name: '血海', nameEn: 'Xuehai / SP10',
+    name: '血海', nameRuby: 'けっかい', nameEn: 'Xuehai / SP10',
     who: 'SP10',
     location: '膝のお皿（膝蓋骨）の内側上端から上へ指3本（2寸）、太ももの内側の筋肉上。',
     locationTip: '💡 膝を曲げて、反対の手で膝頭を覆ったとき、親指の先端が当たる部分です。',
@@ -1171,7 +1180,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   ashisanri: {
-    name: '足三里', nameEn: 'Zusanli / ST36',
+    name: '足三里', nameRuby: 'あしさんり', nameEn: 'Zusanli / ST36',
     who: 'ST36',
     location: 'すねの前面、膝のお皿（膝蓋骨）の下端から指4本（3寸）下の前脛骨筋上。',
     locationTip: '💡 膝の下の丸いくぼみ（犢鼻）から指4本分下。すねの骨の外側の際を押すと少し響く感覚があります。',
@@ -1180,7 +1189,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   kikai: {
-    name: '気海', nameEn: 'Qihai / CV6',
+    name: '気海', nameRuby: 'きかい', nameEn: 'Qihai / CV6',
     who: 'CV6',
     location: '下腹部、前正中線上でへその中央から下に1.5寸。',
     locationTip: '💡 おへそから指2本分下の正中線上。陽の気を補い元気を増やす重要穴。冷えや月経トラブルに広く使われます。',
@@ -1189,7 +1198,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   kangen: {
-    name: '関元', nameEn: 'Guanyuan / CV4',
+    name: '関元', nameRuby: 'かんげん', nameEn: 'Guanyuan / CV4',
     who: 'CV4',
     location: '下腹部、前正中線上、へその中央から下方に3寸。',
     locationTip: '💡 おへそから指4本分下のところ。元気を養い補う万能ツボ。冷えやすい方はここを温めるだけでも効果的です。',
@@ -1198,7 +1207,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   shinmon: {
-    name: '神門', nameEn: 'Shenmen / HT7',
+    name: '神門', nameRuby: 'しんもん', nameEn: 'Shenmen / HT7',
     who: 'HT7',
     location: '手首の内側、小指側の腱の内側（尺側）のくぼみ。手首の横じわの上。',
     locationTip: '💡 手首の内側の横ジワの上、小指側の腱（ぴんと張った腱）の内側のくぼみです。',
@@ -1207,7 +1216,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   shinsho: {
-    name: '心俞', nameEn: 'Xinshu / BL15',
+    name: '心俞', nameRuby: 'しんゆ', nameEn: 'Xinshu / BL15',
     who: 'BL15',
     location: '背中側、第5胸椎棘突起の下から左右1.5寸外側。肩甲骨の内側上部あたり。',
     locationTip: '💡 背骨の上部から数えて第5番目の椎骨の下、背骨から指2本分外側。',
@@ -1216,7 +1225,7 @@ const TSUBO = {
     illus: 'back',
   },
   shintei: {
-    name: '神庭', nameEn: 'Shenting / GV24',
+    name: '神庭', nameRuby: 'しんてい', nameEn: 'Shenting / GV24',
     who: 'GV24',
     location: '前髪の生え際の真ん中（正中線上）から上へ0.5寸のところ。',
     locationTip: '💡 おでこの生え際のちょうど真ん中から、少し上のところです。',
@@ -1225,7 +1234,7 @@ const TSUBO = {
     illus: 'face',
   },
   tammon: {
-    name: '胆俞', nameEn: 'Danshu / BL19',
+    name: '胆俞', nameRuby: 'たんゆ', nameEn: 'Danshu / BL19',
     who: 'BL19',
     location: '背中側、第10胸椎棘突起の下から左右1.5寸外側。',
     locationTip: '💡 肝俞（背中の真ん中やや下）のすぐ下の位置。',
@@ -1234,7 +1243,7 @@ const TSUBO = {
     illus: 'back',
   },
   shokai: {
-    name: '照海', nameEn: 'Zhaohai / KI6',
+    name: '照海', nameRuby: 'しょうかい', nameEn: 'Zhaohai / KI6',
     who: 'KI6',
     location: '内くるぶしの直下、くぼみのところ。',
     locationTip: '💡 内くるぶしのとがった部分のすぐ下のくぼみを押してみてください。',
@@ -1243,7 +1252,7 @@ const TSUBO = {
     illus: 'foot',
   },
   jinsho: {
-    name: '腎俞', nameEn: 'Shenshu / BL23',
+    name: '腎俞', nameRuby: 'じんゆ', nameEn: 'Shenshu / BL23',
     who: 'BL23',
     location: '腰部、第2腰椎棘突起の下から左右1.5寸外側（ウエストの高さあたり）。',
     locationTip: '💡 腰の中心（ウエスト）の高さで、背骨の両側に指2本分外側。じーんとする部位です。',
@@ -1252,7 +1261,7 @@ const TSUBO = {
     illus: 'back',
   },
   keni: {
-    name: '肩井', nameEn: 'Jianjing / GB21',
+    name: '肩井', nameRuby: 'けんせい', nameEn: 'Jianjing / GB21',
     who: 'GB21',
     location: '肩の一番高いところ。大椎（首の付け根）と肩先の中間点。',
     locationTip: '💡 首の付け根と肩の先端のちょうど中間あたり。押すと気持ちのいい張りを感じる部位。',
@@ -1261,7 +1270,7 @@ const TSUBO = {
     illus: 'shoulder',
   },
   tensho: {
-    name: '天髎', nameEn: 'Tianliao / TE15',
+    name: '天髎', nameRuby: 'てんりょう', nameEn: 'Tianliao / TE15',
     who: 'TE15',
     location: '肩甲骨の上角部分から上のくぼみ（肩井の内側下方）。',
     locationTip: '💡 肩甲骨の上の角あたりを押すと、肩こりの中心にあたることが多い部位です。',
@@ -1270,7 +1279,7 @@ const TSUBO = {
     illus: 'back',
   },
   koukei: {
-    name: '後渓', nameEn: 'Houxi / SI3',
+    name: '後渓', nameRuby: 'こうけい', nameEn: 'Houxi / SI3',
     who: 'SI3',
     location: '手を握ったとき小指の下にできる長いシワの先端（外側）。',
     locationTip: '💡 軽く手を握ったとき、小指の下のふくらみの外側の端を押してみてください。',
@@ -1279,7 +1288,7 @@ const TSUBO = {
     illus: 'hand',
   },
   kuchii: {
-    name: '曲池', nameEn: 'Quchi / LI11',
+    name: '曲池', nameRuby: 'きょくち', nameEn: 'Quchi / LI11',
     who: 'LI11',
     location: '肘を曲げたときにできる肘の横シワの外側端。',
     locationTip: '💡 肘を90度に曲げると、肘の外側に横シワができます。そのシワの一番外側の端です。',
@@ -1288,7 +1297,7 @@ const TSUBO = {
     illus: 'arm',
   },
   kenchiku: {
-    name: '間使', nameEn: 'Jianshi / PC5',
+    name: '間使', nameRuby: 'かんし', nameEn: 'Jianshi / PC5',
     who: 'PC5',
     location: '前腕の前面、長掌筋腱と橈側手根屈筋腱の間で、手関節の掌側横紋から上に3寸。',
     locationTip: '💡 手首の内側横ジワから指4本分上、2本の腱の間。精神を安定させ気の巡りを改善する重要穴です。',
@@ -1297,7 +1306,7 @@ const TSUBO = {
     illus: 'arm',
   },
   naikan: {
-    name: '内関', nameEn: 'Neiguan / PC6',
+    name: '内関', nameRuby: 'ないかん', nameEn: 'Neiguan / PC6',
     who: 'PC6',
     location: '前腕の内側、手首の横ジワから上へ指3本（2寸）。2本の腱の間（間使と同じ高さ付近）。',
     locationTip: '💡 手首から指3本（2寸）上、2本の腱の間。乗り物酔いにも有名なツボです。',
@@ -1306,7 +1315,7 @@ const TSUBO = {
     illus: 'arm',
   },
   ryokyu: {
-    name: '梁丘', nameEn: 'Liangqiu / ST34',
+    name: '梁丘', nameRuby: 'りょうきゅう', nameEn: 'Liangqiu / ST34',
     who: 'ST34',
     location: '膝のお皿（膝蓋骨）の外上端から指2本（2寸）上、太ももの前外側。',
     locationTip: '💡 膝のお皿の外側の角から、太もも方向に指2本ほど上がったところ。急性の胃痛に有名。',
@@ -1315,7 +1324,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   chukan: {
-    name: '中脘', nameEn: 'Zhongwan / CV12',
+    name: '中脘', nameRuby: 'ちゅうかん', nameEn: 'Zhongwan / CV12',
     who: 'CV12',
     location: 'お腹の正中線上、おへそと胸の骨（剣状突起）の真ん中のところ。',
     locationTip: '💡 みぞおちとおへそのちょうど中間点。胃のすぐ前にあたる部位です。',
@@ -1324,7 +1333,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   meimom: {
-    name: '命門', nameEn: 'Mingmen / GV4',
+    name: '命門', nameRuby: 'めいもん', nameEn: 'Mingmen / GV4',
     who: 'GV4',
     location: '腰部、背骨（第2腰椎）の棘突起の下（腎俞と同じ高さ、背骨の真ん中）。',
     locationTip: '💡 おへその真後ろにある背骨のくぼみ。ここを温めると体全体が温まります。',
@@ -1333,7 +1342,7 @@ const TSUBO = {
     illus: 'back',
   },
   shikyu: {
-    name: '子宮（奇穴）', nameEn: 'Zigong / EX-CA1',
+    name: '子宮（奇穴）', nameRuby: 'しきゅう', nameEn: 'Zigong / EX-CA1',
     who: 'EX-CA1',
     location: 'おへそから下へ指4本（3寸）（関元の高さ）、そこから左右に指4本（3寸）外側。',
     locationTip: '💡 関元（おへそから指4本下）と同じ高さで、そこから左右に指4本分外側に位置します。',
@@ -1342,7 +1351,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   chiki: {
-    name: '地機', nameEn: 'Diji / SP8',
+    name: '地機', nameRuby: 'ちき', nameEn: 'Diji / SP8',
     who: 'SP8',
     location: '膝内側（脛骨内側上顆）の下から指3本（3寸）下、脛骨の内側のきわ。',
     locationTip: '💡 膝の内側のでっぱりから指3本分下、すねの骨の内側を押してみてください。',
@@ -1351,7 +1360,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   iin: {
-    name: '委中', nameEn: 'Weizhong / BL40',
+    name: '委中', nameRuby: 'いちゅう', nameEn: 'Weizhong / BL40',
     who: 'BL40',
     location: '膝の後面で、膝窩横紋の中点。',
     locationTip: '💡 膝の裏の横ジワのちょうど真ん中。押すとじーんと響く感覚があります。',
@@ -1360,7 +1369,7 @@ const TSUBO = {
     illus: 'leg_back',
   },
   daichosho: {
-    name: '大腸俞', nameEn: 'Dachangshu / BL25',
+    name: '大腸俞', nameRuby: 'だいちょうゆ', nameEn: 'Dachangshu / BL25',
     who: 'BL25',
     location: '腰部、第4腰椎棘突起の下から左右1.5寸外側。骨盤の上端（腸骨稜）の高さあたり。',
     locationTip: '💡 骨盤の一番高い部分（腸骨稜）の高さで、背骨から指2本分外側。',
@@ -1369,7 +1378,7 @@ const TSUBO = {
     illus: 'back',
   },
   suiko: {
-    name: '水溝', nameEn: 'Shuigou / GV26',
+    name: '水溝', nameRuby: 'すいこう', nameEn: 'Shuigou / GV26',
     who: 'GV26',
     location: '人中（鼻と上唇の間のくぼんだ溝）の上1/3のところ。',
     locationTip: '💡 鼻の下と上唇の間の縦のくぼみ（人中）の、鼻側の1/3のところ。',
@@ -1378,7 +1387,7 @@ const TSUBO = {
     illus: 'face',
   },
   yoshiro: {
-    name: '養老', nameEn: 'Yanglao / SI6',
+    name: '養老', nameRuby: 'ようろう', nameEn: 'Yanglao / SI6',
     who: 'SI6',
     location: '手首の尺骨茎状突起（手首の小指側の骨の出っ張り）の際のくぼみ。',
     locationTip: '💡 手首の小指側にある丸い骨（尺骨茎状突起）のすぐ際のくぼみ。',
@@ -1387,7 +1396,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   yotsubo: {
-    name: '腰痛点（奇穴）', nameEn: 'Yaotongdian / EX-UE7',
+    name: '腰痛点（奇穴）', nameRuby: 'ようつうてん', nameEn: 'Yaotongdian / EX-UE7',
     who: 'EX-UE7',
     location: '手の甲側に2か所。第2・3中手骨間と、第4・5中手骨間の中央（それぞれ）。',
     locationTip: '💡 手の甲の指の付け根と手首の中間あたり、人さし指/中指の間と、薬指/小指の間のそれぞれ中央。',
@@ -1396,7 +1405,7 @@ const TSUBO = {
     illus: 'hand',
   },
   youme: {
-    name: '腰眼（奇穴）', nameEn: 'Yaoyan / EX-B7',
+    name: '腰眼（奇穴）', nameRuby: 'ようがん', nameEn: 'Yaoyan / EX-B7',
     who: 'EX-B7',
     location: '第4腰椎棘突起の下から左右に指4本（3.5寸）外側のくぼみ。',
     locationTip: '💡 骨盤上端の高さの背骨から指4本外側。自分で押しにくい場合はご家族に押してもらってください。',
@@ -1405,7 +1414,7 @@ const TSUBO = {
     illus: 'back',
   },
   taike: {
-    name: '太渓', nameEn: 'Taixi / KI3',
+    name: '太渓', nameRuby: 'たいけい', nameEn: 'Taixi / KI3',
     who: 'KI3',
     location: '内くるぶしとアキレス腱の間のくぼみ。内くるぶしの高さ。',
     locationTip: '💡 内くるぶしとアキレス腱のちょうど間。内くるぶしと同じ高さのくぼみを押してみてください。',
@@ -1414,7 +1423,7 @@ const TSUBO = {
     illus: 'foot',
   },
   fukuryu: {
-    name: '復溜', nameEn: 'Fuliu / KI7',
+    name: '復溜', nameRuby: 'ふくりゅう', nameEn: 'Fuliu / KI7',
     who: 'KI7',
     location: '内くるぶしの高さから上へ指2本（2寸）、アキレス腱の前際。',
     locationTip: '💡 内くるぶしから指2本分上、アキレス腱の前を押してみてください。',
@@ -1423,7 +1432,7 @@ const TSUBO = {
     illus: 'foot',
   },
   komei: {
-    name: '光明', nameEn: 'Guangming / GB37',
+    name: '光明', nameRuby: 'こうめい', nameEn: 'Guangming / GB37',
     who: 'GB37',
     location: '外くるぶしの先端から上へ指7本（5寸）、ひこつ（腓骨）の前際。',
     locationTip: '💡 外くるぶしから指7本分上の腓骨の前際。眼精疲労に特に効果的なツボです。',
@@ -1432,7 +1441,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   kansho: {
-    name: '肝俞', nameEn: 'Ganshu / BL18',
+    name: '肝俞', nameRuby: 'かんゆ', nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '背中側、第9胸椎棘突起の下から左右1.5寸外側。',
     locationTip: '💡 肩甲骨の下端と同じ高さの背骨から、両側に指2本分外側。',
@@ -1442,7 +1451,7 @@ const TSUBO = {
   },
   // ===== 鼻詰まり専用ツボ =====
   geiko: {
-    name: '迎香', nameEn: 'Yingxiang / LI20',
+    name: '迎香', nameRuby: 'げいこう', nameEn: 'Yingxiang / LI20',
     who: 'LI20',
     location: '小鼻（鼻翼）の外側のふくらみの横、鼻唇溝（ほうれい線）の上端のくぼみ。',
     locationTip: '💡 小鼻のわきを指で押すと少しくぼんでいるところ。左右両側に1つずつあります。鼻づまりの特効穴として有名です。',
@@ -1451,7 +1460,7 @@ const TSUBO = {
     illus: 'face',
   },
   intou: {
-    name: '印堂（奇穴）', nameEn: 'Yintang / EX-HN3',
+    name: '印堂（奇穴）', nameRuby: 'いんどう', nameEn: 'Yintang / EX-HN3',
     who: 'EX-HN3',
     location: '眉と眉の間（眉間）の真ん中。',
     locationTip: '💡 両眉の内側の端を直線で結んだちょうど真ん中（眉間の中央）。押すとじーんとする感覚があります。',
@@ -1460,7 +1469,7 @@ const TSUBO = {
     illus: 'face',
   },
   jyosei: {
-    name: '上星', nameEn: 'Shangxing / GV23',
+    name: '上星', nameRuby: 'じょうせい', nameEn: 'Shangxing / GV23',
     who: 'GV23',
     location: '前髪の生え際の真ん中（正中線上）から上へ指1本（1寸）のところ。',
     locationTip: '💡 おでこの生え際の真ん中から、頭頂部方向に指1本分入ったところ。',
@@ -1469,7 +1478,7 @@ const TSUBO = {
     illus: 'face',
   },
   rekkyu: {
-    name: '列欠', nameEn: 'Lieque / LU7',
+    name: '列欠', nameRuby: 'れっけつ', nameEn: 'Lieque / LU7',
     who: 'LU7',
     location: '手首の内側、親指側。手首の横ジワから上へ指2本（1.5寸）、橈骨茎状突起のすぐ上のくぼみ。',
     locationTip: '💡 両手の人さし指を上にして交差させ、人さし指の先が手首に当たる部分。鼻・肺の症状全般に使う重要なツボです。',
@@ -1478,7 +1487,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   taien: {
-    name: '太淵', nameEn: 'Taiyuan / LU9',
+    name: '太淵', nameRuby: 'たいえん', nameEn: 'Taiyuan / LU9',
     who: 'LU9',
     location: '手首の内側の横ジワ上、親指側の橈骨動脈（脈を感じる部位）のすぐ外側のくぼみ。',
     locationTip: '💡 手首の内側のシワの上、親指のつけ根側に脈が感じられる場所のすぐ外（親指側）のくぼみ。',
@@ -1488,7 +1497,7 @@ const TSUBO = {
   },
   // ===== 追加ツボ（症状未紐付け）=====
   kyokutaku: {
-    name: '曲沢', nameEn: 'Quze / PC3',
+    name: '曲沢', nameRuby: 'きょくたく', nameEn: 'Quze / PC3',
     who: 'PC3',
     location: '肘前面、肘窩横紋上、上腕二頭筋腱の尺側。',
     locationTip: '💡 肘の内側横ジワ上、上腕二頭筋腱（肘を曲げると浮き出る腱）の小指側。心臓・胃腸の急症に使われます。',
@@ -1497,7 +1506,7 @@ const TSUBO = {
     illus: 'elbow_inner',
   },
   kyokuchi: {
-    name: '曲池', nameEn: 'Quchi / LI11',
+    name: '曲池', nameRuby: 'きょくち', nameEn: 'Quchi / LI11',
     who: 'LI11',
     location: '肘外側、肘窩横紋外側端と上腕骨外側上顆の中点。',
     locationTip: '💡 肘を90度に曲げると肘の外側に横ジワができます。そのシワの外側端と外側の骨の出っ張りの中点。',
@@ -1506,7 +1515,7 @@ const TSUBO = {
     illus: 'elbow_outer',
   },
   gyokuchin: {
-    name: '玉枕', nameEn: 'Yuzhen / BL9',
+    name: '玉枕', nameRuby: 'ぎょくちん', nameEn: 'Yuzhen / BL9',
     who: 'BL9',
     location: '後頭部、後正中線の外方1.3寸、脳戸（後髪際から2.5寸上）と同じ高さ。',
     locationTip: '💡 後頭部の正中から1.3寸外側、脳戸と同じ高さ。頭痛・目のかすみ・鼻づまりに使われます。',
@@ -1515,7 +1524,7 @@ const TSUBO = {
     illus: 'occiput',
   },
   gyokudo: {
-    name: '玉堂', nameEn: 'Yutang / CV18',
+    name: '玉堂', nameRuby: 'ぎょくどう', nameEn: 'Yutang / CV18',
     who: 'CV18',
     location: '前胸部、前正中線上、第3肋間と同じ高さ。',
     locationTip: '💡 胸骨上の正中線、第3肋間の高さ。膻中の上にあります。咳嗽・喘息・胸痛に使われます。',
@@ -1525,7 +1534,7 @@ const TSUBO = {
   },
 
   kyokuen: {
-    name: '曲垣', nameEn: 'Quyuan / SI13',
+    name: '曲垣', nameRuby: 'きょくえん', nameEn: 'Quyuan / SI13',
     who: 'SI13',
     location: '肩甲部、肩甲棘内端の上方にあるくぼみ。臑兪と第2胸椎棘突起を結ぶ線の中点にある。',
     locationTip: '💡 肩甲骨の棘の内端の上のくぼみ、臑兪と第2胸椎の中点。肩関節周囲炎・肩背部痛に使われます。',
@@ -1534,7 +1543,7 @@ const TSUBO = {
     illus: 'shoulder_back',
   },
   kyokusa: {
-    name: '曲差', nameEn: 'Quchai / BL4',
+    name: '曲差', nameRuby: 'きょくさ', nameEn: 'Quchai / BL4',
     who: 'BL4',
     location: '頭部の前髪際から上に0.5寸、前正中線の外側に1.5寸。神庭と頭維を結ぶ線上で、神庭から1/3にある。',
     locationTip: '💡 おでこの生え際から0.5寸上、正中から1.5寸外側。神庭と頭維の間の神庭寄り1/3の位置。',
@@ -1543,7 +1552,7 @@ const TSUBO = {
     illus: 'head_front2',
   },
   kyokusen: {
-    name: '曲泉', nameEn: 'Ququan / LR8',
+    name: '曲泉', nameRuby: 'きょくせん', nameEn: 'Ququan / LR8',
     who: 'LR8',
     location: '膝の内側、半腱・半膜様筋腱内側のくぼみ、膝窩横紋の内側端。',
     locationTip: '💡 膝の内側、膝を曲げたときにできる内側のくぼみ。肝経の合穴で月経・泌尿器・精神系の症状に広く使われます。',
@@ -1552,7 +1561,7 @@ const TSUBO = {
     illus: 'knee_inner',
   },
   kyokusen_ht: {
-    name: '極泉', nameEn: 'Jiquan / HT1',
+    name: '極泉', nameRuby: 'きょくせん', nameEn: 'Jiquan / HT1',
     who: 'HT1',
     location: '腋窩の中央で、腋窩動脈の拍動部。',
     locationTip: '💡 脇の下の中央、動脈の拍動が触れる部分。上肢麻痺・心臓疾患の特効穴です。',
@@ -1562,7 +1571,7 @@ const TSUBO = {
   },
 
   kyokyo: {
-    name: '胸郷', nameEn: 'Xiongxiang / SP19',
+    name: '胸郷', nameRuby: 'きょうきょう', nameEn: 'Xiongxiang / SP19',
     who: 'SP19',
     location: '前胸部の第3肋間、前正中線から外側に6寸。胸郷・膺窓・霊墟は第3肋間の曲線に沿って並ぶ。',
     locationTip: '💡 第3肋間で正中から指7本分外側。膺窓・霊墟と同じ高さの曲線上にあります。',
@@ -1571,7 +1580,7 @@ const TSUBO = {
     illus: 'chest_side3',
   },
   kyokei: {
-    name: '侠渓', nameEn: 'Xiaxi / GB43',
+    name: '侠渓', nameRuby: 'きょうけい', nameEn: 'Xiaxi / GB43',
     who: 'GB43',
     location: '足の甲、第4趾と第5趾の間のみずかきの近位、赤白肉際。',
     locationTip: '💡 足の薬指と小指の間のみずかきの少し上、赤白肉際。頭痛・耳・目の症状の特効穴です。',
@@ -1580,7 +1589,7 @@ const TSUBO = {
     illus: 'foot_toe',
   },
   kyosha: {
-    name: '頬車', nameEn: 'Jiache / ST6',
+    name: '頬車', nameRuby: 'きょうしゃ', nameEn: 'Jiache / ST6',
     who: 'ST6',
     location: '顔の下顎角から中指一つぶん前上方。',
     locationTip: '💡 えらの角（下顎角）から中指1本分前上方、歯を噛みしめると盛り上がる咬筋の中。歯痛・顔面麻痺の特効穴です。',
@@ -1589,7 +1598,7 @@ const TSUBO = {
     illus: 'face_jaw',
   },
   kyohaku: {
-    name: '侠白', nameEn: 'Xiabai / LU4',
+    name: '侠白', nameRuby: 'きょうはく', nameEn: 'Xiabai / LU4',
     who: 'LU4',
     location: '上腕の前外側、上腕二頭筋の外側縁、腋窩横紋の前端から下に4寸。',
     locationTip: '💡 上腕の外側、腋窩横紋から指5本分下の上腕二頭筋の外側縁。天府のすぐ下にあります。',
@@ -1599,7 +1608,7 @@ const TSUBO = {
   },
 
   kyukyo: {
-    name: '丘墟', nameEn: 'Qiuxu / GB40',
+    name: '丘墟', nameRuby: 'きゅうきょ', nameEn: 'Qiuxu / GB40',
     who: 'GB40',
     location: '足関節の前外側、長指伸筋腱の外側のくぼみ、外果尖の前下方。',
     locationTip: '💡 外くるぶしの前下方のくぼみ。足首の捻挫・目の症状・胆系疾患の特効穴です。',
@@ -1608,7 +1617,7 @@ const TSUBO = {
     illus: 'ankle_lat',
   },
   kyubi: {
-    name: '鳩尾', nameEn: 'Jiuwei / CV15',
+    name: '鳩尾', nameRuby: 'きゅうび', nameEn: 'Jiuwei / CV15',
     who: 'CV15',
     location: '上腹部の前正中線上、胸骨体の下端から下に1寸。',
     locationTip: '💡 みぞおちの少し下、胸骨の先端（剣状突起）から指1本分下の正中線上。心を穏やかにし精神を安定させます。',
@@ -1617,7 +1626,7 @@ const TSUBO = {
     illus: 'chest_upper3',
   },
   kyumyaku: {
-    name: '急脈', nameEn: 'Jmai / LR12',
+    name: '急脈', nameRuby: 'きゅうみゃく', nameEn: 'Jmai / LR12',
     who: 'LR12',
     location: '鼠径部、恥骨結合上縁と同じ高さ、前正中線の外側に2.5寸。',
     locationTip: '💡 恥骨の上縁の高さ、正中から指3本半外側の鼠径部。肝気のうっ滞による下腹部・陰部の症状に使われます。',
@@ -1626,7 +1635,7 @@ const TSUBO = {
     illus: 'groin_front',
   },
   kyokan: {
-    name: '強間', nameEn: 'Qiangjian / GV18',
+    name: '強間', nameRuby: 'きょうかん', nameEn: 'Qiangjian / GV18',
     who: 'GV18',
     location: '頭部の後正中線上、後髪際から上に4寸。脳戸の上方1.5寸のくぼみにある。',
     locationTip: '💡 後頭部の正中線上、後髪際から指5本分上、脳戸のすぐ上1.5寸のくぼみ。',
@@ -1636,7 +1645,7 @@ const TSUBO = {
   },
 
   kisha: {
-    name: '気舎', nameEn: 'Qishe / ST11',
+    name: '気舎', nameRuby: 'きしゃ', nameEn: 'Qishe / ST11',
     who: 'ST11',
     location: '前頸部、小鎖骨上窩で鎖骨胸骨端の上方、胸鎖乳突筋の胸骨頭と鎖骨頭の間のくぼみ。鎖骨の上方で人迎の下にある。',
     locationTip: '💡 鎖骨の内側端の上、胸鎖乳突筋の2本の腱の間のくぼみ。人迎のすぐ下にあります。',
@@ -1645,7 +1654,7 @@ const TSUBO = {
     illus: 'neck_front',
   },
   kisho: {
-    name: '気衝', nameEn: 'Qichong / ST30',
+    name: '気衝', nameRuby: 'きしょう', nameEn: 'Qichong / ST30',
     who: 'ST30',
     location: '鼠径部、恥骨結合上縁と同じ高さで、前正中線の外側に2寸、大腿動脈の拍動部。',
     locationTip: '💡 恥骨の上縁の高さ、正中から指3本分外側の大腿動脈拍動部。横骨の外側にあります。',
@@ -1654,7 +1663,7 @@ const TSUBO = {
     illus: 'lower_abd3',
   },
   kimon_sp: {
-    name: '箕門', nameEn: 'Jimen / SP11',
+    name: '箕門', nameRuby: 'きもん', nameEn: 'Jimen / SP11',
     who: 'SP11',
     location: '大腿の内側、膝蓋骨底内端と衝門を結ぶ線上で、衝門から1/3、縫工筋と長内転筋の間、大腿動脈の拍動部。',
     locationTip: '💡 膝内側（血海）と鼠径部（衝門）を結ぶ線の衝門から1/3、縫工筋と長内転筋の間の拍動部。',
@@ -1663,7 +1672,7 @@ const TSUBO = {
     illus: 'thigh_inner2',
   },
   kimon_lr: {
-    name: '期門', nameEn: 'Qimen / LR14',
+    name: '期門', nameRuby: 'きもん', nameEn: 'Qimen / LR14',
     who: 'LR14',
     location: '前胸部、第6肋間、前正中線の外側に4寸。',
     locationTip: '💡 乳頭の真下、第6肋間で正中から指5本分外側。肝の募穴として肝胆・消化器系の症状に広く使われます。',
@@ -1673,7 +1682,7 @@ const TSUBO = {
   },
 
   kisha: {
-    name: '気舎', nameEn: 'Qishe / ST11',
+    name: '気舎', nameRuby: 'きしゃ', nameEn: 'Qishe / ST11',
     who: 'ST11',
     location: '頸部、鎖骨の胸骨端の上縁、胸鎖乳突筋の胸骨頭と鎖骨頭の間。',
     locationTip: '💡 鎖骨の内側端のすぐ上、胸鎖乳突筋の2本の筋（胸骨頭と鎖骨頭）の間のくぼみ。咽喉・頸部の症状に使われます。',
@@ -1682,7 +1691,7 @@ const TSUBO = {
     illus: 'neck_front',
   },
   kisho: {
-    name: '気衝', nameEn: 'Qichong / ST30',
+    name: '気衝', nameRuby: 'きしょう', nameEn: 'Qichong / ST30',
     who: 'ST30',
     location: '下腹部、恥骨結合上縁と同じ高さ、前正中線から外方2寸。',
     locationTip: '💡 恥骨の上縁の高さで、正中から指3本分外側。横骨と同じ高さの外側にあります。衝脈が起始する部位です。',
@@ -1691,7 +1700,7 @@ const TSUBO = {
     illus: 'lower_abd3',
   },
   kimon_hiza: {
-    name: '箕門', nameEn: 'Jimen / SP11',
+    name: '箕門', nameRuby: 'きもん', nameEn: 'Jimen / SP11',
     who: 'SP11',
     location: '大腿内側、血海と衝門を結ぶ線上で血海から上方1/3のところ、縫工筋上。',
     locationTip: '💡 膝内側上端（血海）と鼠径部（衝門）を結ぶ線の下から1/3。縫工筋の上を押してみてください。',
@@ -1700,7 +1709,7 @@ const TSUBO = {
     illus: 'thigh_inner2',
   },
   kimon_kan: {
-    name: '期門', nameEn: 'Qimen / LR14',
+    name: '期門', nameRuby: 'きもん', nameEn: 'Qimen / LR14',
     who: 'LR14',
     location: '前胸部、第6肋間、前正中線から外方4寸。',
     locationTip: '💡 乳頭の真下、第6肋間で正中から指5本分外側。肝経の募穴として胸脇の症状・肝の病に広く使われます。',
@@ -1710,7 +1719,7 @@ const TSUBO = {
   },
 
   kikaiyu: {
-    name: '気海兪', nameEn: 'Qihaishu / BL24',
+    name: '気海兪', nameRuby: 'きかいゆ', nameEn: 'Qihaishu / BL24',
     who: 'BL24',
     location: '腰部、第3腰椎棘突起下縁と同じ高さで、後正中線の外側に1.5寸。',
     locationTip: '💡 腰の中央（第3腰椎）の下縁、背骨から指2本分外側。腎兪のすぐ下にあります。',
@@ -1719,7 +1728,7 @@ const TSUBO = {
     illus: 'back_lumbar2',
   },
   kiketsu: {
-    name: '気穴', nameEn: 'Qixue / KI13',
+    name: '気穴', nameRuby: 'きけつ', nameEn: 'Qixue / KI13',
     who: 'KI13',
     location: '下腹部、へそ中央から下に3寸、前正中線の外側に0.5寸。',
     locationTip: '💡 おへそから指4本分下（関元と同じ高さ）、正中からわずか外側（0.5寸）。衝脈と任脈の機能を高めます。',
@@ -1728,7 +1737,7 @@ const TSUBO = {
     illus: 'lower_abd2',
   },
   kiko: {
-    name: '気戸', nameEn: 'Qihu / ST13',
+    name: '気戸', nameRuby: 'きこ', nameEn: 'Qihu / ST13',
     who: 'ST13',
     location: '前胸部、鎖骨下縁、前正中線の外側に4寸。',
     locationTip: '💡 鎖骨の下縁、正中から指5本分外側。欠盆のすぐ下、庫房の上にあります。',
@@ -1738,7 +1747,7 @@ const TSUBO = {
   },
 
   kansho: {
-    name: '関衝', nameEn: 'Guanchong / TE1',
+    name: '関衝', nameRuby: 'かんゆ', nameEn: 'Guanchong / TE1',
     who: 'TE1',
     location: '薬指の末節骨の尺側、爪甲角から近位に内方0.1寸（指寸）。爪甲尺側縁の垂直線と爪甲基底部の水平線の交点。',
     locationTip: '💡 薬指の小指側、爪の生え際の角からごくわずか（0.1寸）内側。鎮静・意識回復の特効穴です。',
@@ -1747,7 +1756,7 @@ const TSUBO = {
     illus: 'hand_ring',
   },
   kancho: {
-    name: '環跳', nameEn: 'Huantiao / GB30',
+    name: '環跳', nameRuby: 'かんちょう', nameEn: 'Huantiao / GB30',
     who: 'GB30',
     location: '臀部で大転子の頂点と仙骨裂孔を結ぶ線上、大転子の頂点から1/3。',
     locationTip: '💡 大転子（太もも外側の出っ張り）と仙骨裂孔（尾骨付近の凹み）を結ぶ線の大転子寄り1/3。坐骨神経痛の特効穴です。',
@@ -1756,7 +1765,7 @@ const TSUBO = {
     illus: 'hip_back',
   },
   kanmon: {
-    name: '関門', nameEn: 'Guanmen / ST22',
+    name: '関門', nameRuby: 'かんもん', nameEn: 'Guanmen / ST22',
     who: 'ST22',
     location: '上腹部、へその中央から上方に3寸、前正中線の外側に2寸。',
     locationTip: '💡 おへそから指4本分上、正中から指3本分外側。建里と同じ高さで外側にあります。',
@@ -1765,7 +1774,7 @@ const TSUBO = {
     illus: 'abd_mid',
   },
   kanyu: {
-    name: '肝兪', nameEn: 'Ganshu / BL18',
+    name: '肝兪', nameRuby: 'かんゆ', nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '上背部、第9胸椎棘突起の下縁と同じ高さで、後正中線から外側に1.5寸。',
     locationTip: '💡 背中の中央やや下、背骨から指2本分外側。肝の背部兪穴として目・精神・月経に広く使われます。',
@@ -1775,7 +1784,7 @@ const TSUBO = {
   },
 
   kangenuyu: {
-    name: '関元兪', nameEn: 'Guanyuanshu / BL26',
+    name: '関元兪', nameRuby: 'かんげんゆ', nameEn: 'Guanyuanshu / BL26',
     who: 'BL26',
     location: '腰部、第5腰椎棘突起下縁と同じ高さ、後正中線の外方に1.5寸。',
     locationTip: '💡 腰の一番下の椎骨（第5腰椎）の下縁、背骨から指2本分外側。小腸兪・膀胱兪・中膂兪・白環兪と同じ高さにあります。',
@@ -1784,7 +1793,7 @@ const TSUBO = {
     illus: 'back_pelvis',
   },
   kankoku: {
-    name: '陥谷', nameEn: 'Xiangu / ST43',
+    name: '陥谷', nameRuby: 'かんこく', nameEn: 'Xiangu / ST43',
     who: 'ST43',
     location: '足の甲、第2・第3中足骨の間、第2中足指節関節の近位のくぼみ。',
     locationTip: '💡 足の人差し指と中指のつけ根（第2中足指節関節）から少し足首寄りのくぼみ。浮腫や足背の腫れに効果的です。',
@@ -1793,7 +1802,7 @@ const TSUBO = {
     illus: 'foot_dorsum2',
   },
   kankotsu: {
-    name: '完骨', nameEn: 'Wangu / GB12',
+    name: '完骨', nameRuby: 'かんこつ', nameEn: 'Wangu / GB12',
     who: 'GB12',
     location: '前頸部、乳様突起の後下方にあるくぼみ。',
     locationTip: '💡 耳の後ろの骨（乳様突起）の後ろ下のくぼみ。頭痛・耳鳴り・不眠の特効穴です。',
@@ -1803,7 +1812,7 @@ const TSUBO = {
   },
 
   katsunikumon: {
-    name: '滑肉門', nameEn: 'Huaroumen / ST24',
+    name: '滑肉門', nameRuby: 'かつにくもん', nameEn: 'Huaroumen / ST24',
     who: 'ST24',
     location: '上腹部、へその中央から上方に1寸、前正中線から外方に2寸。',
     locationTip: '💡 おへそから指1本分上、正中から指3本分外側。水分（臍上1寸正中）と同じ高さの外側にあります。',
@@ -1812,7 +1821,7 @@ const TSUBO = {
     illus: 'abd_upper2',
   },
   karyo: {
-    name: '禾髎', nameEn: 'Heliao / LI19',
+    name: '禾髎', nameRuby: 'かりょう', nameEn: 'Heliao / LI19',
     who: 'LI19',
     location: '顔面部、人中溝中点と同じ高さ、鼻孔外縁の下方。水溝の外側0.5寸。',
     locationTip: '💡 小鼻の外縁のすぐ下、人中（水溝）から外側0.5寸。鼻の通りをよくします。',
@@ -1821,7 +1830,7 @@ const TSUBO = {
     illus: 'face_nose',
   },
   ganen: {
-    name: '顳厭', nameEn: "Hanyan / GB4",
+    name: '顳厭', nameRuby: 'がんえん', nameEn: "Hanyan / GB4",
     who: 'GB4',
     location: '頭部、頭維と曲鬢を結ぶ（側頭の髪際に沿った）曲線上、頭維から1/4。',
     locationTip: '💡 こめかみ上部、頭維（前髪際の角）と曲鬢（耳前の髪際）を結ぶ弧の頭維寄り1/4の位置。',
@@ -1831,7 +1840,7 @@ const TSUBO = {
   },
 
   kagai: {
-    name: '華蓋', nameEn: 'Huagai / CV20',
+    name: '華蓋', nameRuby: 'かがい', nameEn: 'Huagai / CV20',
     who: 'CV20',
     location: '前胸部、前正中線上で第1肋間と同じ高さ。',
     locationTip: '💡 胸骨の正中線上、第1肋間の高さ。咳・喘息・胸痛・のどの痛みに使われます。',
@@ -1840,7 +1849,7 @@ const TSUBO = {
     illus: 'chest_mid',
   },
   kakukan: {
-    name: '膈関', nameEn: 'Geguan / BL46',
+    name: '膈関', nameRuby: 'かくかん', nameEn: 'Geguan / BL46',
     who: 'BL46',
     location: '上背部、第7胸椎棘突起下縁と同じ高さ、後正中線から外方に3寸。膈関・膈兪・至陽は第7胸椎棘突起下と同じ高さにある。',
     locationTip: '💡 肩甲骨の下端と同じ高さで背骨から指4本分外側。膈兪・至陽と同じ高さにあります。',
@@ -1849,7 +1858,7 @@ const TSUBO = {
     illus: 'back_mid2',
   },
   kakuson: {
-    name: '角孫', nameEn: 'Jiaosun / TE20',
+    name: '角孫', nameRuby: 'かくそん', nameEn: 'Jiaosun / TE20',
     who: 'TE20',
     location: '頭部、耳尖のあたるところ。',
     locationTip: '💡 耳を前に折ったとき耳の先端が当たる部分の真上、髪の生え際。視力回復・目のかすみに効果的です。',
@@ -1858,7 +1867,7 @@ const TSUBO = {
     illus: 'head_temple',
   },
   kakuyu: {
-    name: '膈兪', nameEn: 'Geshu / BL17',
+    name: '膈兪', nameRuby: 'かくゆ', nameEn: 'Geshu / BL17',
     who: 'BL17',
     location: '上背部、第7胸椎棘突起下縁と同じ高さ、後正中線から外方に1.5寸。',
     locationTip: '💡 肩甲骨の下端と同じ高さ、背骨から指2本分外側。八会穴の「血会」として各種出血・血の病に広く使われます。',
@@ -1868,7 +1877,7 @@ const TSUBO = {
   },
 
   gaikan: {
-    name: '外関', nameEn: 'Waiguan / TE5',
+    name: '外関', nameRuby: 'がいかん', nameEn: 'Waiguan / TE5',
     who: 'TE5',
     location: '前腕の後面、橈骨と尺骨の骨間の中点、手関節の背側横紋から上方に2寸。',
     locationTip: '💡 手首の背側横紋から指3本分上、橈骨と尺骨のちょうど中間。耳の聞こえや視力にも使われる万能ツボです。',
@@ -1877,7 +1886,7 @@ const TSUBO = {
     illus: 'wrist_back',
   },
   gaikyu: {
-    name: '外丘', nameEn: 'Waiqiu / GB36',
+    name: '外丘', nameRuby: 'がいきゅう', nameEn: 'Waiqiu / GB36',
     who: 'GB36',
     location: 'すねの外側、腓骨の前方、外果尖の上方7寸。外果尖と膝窩横紋外端を結ぶ線上の中点の下方1寸で、陽交の前方にある。',
     locationTip: '💡 外くるぶしの先端から指9本分上、腓骨の前縁。陽交のすぐ前側にあります。',
@@ -1886,7 +1895,7 @@ const TSUBO = {
     illus: 'leg_outer2',
   },
   kaikei: {
-    name: '解渓', nameEn: 'Jiexi / ST41',
+    name: '解渓', nameRuby: 'かいけい', nameEn: 'Jiexi / ST41',
     who: 'ST41',
     location: '足関節の前面、足関節前面中央のくぼみ、長母指伸筋腱と長指伸筋腱の間。',
     locationTip: '💡 足首の前面の横ジワの中央のくぼみ、2本の腱の間。胃の気を下降させ精神を安定させる効果があります。',
@@ -1895,7 +1904,7 @@ const TSUBO = {
     illus: 'ankle_front',
   },
   gairyo: {
-    name: '外陵', nameEn: 'Wailing / ST26',
+    name: '外陵', nameRuby: 'がいりょう', nameEn: 'Wailing / ST26',
     who: 'ST26',
     location: '下腹部、へその中央から下方に1寸、前正中線から外方に2寸。',
     locationTip: '💡 おへそから指1本分下、正中から指3本分外側。陰交と同じ高さで外側にあります。',
@@ -1905,7 +1914,7 @@ const TSUBO = {
   },
 
   eneki: {
-    name: '淵腋', nameEn: 'Yuanye / GB22',
+    name: '淵腋', nameRuby: 'えんえき', nameEn: 'Yuanye / GB22',
     who: 'GB22',
     location: '側胸部、第4肋間、中腋窩線上。',
     locationTip: '💡 腕を上げたときの脇の中央線（中腋窩線）上、第4肋間。胸脇の痛みや上腕痛に使われます。',
@@ -1914,7 +1923,7 @@ const TSUBO = {
     illus: 'chest_side',
   },
   oukotsu: {
-    name: '横骨', nameEn: 'Henggu / KI11',
+    name: '横骨', nameRuby: 'おうこつ', nameEn: 'Henggu / KI11',
     who: 'KI11',
     location: '下腹部、へその中央から下方に5寸、前正中線の外方に0.5寸。',
     locationTip: '💡 恥骨の上縁の高さ（臍から指6本分下）、正中からわずか外側（0.5寸）。泌尿器・生殖器系の特効穴です。',
@@ -1923,7 +1932,7 @@ const TSUBO = {
     illus: 'lower_abd',
   },
   okuei: {
-    name: '屋翳', nameEn: 'Wuyi / ST15',
+    name: '屋翳', nameRuby: 'おくえい', nameEn: 'Wuyi / ST15',
     who: 'ST15',
     location: '前胸部、第2肋間、前正中線の外方4寸。',
     locationTip: '💡 第2肋間で正中から指5本分外側。乳房・胸部の症状や皮膚のかゆみに使われます。',
@@ -1932,7 +1941,7 @@ const TSUBO = {
     illus: 'back_upper2',
   },
   onru: {
-    name: '温溜', nameEn: 'Wenliu / LI7',
+    name: '温溜', nameRuby: 'おんる', nameEn: 'Wenliu / LI7',
     who: 'LI7',
     location: '前腕の後外側、陽渓と曲池を結ぶ線上で、手関節の背側横紋の上方5寸。',
     locationTip: '💡 手首（陽渓）と肘（曲池）を結ぶ線の、手首から5寸上。偏歴の上方にあります。',
@@ -1942,7 +1951,7 @@ const TSUBO = {
   },
 
   ein: {
-    name: '会陰', nameEn: 'Huiyin / CV1',
+    name: '会陰', nameRuby: 'えいん', nameEn: 'Huiyin / CV1',
     who: 'CV1',
     location: '会陰部で、男性は陰嚢根部と肛門を結ぶ線の中点、女性は後陰唇交連と肛門を結ぶ線の中点。',
     locationTip: '💡 会陰部の中央、肛門と性器の間の中点。円皮鍼では通常使用しにくい部位のため、専門家の指導のもとで使用します。',
@@ -1951,7 +1960,7 @@ const TSUBO = {
     illus: 'perineum',
   },
   ekimon: {
-    name: '液門', nameEn: 'Yemen / TE2',
+    name: '液門', nameRuby: 'えきもん', nameEn: 'Yemen / TE2',
     who: 'TE2',
     location: '手背、薬指と小指の間で、みずかきの上方のくぼみ、赤白肉際。',
     locationTip: '💡 手の甲側、薬指と小指の間のみずかき上のくぼみ、肌色が変わる境目（赤白肉際）。熱を冷まし耳の聞こえをよくします。',
@@ -1960,7 +1969,7 @@ const TSUBO = {
     illus: 'hand_dorsum',
   },
   esou: {
-    name: '会宗', nameEn: 'Huizong / TE7',
+    name: '会宗', nameRuby: 'えそう', nameEn: 'Huizong / TE7',
     who: 'TE7',
     location: '前腕の後面、尺骨の橈側縁、手関節の背側横紋から上に3寸。支溝の尺側にある。',
     locationTip: '💡 手首の背側横紋から指4本分上、支溝のすぐ小指側（尺骨の橈側縁）。耳の症状・てんかんに使われます。',
@@ -1969,7 +1978,7 @@ const TSUBO = {
     illus: 'forearm_back',
   },
   eyou: {
-    name: '会陽', nameEn: 'Huiyang / BL35',
+    name: '会陽', nameRuby: 'えよう', nameEn: 'Huiyang / BL35',
     who: 'BL35',
     location: '臀部、尾骨の下端から外方に0.5寸。伏臥位で取穴。尾骨下端の外方のくぼみにある。',
     locationTip: '💡 うつ伏せで、尾骨（おしりの骨の先端）から左右0.5寸外側のくぼみ。痔疾や陰部症状に使われます。',
@@ -1979,7 +1988,7 @@ const TSUBO = {
   },
 
   inryousen: {
-    name: '陰陵泉', nameEn: 'Yinlingquan / SP9',
+    name: '陰陵泉', nameRuby: 'いんりょうせん', nameEn: 'Yinlingquan / SP9',
     who: 'SP9',
     location: 'すねの内側、脛骨内側顆下縁と脛骨内縁が接するくぼみ。',
     locationTip: '💡 膝の内側の丸い骨（脛骨内側顆）のすぐ下、すねの骨の内側縁に触れるくぼみ。むくみや排尿障害の特効穴です。',
@@ -1988,7 +1997,7 @@ const TSUBO = {
     illus: 'leg_inner2',
   },
   inren: {
-    name: '陰廉', nameEn: 'Yinlian / LR11',
+    name: '陰廉', nameRuby: 'いんれん', nameEn: 'Yinlian / LR11',
     who: 'LR11',
     location: '大腿部の内側、気衝から外下方に2寸。',
     locationTip: '💡 鼠径部の気衝（恥骨結合上縁・正中から2寸外側）から外下方に指3本分。足五里のすぐ上にあります。',
@@ -1997,7 +2006,7 @@ const TSUBO = {
     illus: 'leg_groin2',
   },
   unmon: {
-    name: '雲門', nameEn: 'Yunmen / LU2',
+    name: '雲門', nameRuby: 'うんもん', nameEn: 'Yunmen / LU2',
     who: 'LU2',
     location: '前胸部、鎖骨下窩のくぼみ、烏口突起の内側、前正中線から外方に6寸。',
     locationTip: '💡 鎖骨の下のくぼみの外側、肩の前の骨（烏口突起）の内側。肩を動かすと見つけやすいです。',
@@ -2006,7 +2015,7 @@ const TSUBO = {
     illus: 'chest_upper',
   },
   eifu: {
-    name: '翳風', nameEn: 'Yifeng / TE17',
+    name: '翳風', nameRuby: 'えいふう', nameEn: 'Yifeng / TE17',
     who: 'TE17',
     location: '前頸部、耳たぶの後方、乳様突起下端前方のくぼみ。',
     locationTip: '💡 耳たぶのすぐ後ろ、耳の後ろの骨（乳様突起）の下端前方のくぼみ。耳鳴りや顔面麻痺の特効穴です。',
@@ -2016,7 +2025,7 @@ const TSUBO = {
   },
 
   into: {
-    name: '陰都', nameEn: 'Yindu / KI19',
+    name: '陰都', nameRuby: 'いんと', nameEn: 'Yindu / KI19',
     who: 'KI19',
     location: '上腹部、へそ中央から上方に4寸、前正中線から外方に0.5寸。',
     locationTip: '💡 おへそから指5本分上、正中からわずか外側（0.5寸）。腹通谷のすぐ下にあります。',
@@ -2025,7 +2034,7 @@ const TSUBO = {
     illus: 'abdomen_front',
   },
   inpaku: {
-    name: '隠白', nameEn: 'Yinbai / SP1',
+    name: '隠白', nameRuby: 'いんぱく', nameEn: 'Yinbai / SP1',
     who: 'SP1',
     location: '足の第1指の末節骨内側、爪甲角の近位内方0.1寸（指寸）。爪甲内側縁の垂線と爪甲基底部の水平線の交点。',
     locationTip: '💡 足の親指の内側、爪の生え際の角からごくわずか（0.1寸）内側。不正出血・月経痛の特効穴です。',
@@ -2034,7 +2043,7 @@ const TSUBO = {
     illus: 'toe_medial',
   },
   inpou: {
-    name: '陰包', nameEn: 'Yinbao / LR9',
+    name: '陰包', nameRuby: 'いんぽう', nameEn: 'Yinbao / LR9',
     who: 'LR9',
     location: '大腿部の内側で薄筋と縫工筋の間、膝蓋骨底から上方に4寸。股関節をやや屈曲・外転させ筋を緊張させると縫工筋がより明確になる。縫工筋の後方にある。',
     locationTip: '💡 膝の内側上端から指5本分上、大腿内側の縫工筋と薄筋の間。股を少し開いて押すと見つけやすいです。',
@@ -2043,7 +2052,7 @@ const TSUBO = {
     illus: 'thigh_inner',
   },
   inmon: {
-    name: '殷門', nameEn: 'Yinmen / BL37',
+    name: '殷門', nameRuby: 'いんもん', nameEn: 'Yinmen / BL37',
     who: 'BL37',
     location: '大腿部の後面、大腿二頭筋と半腱様筋の間で殷溝から下方に6寸。承扶と委中を結ぶ線の中点から上に1寸。',
     locationTip: '💡 お尻の下のシワ（承扶）と膝裏（委中）の中点より1寸上。大腿後面の筋肉の間を押してみてください。',
@@ -2053,7 +2062,7 @@ const TSUBO = {
   },
 
   idou: {
-    name: '維道', nameEn: 'Weidao / GB28',
+    name: '維道', nameRuby: 'いどう', nameEn: 'Weidao / GB28',
     who: 'GB28',
     location: '下腹部、上前腸骨棘の内下方0.5寸。五枢の内下方0.5寸にある。',
     locationTip: '💡 骨盤前面の出っ張り（上前腸骨棘）から内側下方0.5寸。五枢のすぐ下内側です。',
@@ -2062,7 +2071,7 @@ const TSUBO = {
     illus: 'hip_lateral',
   },
   iyu: {
-    name: '胃兪', nameEn: 'Weishu / BL21',
+    name: '胃兪', nameRuby: 'いゆ', nameEn: 'Weishu / BL21',
     who: 'BL21',
     location: '上背部、第12胸椎棘突起の下縁と同じ高さで、後正中線から外側に1.5寸。',
     locationTip: '💡 背中の下部、背骨から指2本分外側。胃の不調に広く使われる代表的な背部兪穴です。',
@@ -2071,7 +2080,7 @@ const TSUBO = {
     illus: 'back_lumbar',
   },
   iyou: {
-    name: '委陽', nameEn: 'Weiyang / BL39',
+    name: '委陽', nameRuby: 'いよう', nameEn: 'Weiyang / BL39',
     who: 'BL39',
     location: '膝の後外側、大腿二頭筋腱の内縁で、膝窩横紋上。',
     locationTip: '💡 膝の裏の横ジワ上、外側の腱（大腿二頭筋腱）のすぐ内側。委中より外側にあります。',
@@ -2081,7 +2090,7 @@ const TSUBO = {
   },
 
   iki: {
-    name: '譩譆', nameEn: 'Yixi / BL45',
+    name: '譩譆', nameRuby: 'いき', nameEn: 'Yixi / BL45',
     who: 'BL45',
     location: '上背部、第6胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。',
     locationTip: '💡 肩甲骨の内側下部、背骨から指4本分外側。押すと思わず声が出るほど響く部位です（譩譆＝声を出す意）。',
@@ -2090,7 +2099,7 @@ const TSUBO = {
     illus: 'back_shoulder',
   },
   ikuchuu: {
-    name: '或中', nameEn: 'Yuzhong / KI26',
+    name: '或中', nameRuby: 'わくちゅう', nameEn: 'Yuzhong / KI26',
     who: 'KI26',
     location: '前胸部、第1肋間で、前正中線から外側に2寸。',
     locationTip: '💡 鎖骨のすぐ下の第1肋間、胸骨から指3本分外側。胸のつかえや咳に効果的です。',
@@ -2099,7 +2108,7 @@ const TSUBO = {
     illus: 'chest_front',
   },
   isha: {
-    name: '意舎', nameEn: 'Yishe / BL49',
+    name: '意舎', nameRuby: 'いしゃ', nameEn: 'Yishe / BL49',
     who: 'BL49',
     location: '上背部、第11胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。脾俞・脊中と同じ高さ。',
     locationTip: '💡 背中の中央やや下、背骨から指4本分外側。脾俞と同じ高さにあります。',
@@ -2108,7 +2117,7 @@ const TSUBO = {
     illus: 'back_mid',
   },
   isou: {
-    name: '胃倉', nameEn: 'Weicang / BL50',
+    name: '胃倉', nameRuby: 'いそう', nameEn: 'Weicang / BL50',
     who: 'BL50',
     location: '上背部、第12胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。胃兪と同じ高さ。',
     locationTip: '💡 意舎のすぐ下、背骨から指4本分外側。胃兪と同じ高さにある胃の背部反応点です。',
@@ -2118,7 +2127,7 @@ const TSUBO = {
   },
 
   ashirinkyuu: {
-    name: '足臨泣', nameEn: 'Zulinqi / GB41',
+    name: '足臨泣', nameRuby: 'あしりんきゅう', nameEn: 'Zulinqi / GB41',
     who: 'GB41',
     location: '足の甲、第4中足骨底と第5中足骨底の接合部の遠位、第5指の長指伸筋腱の外側のくぼみ。',
     locationTip: '💡 足の薬指と小指の間を足首方向になぞり、骨がぶつかる少し手前の長指伸筋腱の外側のくぼみを押してみてください。',
@@ -2127,7 +2136,7 @@ const TSUBO = {
     illus: 'foot_dorsum',
   },
   atamakyouin: {
-    name: '頭竅陰', nameEn: 'Touqiaoyin / GB11',
+    name: '頭竅陰', nameRuby: 'あたまきょういん', nameEn: 'Touqiaoyin / GB11',
     who: 'GB11',
     location: '頭部の乳様突起の後上方、天衝と完骨を結ぶ耳の輪郭に沿った曲線上で天衝から2/3のところ。',
     locationTip: '💡 耳の後ろの出っ張り（乳様突起）の後上方。天衝（耳の上後方）と完骨（耳後下方）を結ぶ線の上から2/3の位置。',
@@ -2136,7 +2145,7 @@ const TSUBO = {
     illus: 'head_side',
   },
   atamarinkyuu: {
-    name: '頭臨泣', nameEn: 'Toulinqi / GB15',
+    name: '頭臨泣', nameRuby: 'あたまりんきゅう', nameEn: 'Toulinqi / GB15',
     who: 'GB15',
     location: '頭部の前髪際から上に0.5寸、瞳孔線上。正視して瞳孔中央の上方、神庭と頭維を結ぶ前髪際に沿った線上の中点。',
     locationTip: '💡 おでこの生え際から指半本分上、正面を向いたときの瞳孔の延長線上。神庭（正中）と頭維（こめかみ）のちょうど中間です。',
@@ -2145,7 +2154,7 @@ const TSUBO = {
     illus: 'head_front',
   },
   amon: {
-    name: '瘂門', nameEn: 'Yamen / GV15',
+    name: '瘂門', nameRuby: 'あもん', nameEn: 'Yamen / GV15',
     who: 'GV15',
     location: '後頭部の後正中線上、第2頸椎棘突起の上にあるくぼみ。風府から下に0.5寸。',
     locationTip: '💡 後頭部の髪の生え際の真ん中から少し下、首の付け根の正中のくぼみ。風府のすぐ下。深く刺激しすぎないよう注意してください。',
@@ -2155,7 +2164,7 @@ const TSUBO = {
   },
 
   ashigoori: {
-    name: '足五里', nameEn: 'Zuwuli / LR10',
+    name: '足五里', nameRuby: 'あしごり', nameEn: 'Zuwuli / LR10',
     who: 'LR10',
     location: '大腿部内側、気衝（恥骨結合上縁の高さで正中から2寸外側）から下へ3寸の動脈拍動部。',
     locationTip: '💡 鼠径部の少し下、内腿のつけ根で動脈の拍動を感じる場所。押す際は強く押しすぎないよう注意してください。',
@@ -2164,7 +2173,7 @@ const TSUBO = {
     illus: 'leg_groin',
   },
   ashitsukoku: {
-    name: '足通谷', nameEn: 'Zutonggu / BL66',
+    name: '足通谷', nameRuby: 'あしつうこく', nameEn: 'Zutonggu / BL66',
     who: 'BL66',
     location: '足の第5中足指節関節（小趾のつけ根）の遠位外側のくぼみ、赤白肉際。',
     locationTip: '💡 小趾のつけ根の関節より少し指先側、外側のくぼみ（肌の色が変わる境目）を押してみてください。',
@@ -2671,7 +2680,7 @@ function goToStep3() {
       <div class="tsubo-check">✓</div>
       <div class="tsubo-header">
         <div class="tsubo-label">おすすめ ツボ ${i+1}</div>
-        <div class="tsubo-name-ja">${t.name}</div>
+        <div class="tsubo-name-ja">${t.nameRuby ? `<ruby>${t.name}<rt>${t.nameRuby}</rt></ruby>` : t.name}</div>
         <div class="tsubo-name-en">${t.nameEn}</div>
       </div>
       <div class="tsubo-body">
@@ -2746,7 +2755,7 @@ function printSheet() {
       <div style="border:1px solid #c8b89a; border-radius:10px; padding:14px 16px; margin-bottom:12px; page-break-inside:avoid;">
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:8px;">
           <span style="background:#8b4513; color:white; font-size:11px; padding:2px 8px; border-radius:20px; white-space:nowrap;">ツボ ${i+1}</span>
-          <span style="font-size:20px; font-weight:700; color:#1a1a2e; font-family:'Noto Serif JP',serif;">${t.name}</span>
+          <span style="font-size:20px; font-weight:700; color:#1a1a2e; font-family:'Noto Serif JP',serif;">${t.nameRuby ? `<ruby>${t.name}<rt style="font-size:10px;">${t.nameRuby}</rt></ruby>` : t.name}</span>
           <span style="font-size:11px; color:#888; font-style:italic;">${t.nameEn}</span>
         </div>
         <div style="background:#faf0e6; border-radius:8px; padding:10px 12px; margin-bottom:8px;">
