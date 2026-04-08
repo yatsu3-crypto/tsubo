@@ -238,15 +238,13 @@
     opacity: 0.85;
     margin-bottom: 4px;
   }
-  .tsubo-name-ja ruby { display: inline; }
+  
   .tsubo-name-ja rt {
     font-size: 11px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    letter-spacing: 0.05em;
     color: rgba(255,255,255,0.85);
   }
-
   .tsubo-name-ja {
     font-family: 'Noto Serif JP', serif;
     font-size: 26px;
@@ -1099,7 +1097,7 @@ const SYMPTOMS = {
 // Tsubo dictionary
 const TSUBO = {
   fuchi: {
-    name: '風池', nameRuby: `<ruby>風<rt>ふう</rt></ruby><ruby>池<rt>ち</rt></ruby>`, nameEn: 'Fengchi / GB20',
+    name: '風池', nameRuby: "<ruby>風<rt>ふう</rt></ruby><ruby>池<rt>ち</rt></ruby>", nameEn: 'Fengchi / GB20',
     who: 'GB20',
     location: '後頭部の髪の生え際、首の太い筋（僧帽筋）の外側のくぼみ。頭を傾けると見つけやすい。',
     locationTip: '💡 両手の親指を頭の後ろに回し、後頭部の骨の下のくぼみを押してみてください。',
@@ -1108,7 +1106,7 @@ const TSUBO = {
     illus: 'back_head',
   },
   tousei: {
-    name: '通天', nameRuby: `<ruby>通<rt>つう</rt></ruby><ruby>天<rt>てん</rt></ruby>`, nameEn: 'Tongtian / BL7',
+    name: '通天', nameRuby: "<ruby>通<rt>つう</rt></ruby><ruby>天<rt>てん</rt></ruby>", nameEn: 'Tongtian / BL7',
     who: 'BL7',
     location: '頭頂部から少し前方、左右それぞれ頭の中心線から1.5寸外側。',
     locationTip: '💡 頭頂部の少し前、真ん中から指2本分外側あたり。',
@@ -1117,7 +1115,7 @@ const TSUBO = {
     illus: 'top_head',
   },
   hyakue: {
-    name: '百会', nameRuby: `<ruby>百<rt>ひゃく</rt></ruby><ruby>会<rt>え</rt></ruby>`, nameEn: 'Baihui / GV20',
+    name: '百会', nameRuby: "<ruby>百<rt>ひゃく</rt></ruby><ruby>会<rt>え</rt></ruby>", nameEn: 'Baihui / GV20',
     who: 'GV20',
     location: '頭頂部のほぼ中央。両耳を結んだ線の真ん中、前髪の生え際から7寸の場所。',
     locationTip: '💡 頭の一番高い部分。両耳の上端を直線で結んだちょうど真ん中あたりです。',
@@ -1126,7 +1124,7 @@ const TSUBO = {
     illus: 'top_head',
   },
   goukoku: {
-    name: '合谷', nameRuby: `<ruby>合<rt>ごう</rt></ruby><ruby>谷<rt>こく</rt></ruby>`, nameEn: 'Hegu / LI4',
+    name: '合谷', nameRuby: "<ruby>合<rt>ごう</rt></ruby><ruby>谷<rt>こく</rt></ruby>", nameEn: 'Hegu / LI4',
     who: 'LI4',
     location: '手の甲側、親指と人さし指の骨が合わさる少し手前のくぼみ。人さし指側の骨の際。',
     locationTip: '💡 反対の手の親指を人さし指と親指の間に押し込み、親指先端が当たる部分です。',
@@ -1135,7 +1133,7 @@ const TSUBO = {
     illus: 'hand',
   },
   nadei: {
-    name: '内庭', nameRuby: `<ruby>内<rt>ない</rt></ruby><ruby>庭<rt>てい</rt></ruby>`, nameEn: 'Neiting / ST44',
+    name: '内庭', nameRuby: "<ruby>内<rt>ない</rt></ruby><ruby>庭<rt>てい</rt></ruby>", nameEn: 'Neiting / ST44',
     who: 'ST44',
     location: '足の甲側、第2指（人さし指）と第3指（中指）の間、水かきの少し上。',
     locationTip: '💡 足の人さし指と中指のつけ根（水かき）の少し上の皮膚の上。',
@@ -1144,7 +1142,7 @@ const TSUBO = {
     illus: 'foot',
   },
   taishio: {
-    name: '太衝', nameRuby: `<ruby>太<rt>たい</rt></ruby><ruby>衝<rt>しょう</rt></ruby>`, nameEn: 'Taichong / LR3',
+    name: '太衝', nameRuby: "<ruby>太<rt>たい</rt></ruby><ruby>衝<rt>しょう</rt></ruby>", nameEn: 'Taichong / LR3',
     who: 'LR3',
     location: '足の甲、親指と第2指（人さし指）の骨が合わさる少し手前のくぼみ。',
     locationTip: '💡 足の親指と人さし指の間を、足首方向になぞっていき、骨と骨がぶつかる手前のくぼみ。',
@@ -1153,7 +1151,7 @@ const TSUBO = {
     illus: 'foot',
   },
   kanshi: {
-    name: '肝俞', nameRuby: `<ruby>肝<rt>かん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Ganshu / BL18',
+    name: '肝俞', nameRuby: "<ruby>肝<rt>かん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '背中側、第9胸椎棘突起の下のくぼみから左右に1.5寸外側。',
     locationTip: '💡 背中の真ん中あたり（肩甲骨の下端の高さより少し下）から両側に指2本分外側。',
@@ -1162,7 +1160,7 @@ const TSUBO = {
     illus: 'back',
   },
   sanneiko: {
-    name: '三陰交', nameRuby: `<ruby>三<rt>さん</rt></ruby><ruby>陰<rt>いん</rt></ruby><ruby>交<rt>こう</rt></ruby>`, nameEn: 'Sanyinjiao / SP6',
+    name: '三陰交', nameRuby: "<ruby>三<rt>さん</rt></ruby><ruby>陰<rt>いん</rt></ruby><ruby>交<rt>こう</rt></ruby>", nameEn: 'Sanyinjiao / SP6',
     who: 'SP6',
     location: '内くるぶしの一番高い部分から上へ指4本分（3寸）、すねの骨（脛骨）の内側のきわ。',
     locationTip: '💡 内くるぶしから指4本分上に上がったところ、すねの骨の内側を押してみてください。',
@@ -1171,7 +1169,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   kekkai: {
-    name: '血海', nameRuby: `<ruby>血<rt>けっ</rt></ruby><ruby>海<rt>かい</rt></ruby>`, nameEn: 'Xuehai / SP10',
+    name: '血海', nameRuby: "<ruby>血<rt>けっ</rt></ruby><ruby>海<rt>かい</rt></ruby>", nameEn: 'Xuehai / SP10',
     who: 'SP10',
     location: '膝のお皿（膝蓋骨）の内側上端から上へ指3本（2寸）、太ももの内側の筋肉上。',
     locationTip: '💡 膝を曲げて、反対の手で膝頭を覆ったとき、親指の先端が当たる部分です。',
@@ -1180,7 +1178,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   ashisanri: {
-    name: '足三里', nameRuby: `<ruby>足<rt>あし</rt></ruby><ruby>三<rt>さん</rt></ruby><ruby>里<rt>り</rt></ruby>`, nameEn: 'Zusanli / ST36',
+    name: '足三里', nameRuby: "<ruby>足<rt>あし</rt></ruby><ruby>三<rt>さん</rt></ruby><ruby>里<rt>り</rt></ruby>", nameEn: 'Zusanli / ST36',
     who: 'ST36',
     location: 'すねの前面、膝のお皿（膝蓋骨）の下端から指4本（3寸）下の前脛骨筋上。',
     locationTip: '💡 膝の下の丸いくぼみ（犢鼻）から指4本分下。すねの骨の外側の際を押すと少し響く感覚があります。',
@@ -1189,7 +1187,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   kikai: {
-    name: '気海', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>海<rt>かい</rt></ruby>`, nameEn: 'Qihai / CV6',
+    name: '気海', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>海<rt>かい</rt></ruby>", nameEn: 'Qihai / CV6',
     who: 'CV6',
     location: '下腹部、前正中線上でへその中央から下に1.5寸。',
     locationTip: '💡 おへそから指2本分下の正中線上。陽の気を補い元気を増やす重要穴。冷えや月経トラブルに広く使われます。',
@@ -1198,7 +1196,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   kangen: {
-    name: '関元', nameRuby: `<ruby>関<rt>かん</rt></ruby><ruby>元<rt>げん</rt></ruby>`, nameEn: 'Guanyuan / CV4',
+    name: '関元', nameRuby: "<ruby>関<rt>かん</rt></ruby><ruby>元<rt>げん</rt></ruby>", nameEn: 'Guanyuan / CV4',
     who: 'CV4',
     location: '下腹部、前正中線上、へその中央から下方に3寸。',
     locationTip: '💡 おへそから指4本分下のところ。元気を養い補う万能ツボ。冷えやすい方はここを温めるだけでも効果的です。',
@@ -1207,7 +1205,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   shinmon: {
-    name: '神門', nameRuby: `<ruby>神<rt>しん</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Shenmen / HT7',
+    name: '神門', nameRuby: "<ruby>神<rt>しん</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Shenmen / HT7',
     who: 'HT7',
     location: '手首の内側、小指側の腱の内側（尺側）のくぼみ。手首の横じわの上。',
     locationTip: '💡 手首の内側の横ジワの上、小指側の腱（ぴんと張った腱）の内側のくぼみです。',
@@ -1216,7 +1214,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   shinsho: {
-    name: '心俞', nameRuby: `<ruby>心<rt>しん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Xinshu / BL15',
+    name: '心俞', nameRuby: "<ruby>心<rt>しん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Xinshu / BL15',
     who: 'BL15',
     location: '背中側、第5胸椎棘突起の下から左右1.5寸外側。肩甲骨の内側上部あたり。',
     locationTip: '💡 背骨の上部から数えて第5番目の椎骨の下、背骨から指2本分外側。',
@@ -1225,7 +1223,7 @@ const TSUBO = {
     illus: 'back',
   },
   shintei: {
-    name: '神庭', nameRuby: `<ruby>神<rt>しん</rt></ruby><ruby>庭<rt>てい</rt></ruby>`, nameEn: 'Shenting / GV24',
+    name: '神庭', nameRuby: "<ruby>神<rt>しん</rt></ruby><ruby>庭<rt>てい</rt></ruby>", nameEn: 'Shenting / GV24',
     who: 'GV24',
     location: '前髪の生え際の真ん中（正中線上）から上へ0.5寸のところ。',
     locationTip: '💡 おでこの生え際のちょうど真ん中から、少し上のところです。',
@@ -1234,7 +1232,7 @@ const TSUBO = {
     illus: 'face',
   },
   tammon: {
-    name: '胆俞', nameRuby: `<ruby>胆<rt>たん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Danshu / BL19',
+    name: '胆俞', nameRuby: "<ruby>胆<rt>たん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Danshu / BL19',
     who: 'BL19',
     location: '背中側、第10胸椎棘突起の下から左右1.5寸外側。',
     locationTip: '💡 肝俞（背中の真ん中やや下）のすぐ下の位置。',
@@ -1243,7 +1241,7 @@ const TSUBO = {
     illus: 'back',
   },
   shokai: {
-    name: '照海', nameRuby: `<ruby>照<rt>しょう</rt></ruby><ruby>海<rt>かい</rt></ruby>`, nameEn: 'Zhaohai / KI6',
+    name: '照海', nameRuby: "<ruby>照<rt>しょう</rt></ruby><ruby>海<rt>かい</rt></ruby>", nameEn: 'Zhaohai / KI6',
     who: 'KI6',
     location: '内くるぶしの直下、くぼみのところ。',
     locationTip: '💡 内くるぶしのとがった部分のすぐ下のくぼみを押してみてください。',
@@ -1252,7 +1250,7 @@ const TSUBO = {
     illus: 'foot',
   },
   jinsho: {
-    name: '腎俞', nameRuby: `<ruby>腎<rt>じん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Shenshu / BL23',
+    name: '腎俞', nameRuby: "<ruby>腎<rt>じん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Shenshu / BL23',
     who: 'BL23',
     location: '腰部、第2腰椎棘突起の下から左右1.5寸外側（ウエストの高さあたり）。',
     locationTip: '💡 腰の中心（ウエスト）の高さで、背骨の両側に指2本分外側。じーんとする部位です。',
@@ -1261,7 +1259,7 @@ const TSUBO = {
     illus: 'back',
   },
   keni: {
-    name: '肩井', nameRuby: `<ruby>肩<rt>けん</rt></ruby><ruby>井<rt>せい</rt></ruby>`, nameEn: 'Jianjing / GB21',
+    name: '肩井', nameRuby: "<ruby>肩<rt>けん</rt></ruby><ruby>井<rt>せい</rt></ruby>", nameEn: 'Jianjing / GB21',
     who: 'GB21',
     location: '肩の一番高いところ。大椎（首の付け根）と肩先の中間点。',
     locationTip: '💡 首の付け根と肩の先端のちょうど中間あたり。押すと気持ちのいい張りを感じる部位。',
@@ -1270,7 +1268,7 @@ const TSUBO = {
     illus: 'shoulder',
   },
   tensho: {
-    name: '天髎', nameRuby: `<ruby>天<rt>てん</rt></ruby><ruby>髎<rt>りょう</rt></ruby>`, nameEn: 'Tianliao / TE15',
+    name: '天髎', nameRuby: "<ruby>天<rt>てん</rt></ruby><ruby>髎<rt>りょう</rt></ruby>", nameEn: 'Tianliao / TE15',
     who: 'TE15',
     location: '肩甲骨の上角部分から上のくぼみ（肩井の内側下方）。',
     locationTip: '💡 肩甲骨の上の角あたりを押すと、肩こりの中心にあたることが多い部位です。',
@@ -1279,7 +1277,7 @@ const TSUBO = {
     illus: 'back',
   },
   koukei: {
-    name: '後渓', nameRuby: `<ruby>後<rt>こう</rt></ruby><ruby>渓<rt>けい</rt></ruby>`, nameEn: 'Houxi / SI3',
+    name: '後渓', nameRuby: "<ruby>後<rt>こう</rt></ruby><ruby>渓<rt>けい</rt></ruby>", nameEn: 'Houxi / SI3',
     who: 'SI3',
     location: '手を握ったとき小指の下にできる長いシワの先端（外側）。',
     locationTip: '💡 軽く手を握ったとき、小指の下のふくらみの外側の端を押してみてください。',
@@ -1288,7 +1286,7 @@ const TSUBO = {
     illus: 'hand',
   },
   kuchii: {
-    name: '曲池', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>池<rt>ち</rt></ruby>`, nameEn: 'Quchi / LI11',
+    name: '曲池', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>池<rt>ち</rt></ruby>", nameEn: 'Quchi / LI11',
     who: 'LI11',
     location: '肘を曲げたときにできる肘の横シワの外側端。',
     locationTip: '💡 肘を90度に曲げると、肘の外側に横シワができます。そのシワの一番外側の端です。',
@@ -1297,7 +1295,7 @@ const TSUBO = {
     illus: 'arm',
   },
   kenchiku: {
-    name: '間使', nameRuby: `<ruby>間<rt>かん</rt></ruby><ruby>使<rt>し</rt></ruby>`, nameEn: 'Jianshi / PC5',
+    name: '間使', nameRuby: "<ruby>間<rt>かん</rt></ruby><ruby>使<rt>し</rt></ruby>", nameEn: 'Jianshi / PC5',
     who: 'PC5',
     location: '前腕の前面、長掌筋腱と橈側手根屈筋腱の間で、手関節の掌側横紋から上に3寸。',
     locationTip: '💡 手首の内側横ジワから指4本分上、2本の腱の間。精神を安定させ気の巡りを改善する重要穴です。',
@@ -1306,7 +1304,7 @@ const TSUBO = {
     illus: 'arm',
   },
   naikan: {
-    name: '内関', nameRuby: `<ruby>内<rt>ない</rt></ruby><ruby>関<rt>かん</rt></ruby>`, nameEn: 'Neiguan / PC6',
+    name: '内関', nameRuby: "<ruby>内<rt>ない</rt></ruby><ruby>関<rt>かん</rt></ruby>", nameEn: 'Neiguan / PC6',
     who: 'PC6',
     location: '前腕の内側、手首の横ジワから上へ指3本（2寸）。2本の腱の間（間使と同じ高さ付近）。',
     locationTip: '💡 手首から指3本（2寸）上、2本の腱の間。乗り物酔いにも有名なツボです。',
@@ -1315,7 +1313,7 @@ const TSUBO = {
     illus: 'arm',
   },
   ryokyu: {
-    name: '梁丘', nameRuby: `<ruby>梁<rt>りょう</rt></ruby><ruby>丘<rt>きゅう</rt></ruby>`, nameEn: 'Liangqiu / ST34',
+    name: '梁丘', nameRuby: "<ruby>梁<rt>りょう</rt></ruby><ruby>丘<rt>きゅう</rt></ruby>", nameEn: 'Liangqiu / ST34',
     who: 'ST34',
     location: '膝のお皿（膝蓋骨）の外上端から指2本（2寸）上、太ももの前外側。',
     locationTip: '💡 膝のお皿の外側の角から、太もも方向に指2本ほど上がったところ。急性の胃痛に有名。',
@@ -1324,7 +1322,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   chukan: {
-    name: '中脘', nameRuby: `<ruby>中<rt>ちゅう</rt></ruby><ruby>脘<rt>かん</rt></ruby>`, nameEn: 'Zhongwan / CV12',
+    name: '中脘', nameRuby: "<ruby>中<rt>ちゅう</rt></ruby><ruby>脘<rt>かん</rt></ruby>", nameEn: 'Zhongwan / CV12',
     who: 'CV12',
     location: 'お腹の正中線上、おへそと胸の骨（剣状突起）の真ん中のところ。',
     locationTip: '💡 みぞおちとおへそのちょうど中間点。胃のすぐ前にあたる部位です。',
@@ -1333,7 +1331,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   meimom: {
-    name: '命門', nameRuby: `<ruby>命<rt>めい</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Mingmen / GV4',
+    name: '命門', nameRuby: "<ruby>命<rt>めい</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Mingmen / GV4',
     who: 'GV4',
     location: '腰部、背骨（第2腰椎）の棘突起の下（腎俞と同じ高さ、背骨の真ん中）。',
     locationTip: '💡 おへその真後ろにある背骨のくぼみ。ここを温めると体全体が温まります。',
@@ -1342,7 +1340,7 @@ const TSUBO = {
     illus: 'back',
   },
   shikyu: {
-    name: '子宮（奇穴）', nameRuby: `<ruby>子<rt>し</rt></ruby><ruby>宮<rt>きゅう</rt></ruby>`, nameEn: 'Zigong / EX-CA1',
+    name: '子宮（奇穴）', nameRuby: "<ruby>子<rt>し</rt></ruby><ruby>宮<rt>きゅう</rt></ruby>", nameEn: 'Zigong / EX-CA1',
     who: 'EX-CA1',
     location: 'おへそから下へ指4本（3寸）（関元の高さ）、そこから左右に指4本（3寸）外側。',
     locationTip: '💡 関元（おへそから指4本下）と同じ高さで、そこから左右に指4本分外側に位置します。',
@@ -1351,7 +1349,7 @@ const TSUBO = {
     illus: 'abdomen',
   },
   chiki: {
-    name: '地機', nameRuby: `<ruby>地<rt>ち</rt></ruby><ruby>機<rt>き</rt></ruby>`, nameEn: 'Diji / SP8',
+    name: '地機', nameRuby: "<ruby>地<rt>ち</rt></ruby><ruby>機<rt>き</rt></ruby>", nameEn: 'Diji / SP8',
     who: 'SP8',
     location: '膝内側（脛骨内側上顆）の下から指3本（3寸）下、脛骨の内側のきわ。',
     locationTip: '💡 膝の内側のでっぱりから指3本分下、すねの骨の内側を押してみてください。',
@@ -1360,7 +1358,7 @@ const TSUBO = {
     illus: 'leg_inner',
   },
   iin: {
-    name: '委中', nameRuby: `<ruby>委<rt>い</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>`, nameEn: 'Weizhong / BL40',
+    name: '委中', nameRuby: "<ruby>委<rt>い</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>", nameEn: 'Weizhong / BL40',
     who: 'BL40',
     location: '膝の後面で、膝窩横紋の中点。',
     locationTip: '💡 膝の裏の横ジワのちょうど真ん中。押すとじーんと響く感覚があります。',
@@ -1369,7 +1367,7 @@ const TSUBO = {
     illus: 'leg_back',
   },
   daichosho: {
-    name: '大腸俞', nameRuby: `<ruby>大<rt>だい</rt></ruby><ruby>腸<rt>ちょう</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Dachangshu / BL25',
+    name: '大腸俞', nameRuby: "<ruby>大<rt>だい</rt></ruby><ruby>腸<rt>ちょう</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Dachangshu / BL25',
     who: 'BL25',
     location: '腰部、第4腰椎棘突起の下から左右1.5寸外側。骨盤の上端（腸骨稜）の高さあたり。',
     locationTip: '💡 骨盤の一番高い部分（腸骨稜）の高さで、背骨から指2本分外側。',
@@ -1378,7 +1376,7 @@ const TSUBO = {
     illus: 'back',
   },
   suiko: {
-    name: '水溝', nameRuby: `<ruby>水<rt>すい</rt></ruby><ruby>溝<rt>こう</rt></ruby>`, nameEn: 'Shuigou / GV26',
+    name: '水溝', nameRuby: "<ruby>水<rt>すい</rt></ruby><ruby>溝<rt>こう</rt></ruby>", nameEn: 'Shuigou / GV26',
     who: 'GV26',
     location: '人中（鼻と上唇の間のくぼんだ溝）の上1/3のところ。',
     locationTip: '💡 鼻の下と上唇の間の縦のくぼみ（人中）の、鼻側の1/3のところ。',
@@ -1387,7 +1385,7 @@ const TSUBO = {
     illus: 'face',
   },
   yoshiro: {
-    name: '養老', nameRuby: `<ruby>養<rt>よう</rt></ruby><ruby>老<rt>ろう</rt></ruby>`, nameEn: 'Yanglao / SI6',
+    name: '養老', nameRuby: "<ruby>養<rt>よう</rt></ruby><ruby>老<rt>ろう</rt></ruby>", nameEn: 'Yanglao / SI6',
     who: 'SI6',
     location: '手首の尺骨茎状突起（手首の小指側の骨の出っ張り）の際のくぼみ。',
     locationTip: '💡 手首の小指側にある丸い骨（尺骨茎状突起）のすぐ際のくぼみ。',
@@ -1396,7 +1394,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   yotsubo: {
-    name: '腰痛点（奇穴）', nameRuby: `<ruby>腰<rt>よう</rt></ruby><ruby>痛<rt>つう</rt></ruby><ruby>点<rt>てん</rt></ruby>`, nameEn: 'Yaotongdian / EX-UE7',
+    name: '腰痛点（奇穴）', nameRuby: "<ruby>腰<rt>よう</rt></ruby><ruby>痛<rt>つう</rt></ruby><ruby>点<rt>てん</rt></ruby>", nameEn: 'Yaotongdian / EX-UE7',
     who: 'EX-UE7',
     location: '手の甲側に2か所。第2・3中手骨間と、第4・5中手骨間の中央（それぞれ）。',
     locationTip: '💡 手の甲の指の付け根と手首の中間あたり、人さし指/中指の間と、薬指/小指の間のそれぞれ中央。',
@@ -1405,7 +1403,7 @@ const TSUBO = {
     illus: 'hand',
   },
   youme: {
-    name: '腰眼（奇穴）', nameRuby: `<ruby>腰<rt>よう</rt></ruby><ruby>眼<rt>がん</rt></ruby>`, nameEn: 'Yaoyan / EX-B7',
+    name: '腰眼（奇穴）', nameRuby: "<ruby>腰<rt>よう</rt></ruby><ruby>眼<rt>がん</rt></ruby>", nameEn: 'Yaoyan / EX-B7',
     who: 'EX-B7',
     location: '第4腰椎棘突起の下から左右に指4本（3.5寸）外側のくぼみ。',
     locationTip: '💡 骨盤上端の高さの背骨から指4本外側。自分で押しにくい場合はご家族に押してもらってください。',
@@ -1414,7 +1412,7 @@ const TSUBO = {
     illus: 'back',
   },
   taike: {
-    name: '太渓', nameRuby: `<ruby>太<rt>たい</rt></ruby><ruby>渓<rt>けい</rt></ruby>`, nameEn: 'Taixi / KI3',
+    name: '太渓', nameRuby: "<ruby>太<rt>たい</rt></ruby><ruby>渓<rt>けい</rt></ruby>", nameEn: 'Taixi / KI3',
     who: 'KI3',
     location: '内くるぶしとアキレス腱の間のくぼみ。内くるぶしの高さ。',
     locationTip: '💡 内くるぶしとアキレス腱のちょうど間。内くるぶしと同じ高さのくぼみを押してみてください。',
@@ -1423,7 +1421,7 @@ const TSUBO = {
     illus: 'foot',
   },
   fukuryu: {
-    name: '復溜', nameRuby: `<ruby>復<rt>ふく</rt></ruby><ruby>溜<rt>りゅう</rt></ruby>`, nameEn: 'Fuliu / KI7',
+    name: '復溜', nameRuby: "<ruby>復<rt>ふく</rt></ruby><ruby>溜<rt>りゅう</rt></ruby>", nameEn: 'Fuliu / KI7',
     who: 'KI7',
     location: '内くるぶしの高さから上へ指2本（2寸）、アキレス腱の前際。',
     locationTip: '💡 内くるぶしから指2本分上、アキレス腱の前を押してみてください。',
@@ -1432,7 +1430,7 @@ const TSUBO = {
     illus: 'foot',
   },
   komei: {
-    name: '光明', nameRuby: `<ruby>光<rt>こう</rt></ruby><ruby>明<rt>めい</rt></ruby>`, nameEn: 'Guangming / GB37',
+    name: '光明', nameRuby: "<ruby>光<rt>こう</rt></ruby><ruby>明<rt>めい</rt></ruby>", nameEn: 'Guangming / GB37',
     who: 'GB37',
     location: '外くるぶしの先端から上へ指7本（5寸）、ひこつ（腓骨）の前際。',
     locationTip: '💡 外くるぶしから指7本分上の腓骨の前際。眼精疲労に特に効果的なツボです。',
@@ -1441,7 +1439,7 @@ const TSUBO = {
     illus: 'leg_outer',
   },
   kansho: {
-    name: '肝俞', nameRuby: `<ruby>関<rt>かん</rt></ruby><ruby>衝<rt>しょう</rt></ruby>`, nameEn: 'Ganshu / BL18',
+    name: '肝俞', nameRuby: "<ruby>関<rt>かん</rt></ruby><ruby>衝<rt>しょう</rt></ruby>", nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '背中側、第9胸椎棘突起の下から左右1.5寸外側。',
     locationTip: '💡 肩甲骨の下端と同じ高さの背骨から、両側に指2本分外側。',
@@ -1451,7 +1449,7 @@ const TSUBO = {
   },
   // ===== 鼻詰まり専用ツボ =====
   geiko: {
-    name: '迎香', nameRuby: `<ruby>迎<rt>げい</rt></ruby><ruby>香<rt>こう</rt></ruby>`, nameEn: 'Yingxiang / LI20',
+    name: '迎香', nameRuby: "<ruby>迎<rt>げい</rt></ruby><ruby>香<rt>こう</rt></ruby>", nameEn: 'Yingxiang / LI20',
     who: 'LI20',
     location: '小鼻（鼻翼）の外側のふくらみの横、鼻唇溝（ほうれい線）の上端のくぼみ。',
     locationTip: '💡 小鼻のわきを指で押すと少しくぼんでいるところ。左右両側に1つずつあります。鼻づまりの特効穴として有名です。',
@@ -1460,7 +1458,7 @@ const TSUBO = {
     illus: 'face',
   },
   intou: {
-    name: '印堂（奇穴）', nameRuby: `<ruby>印<rt>いん</rt></ruby><ruby>堂<rt>どう</rt></ruby>`, nameEn: 'Yintang / EX-HN3',
+    name: '印堂（奇穴）', nameRuby: "<ruby>印<rt>いん</rt></ruby><ruby>堂<rt>どう</rt></ruby>", nameEn: 'Yintang / EX-HN3',
     who: 'EX-HN3',
     location: '眉と眉の間（眉間）の真ん中。',
     locationTip: '💡 両眉の内側の端を直線で結んだちょうど真ん中（眉間の中央）。押すとじーんとする感覚があります。',
@@ -1469,7 +1467,7 @@ const TSUBO = {
     illus: 'face',
   },
   jyosei: {
-    name: '上星', nameRuby: `<ruby>上<rt>じょう</rt></ruby><ruby>星<rt>せい</rt></ruby>`, nameEn: 'Shangxing / GV23',
+    name: '上星', nameRuby: "<ruby>上<rt>じょう</rt></ruby><ruby>星<rt>せい</rt></ruby>", nameEn: 'Shangxing / GV23',
     who: 'GV23',
     location: '前髪の生え際の真ん中（正中線上）から上へ指1本（1寸）のところ。',
     locationTip: '💡 おでこの生え際の真ん中から、頭頂部方向に指1本分入ったところ。',
@@ -1478,7 +1476,7 @@ const TSUBO = {
     illus: 'face',
   },
   rekkyu: {
-    name: '列欠', nameRuby: `<ruby>列<rt>れっ</rt></ruby><ruby>欠<rt>けつ</rt></ruby>`, nameEn: 'Lieque / LU7',
+    name: '列欠', nameRuby: "<ruby>列<rt>れっ</rt></ruby><ruby>欠<rt>けつ</rt></ruby>", nameEn: 'Lieque / LU7',
     who: 'LU7',
     location: '手首の内側、親指側。手首の横ジワから上へ指2本（1.5寸）、橈骨茎状突起のすぐ上のくぼみ。',
     locationTip: '💡 両手の人さし指を上にして交差させ、人さし指の先が手首に当たる部分。鼻・肺の症状全般に使う重要なツボです。',
@@ -1487,7 +1485,7 @@ const TSUBO = {
     illus: 'wrist',
   },
   taien: {
-    name: '太淵', nameRuby: `<ruby>太<rt>たい</rt></ruby><ruby>淵<rt>えん</rt></ruby>`, nameEn: 'Taiyuan / LU9',
+    name: '太淵', nameRuby: "<ruby>太<rt>たい</rt></ruby><ruby>淵<rt>えん</rt></ruby>", nameEn: 'Taiyuan / LU9',
     who: 'LU9',
     location: '手首の内側の横ジワ上、親指側の橈骨動脈（脈を感じる部位）のすぐ外側のくぼみ。',
     locationTip: '💡 手首の内側のシワの上、親指のつけ根側に脈が感じられる場所のすぐ外（親指側）のくぼみ。',
@@ -1497,7 +1495,7 @@ const TSUBO = {
   },
   // ===== 追加ツボ（症状未紐付け）=====
   kyokutaku: {
-    name: '曲沢', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>沢<rt>たく</rt></ruby>`, nameEn: 'Quze / PC3',
+    name: '曲沢', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>沢<rt>たく</rt></ruby>", nameEn: 'Quze / PC3',
     who: 'PC3',
     location: '肘前面、肘窩横紋上、上腕二頭筋腱の尺側。',
     locationTip: '💡 肘の内側横ジワ上、上腕二頭筋腱（肘を曲げると浮き出る腱）の小指側。心臓・胃腸の急症に使われます。',
@@ -1506,7 +1504,7 @@ const TSUBO = {
     illus: 'elbow_inner',
   },
   kyokuchi: {
-    name: '曲池', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>池<rt>ち</rt></ruby>`, nameEn: 'Quchi / LI11',
+    name: '曲池', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>池<rt>ち</rt></ruby>", nameEn: 'Quchi / LI11',
     who: 'LI11',
     location: '肘外側、肘窩横紋外側端と上腕骨外側上顆の中点。',
     locationTip: '💡 肘を90度に曲げると肘の外側に横ジワができます。そのシワの外側端と外側の骨の出っ張りの中点。',
@@ -1515,7 +1513,7 @@ const TSUBO = {
     illus: 'elbow_outer',
   },
   gyokuchin: {
-    name: '玉枕', nameRuby: `<ruby>玉<rt>ぎょく</rt></ruby><ruby>枕<rt>ちん</rt></ruby>`, nameEn: 'Yuzhen / BL9',
+    name: '玉枕', nameRuby: "<ruby>玉<rt>ぎょく</rt></ruby><ruby>枕<rt>ちん</rt></ruby>", nameEn: 'Yuzhen / BL9',
     who: 'BL9',
     location: '後頭部、後正中線の外方1.3寸、脳戸（後髪際から2.5寸上）と同じ高さ。',
     locationTip: '💡 後頭部の正中から1.3寸外側、脳戸と同じ高さ。頭痛・目のかすみ・鼻づまりに使われます。',
@@ -1524,7 +1522,7 @@ const TSUBO = {
     illus: 'occiput',
   },
   gyokudo: {
-    name: '玉堂', nameRuby: `<ruby>玉<rt>ぎょく</rt></ruby><ruby>堂<rt>どう</rt></ruby>`, nameEn: 'Yutang / CV18',
+    name: '玉堂', nameRuby: "<ruby>玉<rt>ぎょく</rt></ruby><ruby>堂<rt>どう</rt></ruby>", nameEn: 'Yutang / CV18',
     who: 'CV18',
     location: '前胸部、前正中線上、第3肋間と同じ高さ。',
     locationTip: '💡 胸骨上の正中線、第3肋間の高さ。膻中の上にあります。咳嗽・喘息・胸痛に使われます。',
@@ -1534,7 +1532,7 @@ const TSUBO = {
   },
 
   kyokuen: {
-    name: '曲垣', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>垣<rt>えん</rt></ruby>`, nameEn: 'Quyuan / SI13',
+    name: '曲垣', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>垣<rt>えん</rt></ruby>", nameEn: 'Quyuan / SI13',
     who: 'SI13',
     location: '肩甲部、肩甲棘内端の上方にあるくぼみ。臑兪と第2胸椎棘突起を結ぶ線の中点にある。',
     locationTip: '💡 肩甲骨の棘の内端の上のくぼみ、臑兪と第2胸椎の中点。肩関節周囲炎・肩背部痛に使われます。',
@@ -1543,7 +1541,7 @@ const TSUBO = {
     illus: 'shoulder_back',
   },
   kyokusa: {
-    name: '曲差', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>差<rt>さ</rt></ruby>`, nameEn: 'Quchai / BL4',
+    name: '曲差', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>差<rt>さ</rt></ruby>", nameEn: 'Quchai / BL4',
     who: 'BL4',
     location: '頭部の前髪際から上に0.5寸、前正中線の外側に1.5寸。神庭と頭維を結ぶ線上で、神庭から1/3にある。',
     locationTip: '💡 おでこの生え際から0.5寸上、正中から1.5寸外側。神庭と頭維の間の神庭寄り1/3の位置。',
@@ -1552,7 +1550,7 @@ const TSUBO = {
     illus: 'head_front2',
   },
   kyokusen: {
-    name: '曲泉', nameRuby: `<ruby>曲<rt>きょく</rt></ruby><ruby>泉<rt>せん</rt></ruby>`, nameEn: 'Ququan / LR8',
+    name: '曲泉', nameRuby: "<ruby>曲<rt>きょく</rt></ruby><ruby>泉<rt>せん</rt></ruby>", nameEn: 'Ququan / LR8',
     who: 'LR8',
     location: '膝の内側、半腱・半膜様筋腱内側のくぼみ、膝窩横紋の内側端。',
     locationTip: '💡 膝の内側、膝を曲げたときにできる内側のくぼみ。肝経の合穴で月経・泌尿器・精神系の症状に広く使われます。',
@@ -1561,7 +1559,7 @@ const TSUBO = {
     illus: 'knee_inner',
   },
   kyokusen_ht: {
-    name: '極泉', nameRuby: `<ruby>極<rt>きょく</rt></ruby><ruby>泉<rt>せん</rt></ruby>`, nameEn: 'Jiquan / HT1',
+    name: '極泉', nameRuby: "<ruby>極<rt>きょく</rt></ruby><ruby>泉<rt>せん</rt></ruby>", nameEn: 'Jiquan / HT1',
     who: 'HT1',
     location: '腋窩の中央で、腋窩動脈の拍動部。',
     locationTip: '💡 脇の下の中央、動脈の拍動が触れる部分。上肢麻痺・心臓疾患の特効穴です。',
@@ -1571,7 +1569,7 @@ const TSUBO = {
   },
 
   kyokyo: {
-    name: '胸郷', nameRuby: `<ruby>胸<rt>きょう</rt></ruby><ruby>郷<rt>きょう</rt></ruby>`, nameEn: 'Xiongxiang / SP19',
+    name: '胸郷', nameRuby: "<ruby>胸<rt>きょう</rt></ruby><ruby>郷<rt>きょう</rt></ruby>", nameEn: 'Xiongxiang / SP19',
     who: 'SP19',
     location: '前胸部の第3肋間、前正中線から外側に6寸。胸郷・膺窓・霊墟は第3肋間の曲線に沿って並ぶ。',
     locationTip: '💡 第3肋間で正中から指7本分外側。膺窓・霊墟と同じ高さの曲線上にあります。',
@@ -1580,7 +1578,7 @@ const TSUBO = {
     illus: 'chest_side3',
   },
   kyokei: {
-    name: '侠渓', nameRuby: `<ruby>侠<rt>きょう</rt></ruby><ruby>渓<rt>けい</rt></ruby>`, nameEn: 'Xiaxi / GB43',
+    name: '侠渓', nameRuby: "<ruby>侠<rt>きょう</rt></ruby><ruby>渓<rt>けい</rt></ruby>", nameEn: 'Xiaxi / GB43',
     who: 'GB43',
     location: '足の甲、第4趾と第5趾の間のみずかきの近位、赤白肉際。',
     locationTip: '💡 足の薬指と小指の間のみずかきの少し上、赤白肉際。頭痛・耳・目の症状の特効穴です。',
@@ -1589,7 +1587,7 @@ const TSUBO = {
     illus: 'foot_toe',
   },
   kyosha: {
-    name: '頬車', nameRuby: `<ruby>頬<rt>きょう</rt></ruby><ruby>車<rt>しゃ</rt></ruby>`, nameEn: 'Jiache / ST6',
+    name: '頬車', nameRuby: "<ruby>頬<rt>きょう</rt></ruby><ruby>車<rt>しゃ</rt></ruby>", nameEn: 'Jiache / ST6',
     who: 'ST6',
     location: '顔の下顎角から中指一つぶん前上方。',
     locationTip: '💡 えらの角（下顎角）から中指1本分前上方、歯を噛みしめると盛り上がる咬筋の中。歯痛・顔面麻痺の特効穴です。',
@@ -1598,7 +1596,7 @@ const TSUBO = {
     illus: 'face_jaw',
   },
   kyohaku: {
-    name: '侠白', nameRuby: `<ruby>侠<rt>きょう</rt></ruby><ruby>白<rt>はく</rt></ruby>`, nameEn: 'Xiabai / LU4',
+    name: '侠白', nameRuby: "<ruby>侠<rt>きょう</rt></ruby><ruby>白<rt>はく</rt></ruby>", nameEn: 'Xiabai / LU4',
     who: 'LU4',
     location: '上腕の前外側、上腕二頭筋の外側縁、腋窩横紋の前端から下に4寸。',
     locationTip: '💡 上腕の外側、腋窩横紋から指5本分下の上腕二頭筋の外側縁。天府のすぐ下にあります。',
@@ -1608,7 +1606,7 @@ const TSUBO = {
   },
 
   kyukyo: {
-    name: '丘墟', nameRuby: `<ruby>丘<rt>きゅう</rt></ruby><ruby>墟<rt>きょ</rt></ruby>`, nameEn: 'Qiuxu / GB40',
+    name: '丘墟', nameRuby: "<ruby>丘<rt>きゅう</rt></ruby><ruby>墟<rt>きょ</rt></ruby>", nameEn: 'Qiuxu / GB40',
     who: 'GB40',
     location: '足関節の前外側、長指伸筋腱の外側のくぼみ、外果尖の前下方。',
     locationTip: '💡 外くるぶしの前下方のくぼみ。足首の捻挫・目の症状・胆系疾患の特効穴です。',
@@ -1617,7 +1615,7 @@ const TSUBO = {
     illus: 'ankle_lat',
   },
   kyubi: {
-    name: '鳩尾', nameRuby: `<ruby>鳩<rt>きゅう</rt></ruby><ruby>尾<rt>び</rt></ruby>`, nameEn: 'Jiuwei / CV15',
+    name: '鳩尾', nameRuby: "<ruby>鳩<rt>きゅう</rt></ruby><ruby>尾<rt>び</rt></ruby>", nameEn: 'Jiuwei / CV15',
     who: 'CV15',
     location: '上腹部の前正中線上、胸骨体の下端から下に1寸。',
     locationTip: '💡 みぞおちの少し下、胸骨の先端（剣状突起）から指1本分下の正中線上。心を穏やかにし精神を安定させます。',
@@ -1626,7 +1624,7 @@ const TSUBO = {
     illus: 'chest_upper3',
   },
   kyumyaku: {
-    name: '急脈', nameRuby: `<ruby>急<rt>きゅう</rt></ruby><ruby>脈<rt>みゃく</rt></ruby>`, nameEn: 'Jmai / LR12',
+    name: '急脈', nameRuby: "<ruby>急<rt>きゅう</rt></ruby><ruby>脈<rt>みゃく</rt></ruby>", nameEn: 'Jmai / LR12',
     who: 'LR12',
     location: '鼠径部、恥骨結合上縁と同じ高さ、前正中線の外側に2.5寸。',
     locationTip: '💡 恥骨の上縁の高さ、正中から指3本半外側の鼠径部。肝気のうっ滞による下腹部・陰部の症状に使われます。',
@@ -1635,7 +1633,7 @@ const TSUBO = {
     illus: 'groin_front',
   },
   kyokan: {
-    name: '強間', nameRuby: `<ruby>強<rt>きょう</rt></ruby><ruby>間<rt>かん</rt></ruby>`, nameEn: 'Qiangjian / GV18',
+    name: '強間', nameRuby: "<ruby>強<rt>きょう</rt></ruby><ruby>間<rt>かん</rt></ruby>", nameEn: 'Qiangjian / GV18',
     who: 'GV18',
     location: '頭部の後正中線上、後髪際から上に4寸。脳戸の上方1.5寸のくぼみにある。',
     locationTip: '💡 後頭部の正中線上、後髪際から指5本分上、脳戸のすぐ上1.5寸のくぼみ。',
@@ -1645,7 +1643,7 @@ const TSUBO = {
   },
 
   kisha: {
-    name: '気舎', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>舎<rt>しゃ</rt></ruby>`, nameEn: 'Qishe / ST11',
+    name: '気舎', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>舎<rt>しゃ</rt></ruby>", nameEn: 'Qishe / ST11',
     who: 'ST11',
     location: '前頸部、小鎖骨上窩で鎖骨胸骨端の上方、胸鎖乳突筋の胸骨頭と鎖骨頭の間のくぼみ。鎖骨の上方で人迎の下にある。',
     locationTip: '💡 鎖骨の内側端の上、胸鎖乳突筋の2本の腱の間のくぼみ。人迎のすぐ下にあります。',
@@ -1654,7 +1652,7 @@ const TSUBO = {
     illus: 'neck_front',
   },
   kisho: {
-    name: '気衝', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>衝<rt>しょう</rt></ruby>`, nameEn: 'Qichong / ST30',
+    name: '気衝', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>衝<rt>しょう</rt></ruby>", nameEn: 'Qichong / ST30',
     who: 'ST30',
     location: '鼠径部、恥骨結合上縁と同じ高さで、前正中線の外側に2寸、大腿動脈の拍動部。',
     locationTip: '💡 恥骨の上縁の高さ、正中から指3本分外側の大腿動脈拍動部。横骨の外側にあります。',
@@ -1663,7 +1661,7 @@ const TSUBO = {
     illus: 'lower_abd3',
   },
   kimon_sp: {
-    name: '箕門', nameRuby: `<ruby>箕<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Jimen / SP11',
+    name: '箕門', nameRuby: "<ruby>箕<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Jimen / SP11',
     who: 'SP11',
     location: '大腿の内側、膝蓋骨底内端と衝門を結ぶ線上で、衝門から1/3、縫工筋と長内転筋の間、大腿動脈の拍動部。',
     locationTip: '💡 膝内側（血海）と鼠径部（衝門）を結ぶ線の衝門から1/3、縫工筋と長内転筋の間の拍動部。',
@@ -1672,7 +1670,7 @@ const TSUBO = {
     illus: 'thigh_inner2',
   },
   kimon_lr: {
-    name: '期門', nameRuby: `<ruby>期<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Qimen / LR14',
+    name: '期門', nameRuby: "<ruby>期<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Qimen / LR14',
     who: 'LR14',
     location: '前胸部、第6肋間、前正中線の外側に4寸。',
     locationTip: '💡 乳頭の真下、第6肋間で正中から指5本分外側。肝の募穴として肝胆・消化器系の症状に広く使われます。',
@@ -1682,7 +1680,7 @@ const TSUBO = {
   },
 
   kisha: {
-    name: '気舎', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>舎<rt>しゃ</rt></ruby>`, nameEn: 'Qishe / ST11',
+    name: '気舎', nameEn: 'Qishe / ST11',
     who: 'ST11',
     location: '頸部、鎖骨の胸骨端の上縁、胸鎖乳突筋の胸骨頭と鎖骨頭の間。',
     locationTip: '💡 鎖骨の内側端のすぐ上、胸鎖乳突筋の2本の筋（胸骨頭と鎖骨頭）の間のくぼみ。咽喉・頸部の症状に使われます。',
@@ -1691,7 +1689,7 @@ const TSUBO = {
     illus: 'neck_front',
   },
   kisho: {
-    name: '気衝', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>衝<rt>しょう</rt></ruby>`, nameEn: 'Qichong / ST30',
+    name: '気衝', nameEn: 'Qichong / ST30',
     who: 'ST30',
     location: '下腹部、恥骨結合上縁と同じ高さ、前正中線から外方2寸。',
     locationTip: '💡 恥骨の上縁の高さで、正中から指3本分外側。横骨と同じ高さの外側にあります。衝脈が起始する部位です。',
@@ -1700,7 +1698,7 @@ const TSUBO = {
     illus: 'lower_abd3',
   },
   kimon_hiza: {
-    name: '箕門', nameRuby: `<ruby>箕<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Jimen / SP11',
+    name: '箕門', nameRuby: "<ruby>箕<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Jimen / SP11',
     who: 'SP11',
     location: '大腿内側、血海と衝門を結ぶ線上で血海から上方1/3のところ、縫工筋上。',
     locationTip: '💡 膝内側上端（血海）と鼠径部（衝門）を結ぶ線の下から1/3。縫工筋の上を押してみてください。',
@@ -1709,7 +1707,7 @@ const TSUBO = {
     illus: 'thigh_inner2',
   },
   kimon_kan: {
-    name: '期門', nameRuby: `<ruby>期<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Qimen / LR14',
+    name: '期門', nameRuby: "<ruby>期<rt>き</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Qimen / LR14',
     who: 'LR14',
     location: '前胸部、第6肋間、前正中線から外方4寸。',
     locationTip: '💡 乳頭の真下、第6肋間で正中から指5本分外側。肝経の募穴として胸脇の症状・肝の病に広く使われます。',
@@ -1719,7 +1717,7 @@ const TSUBO = {
   },
 
   kikaiyu: {
-    name: '気海兪', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>海<rt>かい</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Qihaishu / BL24',
+    name: '気海兪', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>海<rt>かい</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Qihaishu / BL24',
     who: 'BL24',
     location: '腰部、第3腰椎棘突起下縁と同じ高さで、後正中線の外側に1.5寸。',
     locationTip: '💡 腰の中央（第3腰椎）の下縁、背骨から指2本分外側。腎兪のすぐ下にあります。',
@@ -1728,7 +1726,7 @@ const TSUBO = {
     illus: 'back_lumbar2',
   },
   kiketsu: {
-    name: '気穴', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>穴<rt>けつ</rt></ruby>`, nameEn: 'Qixue / KI13',
+    name: '気穴', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>穴<rt>けつ</rt></ruby>", nameEn: 'Qixue / KI13',
     who: 'KI13',
     location: '下腹部、へそ中央から下に3寸、前正中線の外側に0.5寸。',
     locationTip: '💡 おへそから指4本分下（関元と同じ高さ）、正中からわずか外側（0.5寸）。衝脈と任脈の機能を高めます。',
@@ -1737,7 +1735,7 @@ const TSUBO = {
     illus: 'lower_abd2',
   },
   kiko: {
-    name: '気戸', nameRuby: `<ruby>気<rt>き</rt></ruby><ruby>戸<rt>こ</rt></ruby>`, nameEn: 'Qihu / ST13',
+    name: '気戸', nameRuby: "<ruby>気<rt>き</rt></ruby><ruby>戸<rt>こ</rt></ruby>", nameEn: 'Qihu / ST13',
     who: 'ST13',
     location: '前胸部、鎖骨下縁、前正中線の外側に4寸。',
     locationTip: '💡 鎖骨の下縁、正中から指5本分外側。欠盆のすぐ下、庫房の上にあります。',
@@ -1747,7 +1745,7 @@ const TSUBO = {
   },
 
   kansho: {
-    name: '関衝', nameRuby: `<ruby>関<rt>かん</rt></ruby><ruby>衝<rt>しょう</rt></ruby>`, nameEn: 'Guanchong / TE1',
+    name: '関衝', nameEn: 'Guanchong / TE1',
     who: 'TE1',
     location: '薬指の末節骨の尺側、爪甲角から近位に内方0.1寸（指寸）。爪甲尺側縁の垂直線と爪甲基底部の水平線の交点。',
     locationTip: '💡 薬指の小指側、爪の生え際の角からごくわずか（0.1寸）内側。鎮静・意識回復の特効穴です。',
@@ -1756,7 +1754,7 @@ const TSUBO = {
     illus: 'hand_ring',
   },
   kancho: {
-    name: '環跳', nameRuby: `<ruby>環<rt>かん</rt></ruby><ruby>跳<rt>ちょう</rt></ruby>`, nameEn: 'Huantiao / GB30',
+    name: '環跳', nameRuby: "<ruby>環<rt>かん</rt></ruby><ruby>跳<rt>ちょう</rt></ruby>", nameEn: 'Huantiao / GB30',
     who: 'GB30',
     location: '臀部で大転子の頂点と仙骨裂孔を結ぶ線上、大転子の頂点から1/3。',
     locationTip: '💡 大転子（太もも外側の出っ張り）と仙骨裂孔（尾骨付近の凹み）を結ぶ線の大転子寄り1/3。坐骨神経痛の特効穴です。',
@@ -1765,7 +1763,7 @@ const TSUBO = {
     illus: 'hip_back',
   },
   kanmon: {
-    name: '関門', nameRuby: `<ruby>関<rt>かん</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Guanmen / ST22',
+    name: '関門', nameRuby: "<ruby>関<rt>かん</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Guanmen / ST22',
     who: 'ST22',
     location: '上腹部、へその中央から上方に3寸、前正中線の外側に2寸。',
     locationTip: '💡 おへそから指4本分上、正中から指3本分外側。建里と同じ高さで外側にあります。',
@@ -1774,7 +1772,7 @@ const TSUBO = {
     illus: 'abd_mid',
   },
   kanyu: {
-    name: '肝兪', nameRuby: `<ruby>肝<rt>かん</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>`, nameEn: 'Ganshu / BL18',
+    name: '肝兪', nameRuby: "<ruby>肝<rt>かん</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>", nameEn: 'Ganshu / BL18',
     who: 'BL18',
     location: '上背部、第9胸椎棘突起の下縁と同じ高さで、後正中線から外側に1.5寸。',
     locationTip: '💡 背中の中央やや下、背骨から指2本分外側。肝の背部兪穴として目・精神・月経に広く使われます。',
@@ -1784,7 +1782,7 @@ const TSUBO = {
   },
 
   kangenuyu: {
-    name: '関元兪', nameRuby: `<ruby>関<rt>かん</rt></ruby><ruby>元<rt>げん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>`, nameEn: 'Guanyuanshu / BL26',
+    name: '関元兪', nameRuby: "<ruby>関<rt>かん</rt></ruby><ruby>元<rt>げん</rt></ruby><ruby>俞<rt>ゆ</rt></ruby>", nameEn: 'Guanyuanshu / BL26',
     who: 'BL26',
     location: '腰部、第5腰椎棘突起下縁と同じ高さ、後正中線の外方に1.5寸。',
     locationTip: '💡 腰の一番下の椎骨（第5腰椎）の下縁、背骨から指2本分外側。小腸兪・膀胱兪・中膂兪・白環兪と同じ高さにあります。',
@@ -1793,7 +1791,7 @@ const TSUBO = {
     illus: 'back_pelvis',
   },
   kankoku: {
-    name: '陥谷', nameRuby: `<ruby>陥<rt>かん</rt></ruby><ruby>谷<rt>こく</rt></ruby>`, nameEn: 'Xiangu / ST43',
+    name: '陥谷', nameRuby: "<ruby>陥<rt>かん</rt></ruby><ruby>谷<rt>こく</rt></ruby>", nameEn: 'Xiangu / ST43',
     who: 'ST43',
     location: '足の甲、第2・第3中足骨の間、第2中足指節関節の近位のくぼみ。',
     locationTip: '💡 足の人差し指と中指のつけ根（第2中足指節関節）から少し足首寄りのくぼみ。浮腫や足背の腫れに効果的です。',
@@ -1802,7 +1800,7 @@ const TSUBO = {
     illus: 'foot_dorsum2',
   },
   kankotsu: {
-    name: '完骨', nameRuby: `<ruby>完<rt>かん</rt></ruby><ruby>骨<rt>こつ</rt></ruby>`, nameEn: 'Wangu / GB12',
+    name: '完骨', nameRuby: "<ruby>完<rt>かん</rt></ruby><ruby>骨<rt>こつ</rt></ruby>", nameEn: 'Wangu / GB12',
     who: 'GB12',
     location: '前頸部、乳様突起の後下方にあるくぼみ。',
     locationTip: '💡 耳の後ろの骨（乳様突起）の後ろ下のくぼみ。頭痛・耳鳴り・不眠の特効穴です。',
@@ -1812,7 +1810,7 @@ const TSUBO = {
   },
 
   katsunikumon: {
-    name: '滑肉門', nameRuby: `<ruby>滑<rt>かつ</rt></ruby><ruby>肉<rt>にく</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Huaroumen / ST24',
+    name: '滑肉門', nameRuby: "<ruby>滑<rt>かつ</rt></ruby><ruby>肉<rt>にく</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Huaroumen / ST24',
     who: 'ST24',
     location: '上腹部、へその中央から上方に1寸、前正中線から外方に2寸。',
     locationTip: '💡 おへそから指1本分上、正中から指3本分外側。水分（臍上1寸正中）と同じ高さの外側にあります。',
@@ -1821,7 +1819,7 @@ const TSUBO = {
     illus: 'abd_upper2',
   },
   karyo: {
-    name: '禾髎', nameRuby: `<ruby>禾<rt>か</rt></ruby><ruby>髎<rt>りょう</rt></ruby>`, nameEn: 'Heliao / LI19',
+    name: '禾髎', nameRuby: "<ruby>禾<rt>か</rt></ruby><ruby>髎<rt>りょう</rt></ruby>", nameEn: 'Heliao / LI19',
     who: 'LI19',
     location: '顔面部、人中溝中点と同じ高さ、鼻孔外縁の下方。水溝の外側0.5寸。',
     locationTip: '💡 小鼻の外縁のすぐ下、人中（水溝）から外側0.5寸。鼻の通りをよくします。',
@@ -1830,7 +1828,7 @@ const TSUBO = {
     illus: 'face_nose',
   },
   ganen: {
-    name: '顳厭', nameRuby: `<ruby>顳<rt>がん</rt></ruby><ruby>厭<rt>えん</rt></ruby>`, nameEn: "Hanyan / GB4",
+    name: '顳厭', nameRuby: "<ruby>顳<rt>がん</rt></ruby><ruby>厭<rt>えん</rt></ruby>", nameEn: "Hanyan / GB4",
     who: 'GB4',
     location: '頭部、頭維と曲鬢を結ぶ（側頭の髪際に沿った）曲線上、頭維から1/4。',
     locationTip: '💡 こめかみ上部、頭維（前髪際の角）と曲鬢（耳前の髪際）を結ぶ弧の頭維寄り1/4の位置。',
@@ -1840,7 +1838,7 @@ const TSUBO = {
   },
 
   kagai: {
-    name: '華蓋', nameRuby: `<ruby>華<rt>か</rt></ruby><ruby>蓋<rt>がい</rt></ruby>`, nameEn: 'Huagai / CV20',
+    name: '華蓋', nameRuby: "<ruby>華<rt>か</rt></ruby><ruby>蓋<rt>がい</rt></ruby>", nameEn: 'Huagai / CV20',
     who: 'CV20',
     location: '前胸部、前正中線上で第1肋間と同じ高さ。',
     locationTip: '💡 胸骨の正中線上、第1肋間の高さ。咳・喘息・胸痛・のどの痛みに使われます。',
@@ -1849,7 +1847,7 @@ const TSUBO = {
     illus: 'chest_mid',
   },
   kakukan: {
-    name: '膈関', nameRuby: `<ruby>膈<rt>かく</rt></ruby><ruby>関<rt>かん</rt></ruby>`, nameEn: 'Geguan / BL46',
+    name: '膈関', nameRuby: "<ruby>膈<rt>かく</rt></ruby><ruby>関<rt>かん</rt></ruby>", nameEn: 'Geguan / BL46',
     who: 'BL46',
     location: '上背部、第7胸椎棘突起下縁と同じ高さ、後正中線から外方に3寸。膈関・膈兪・至陽は第7胸椎棘突起下と同じ高さにある。',
     locationTip: '💡 肩甲骨の下端と同じ高さで背骨から指4本分外側。膈兪・至陽と同じ高さにあります。',
@@ -1858,7 +1856,7 @@ const TSUBO = {
     illus: 'back_mid2',
   },
   kakuson: {
-    name: '角孫', nameRuby: `<ruby>角<rt>かく</rt></ruby><ruby>孫<rt>そん</rt></ruby>`, nameEn: 'Jiaosun / TE20',
+    name: '角孫', nameRuby: "<ruby>角<rt>かく</rt></ruby><ruby>孫<rt>そん</rt></ruby>", nameEn: 'Jiaosun / TE20',
     who: 'TE20',
     location: '頭部、耳尖のあたるところ。',
     locationTip: '💡 耳を前に折ったとき耳の先端が当たる部分の真上、髪の生え際。視力回復・目のかすみに効果的です。',
@@ -1867,7 +1865,7 @@ const TSUBO = {
     illus: 'head_temple',
   },
   kakuyu: {
-    name: '膈兪', nameRuby: `<ruby>膈<rt>かく</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>`, nameEn: 'Geshu / BL17',
+    name: '膈兪', nameRuby: "<ruby>膈<rt>かく</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>", nameEn: 'Geshu / BL17',
     who: 'BL17',
     location: '上背部、第7胸椎棘突起下縁と同じ高さ、後正中線から外方に1.5寸。',
     locationTip: '💡 肩甲骨の下端と同じ高さ、背骨から指2本分外側。八会穴の「血会」として各種出血・血の病に広く使われます。',
@@ -1877,7 +1875,7 @@ const TSUBO = {
   },
 
   gaikan: {
-    name: '外関', nameRuby: `<ruby>外<rt>がい</rt></ruby><ruby>関<rt>かん</rt></ruby>`, nameEn: 'Waiguan / TE5',
+    name: '外関', nameRuby: "<ruby>外<rt>がい</rt></ruby><ruby>関<rt>かん</rt></ruby>", nameEn: 'Waiguan / TE5',
     who: 'TE5',
     location: '前腕の後面、橈骨と尺骨の骨間の中点、手関節の背側横紋から上方に2寸。',
     locationTip: '💡 手首の背側横紋から指3本分上、橈骨と尺骨のちょうど中間。耳の聞こえや視力にも使われる万能ツボです。',
@@ -1886,7 +1884,7 @@ const TSUBO = {
     illus: 'wrist_back',
   },
   gaikyu: {
-    name: '外丘', nameRuby: `<ruby>外<rt>がい</rt></ruby><ruby>丘<rt>きゅう</rt></ruby>`, nameEn: 'Waiqiu / GB36',
+    name: '外丘', nameRuby: "<ruby>外<rt>がい</rt></ruby><ruby>丘<rt>きゅう</rt></ruby>", nameEn: 'Waiqiu / GB36',
     who: 'GB36',
     location: 'すねの外側、腓骨の前方、外果尖の上方7寸。外果尖と膝窩横紋外端を結ぶ線上の中点の下方1寸で、陽交の前方にある。',
     locationTip: '💡 外くるぶしの先端から指9本分上、腓骨の前縁。陽交のすぐ前側にあります。',
@@ -1895,7 +1893,7 @@ const TSUBO = {
     illus: 'leg_outer2',
   },
   kaikei: {
-    name: '解渓', nameRuby: `<ruby>解<rt>かい</rt></ruby><ruby>渓<rt>けい</rt></ruby>`, nameEn: 'Jiexi / ST41',
+    name: '解渓', nameRuby: "<ruby>解<rt>かい</rt></ruby><ruby>渓<rt>けい</rt></ruby>", nameEn: 'Jiexi / ST41',
     who: 'ST41',
     location: '足関節の前面、足関節前面中央のくぼみ、長母指伸筋腱と長指伸筋腱の間。',
     locationTip: '💡 足首の前面の横ジワの中央のくぼみ、2本の腱の間。胃の気を下降させ精神を安定させる効果があります。',
@@ -1904,7 +1902,7 @@ const TSUBO = {
     illus: 'ankle_front',
   },
   gairyo: {
-    name: '外陵', nameRuby: `<ruby>外<rt>がい</rt></ruby><ruby>陵<rt>りょう</rt></ruby>`, nameEn: 'Wailing / ST26',
+    name: '外陵', nameRuby: "<ruby>外<rt>がい</rt></ruby><ruby>陵<rt>りょう</rt></ruby>", nameEn: 'Wailing / ST26',
     who: 'ST26',
     location: '下腹部、へその中央から下方に1寸、前正中線から外方に2寸。',
     locationTip: '💡 おへそから指1本分下、正中から指3本分外側。陰交と同じ高さで外側にあります。',
@@ -1914,7 +1912,7 @@ const TSUBO = {
   },
 
   eneki: {
-    name: '淵腋', nameRuby: `<ruby>淵<rt>えん</rt></ruby><ruby>腋<rt>えき</rt></ruby>`, nameEn: 'Yuanye / GB22',
+    name: '淵腋', nameRuby: "<ruby>淵<rt>えん</rt></ruby><ruby>腋<rt>えき</rt></ruby>", nameEn: 'Yuanye / GB22',
     who: 'GB22',
     location: '側胸部、第4肋間、中腋窩線上。',
     locationTip: '💡 腕を上げたときの脇の中央線（中腋窩線）上、第4肋間。胸脇の痛みや上腕痛に使われます。',
@@ -1923,7 +1921,7 @@ const TSUBO = {
     illus: 'chest_side',
   },
   oukotsu: {
-    name: '横骨', nameRuby: `<ruby>横<rt>おう</rt></ruby><ruby>骨<rt>こつ</rt></ruby>`, nameEn: 'Henggu / KI11',
+    name: '横骨', nameRuby: "<ruby>横<rt>おう</rt></ruby><ruby>骨<rt>こつ</rt></ruby>", nameEn: 'Henggu / KI11',
     who: 'KI11',
     location: '下腹部、へその中央から下方に5寸、前正中線の外方に0.5寸。',
     locationTip: '💡 恥骨の上縁の高さ（臍から指6本分下）、正中からわずか外側（0.5寸）。泌尿器・生殖器系の特効穴です。',
@@ -1932,7 +1930,7 @@ const TSUBO = {
     illus: 'lower_abd',
   },
   okuei: {
-    name: '屋翳', nameRuby: `<ruby>屋<rt>おく</rt></ruby><ruby>翳<rt>えい</rt></ruby>`, nameEn: 'Wuyi / ST15',
+    name: '屋翳', nameRuby: "<ruby>屋<rt>おく</rt></ruby><ruby>翳<rt>えい</rt></ruby>", nameEn: 'Wuyi / ST15',
     who: 'ST15',
     location: '前胸部、第2肋間、前正中線の外方4寸。',
     locationTip: '💡 第2肋間で正中から指5本分外側。乳房・胸部の症状や皮膚のかゆみに使われます。',
@@ -1941,7 +1939,7 @@ const TSUBO = {
     illus: 'back_upper2',
   },
   onru: {
-    name: '温溜', nameRuby: `<ruby>温<rt>おん</rt></ruby><ruby>溜<rt>る</rt></ruby>`, nameEn: 'Wenliu / LI7',
+    name: '温溜', nameRuby: "<ruby>温<rt>おん</rt></ruby><ruby>溜<rt>る</rt></ruby>", nameEn: 'Wenliu / LI7',
     who: 'LI7',
     location: '前腕の後外側、陽渓と曲池を結ぶ線上で、手関節の背側横紋の上方5寸。',
     locationTip: '💡 手首（陽渓）と肘（曲池）を結ぶ線の、手首から5寸上。偏歴の上方にあります。',
@@ -1951,7 +1949,7 @@ const TSUBO = {
   },
 
   ein: {
-    name: '会陰', nameRuby: `<ruby>会<rt>え</rt></ruby><ruby>陰<rt>いん</rt></ruby>`, nameEn: 'Huiyin / CV1',
+    name: '会陰', nameRuby: "<ruby>会<rt>え</rt></ruby><ruby>陰<rt>いん</rt></ruby>", nameEn: 'Huiyin / CV1',
     who: 'CV1',
     location: '会陰部で、男性は陰嚢根部と肛門を結ぶ線の中点、女性は後陰唇交連と肛門を結ぶ線の中点。',
     locationTip: '💡 会陰部の中央、肛門と性器の間の中点。円皮鍼では通常使用しにくい部位のため、専門家の指導のもとで使用します。',
@@ -1960,7 +1958,7 @@ const TSUBO = {
     illus: 'perineum',
   },
   ekimon: {
-    name: '液門', nameRuby: `<ruby>液<rt>えき</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Yemen / TE2',
+    name: '液門', nameRuby: "<ruby>液<rt>えき</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Yemen / TE2',
     who: 'TE2',
     location: '手背、薬指と小指の間で、みずかきの上方のくぼみ、赤白肉際。',
     locationTip: '💡 手の甲側、薬指と小指の間のみずかき上のくぼみ、肌色が変わる境目（赤白肉際）。熱を冷まし耳の聞こえをよくします。',
@@ -1969,7 +1967,7 @@ const TSUBO = {
     illus: 'hand_dorsum',
   },
   esou: {
-    name: '会宗', nameRuby: `<ruby>会<rt>え</rt></ruby><ruby>宗<rt>そう</rt></ruby>`, nameEn: 'Huizong / TE7',
+    name: '会宗', nameRuby: "<ruby>会<rt>え</rt></ruby><ruby>宗<rt>そう</rt></ruby>", nameEn: 'Huizong / TE7',
     who: 'TE7',
     location: '前腕の後面、尺骨の橈側縁、手関節の背側横紋から上に3寸。支溝の尺側にある。',
     locationTip: '💡 手首の背側横紋から指4本分上、支溝のすぐ小指側（尺骨の橈側縁）。耳の症状・てんかんに使われます。',
@@ -1978,7 +1976,7 @@ const TSUBO = {
     illus: 'forearm_back',
   },
   eyou: {
-    name: '会陽', nameRuby: `<ruby>会<rt>え</rt></ruby><ruby>陽<rt>よう</rt></ruby>`, nameEn: 'Huiyang / BL35',
+    name: '会陽', nameRuby: "<ruby>会<rt>え</rt></ruby><ruby>陽<rt>よう</rt></ruby>", nameEn: 'Huiyang / BL35',
     who: 'BL35',
     location: '臀部、尾骨の下端から外方に0.5寸。伏臥位で取穴。尾骨下端の外方のくぼみにある。',
     locationTip: '💡 うつ伏せで、尾骨（おしりの骨の先端）から左右0.5寸外側のくぼみ。痔疾や陰部症状に使われます。',
@@ -1988,7 +1986,7 @@ const TSUBO = {
   },
 
   inryousen: {
-    name: '陰陵泉', nameRuby: `<ruby>陰<rt>いん</rt></ruby><ruby>陵<rt>りょう</rt></ruby><ruby>泉<rt>せん</rt></ruby>`, nameEn: 'Yinlingquan / SP9',
+    name: '陰陵泉', nameRuby: "<ruby>陰<rt>いん</rt></ruby><ruby>陵<rt>りょう</rt></ruby><ruby>泉<rt>せん</rt></ruby>", nameEn: 'Yinlingquan / SP9',
     who: 'SP9',
     location: 'すねの内側、脛骨内側顆下縁と脛骨内縁が接するくぼみ。',
     locationTip: '💡 膝の内側の丸い骨（脛骨内側顆）のすぐ下、すねの骨の内側縁に触れるくぼみ。むくみや排尿障害の特効穴です。',
@@ -1997,7 +1995,7 @@ const TSUBO = {
     illus: 'leg_inner2',
   },
   inren: {
-    name: '陰廉', nameRuby: `<ruby>陰<rt>いん</rt></ruby><ruby>廉<rt>れん</rt></ruby>`, nameEn: 'Yinlian / LR11',
+    name: '陰廉', nameRuby: "<ruby>陰<rt>いん</rt></ruby><ruby>廉<rt>れん</rt></ruby>", nameEn: 'Yinlian / LR11',
     who: 'LR11',
     location: '大腿部の内側、気衝から外下方に2寸。',
     locationTip: '💡 鼠径部の気衝（恥骨結合上縁・正中から2寸外側）から外下方に指3本分。足五里のすぐ上にあります。',
@@ -2006,7 +2004,7 @@ const TSUBO = {
     illus: 'leg_groin2',
   },
   unmon: {
-    name: '雲門', nameRuby: `<ruby>雲<rt>うん</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Yunmen / LU2',
+    name: '雲門', nameRuby: "<ruby>雲<rt>うん</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Yunmen / LU2',
     who: 'LU2',
     location: '前胸部、鎖骨下窩のくぼみ、烏口突起の内側、前正中線から外方に6寸。',
     locationTip: '💡 鎖骨の下のくぼみの外側、肩の前の骨（烏口突起）の内側。肩を動かすと見つけやすいです。',
@@ -2015,7 +2013,7 @@ const TSUBO = {
     illus: 'chest_upper',
   },
   eifu: {
-    name: '翳風', nameRuby: `<ruby>翳<rt>えい</rt></ruby><ruby>風<rt>ふう</rt></ruby>`, nameEn: 'Yifeng / TE17',
+    name: '翳風', nameRuby: "<ruby>翳<rt>えい</rt></ruby><ruby>風<rt>ふう</rt></ruby>", nameEn: 'Yifeng / TE17',
     who: 'TE17',
     location: '前頸部、耳たぶの後方、乳様突起下端前方のくぼみ。',
     locationTip: '💡 耳たぶのすぐ後ろ、耳の後ろの骨（乳様突起）の下端前方のくぼみ。耳鳴りや顔面麻痺の特効穴です。',
@@ -2025,7 +2023,7 @@ const TSUBO = {
   },
 
   into: {
-    name: '陰都', nameRuby: `<ruby>陰<rt>いん</rt></ruby><ruby>都<rt>と</rt></ruby>`, nameEn: 'Yindu / KI19',
+    name: '陰都', nameRuby: "<ruby>陰<rt>いん</rt></ruby><ruby>都<rt>と</rt></ruby>", nameEn: 'Yindu / KI19',
     who: 'KI19',
     location: '上腹部、へそ中央から上方に4寸、前正中線から外方に0.5寸。',
     locationTip: '💡 おへそから指5本分上、正中からわずか外側（0.5寸）。腹通谷のすぐ下にあります。',
@@ -2034,7 +2032,7 @@ const TSUBO = {
     illus: 'abdomen_front',
   },
   inpaku: {
-    name: '隠白', nameRuby: `<ruby>隠<rt>いん</rt></ruby><ruby>白<rt>ぱく</rt></ruby>`, nameEn: 'Yinbai / SP1',
+    name: '隠白', nameRuby: "<ruby>隠<rt>いん</rt></ruby><ruby>白<rt>ぱく</rt></ruby>", nameEn: 'Yinbai / SP1',
     who: 'SP1',
     location: '足の第1指の末節骨内側、爪甲角の近位内方0.1寸（指寸）。爪甲内側縁の垂線と爪甲基底部の水平線の交点。',
     locationTip: '💡 足の親指の内側、爪の生え際の角からごくわずか（0.1寸）内側。不正出血・月経痛の特効穴です。',
@@ -2043,7 +2041,7 @@ const TSUBO = {
     illus: 'toe_medial',
   },
   inpou: {
-    name: '陰包', nameRuby: `<ruby>陰<rt>いん</rt></ruby><ruby>包<rt>ぽう</rt></ruby>`, nameEn: 'Yinbao / LR9',
+    name: '陰包', nameRuby: "<ruby>陰<rt>いん</rt></ruby><ruby>包<rt>ぽう</rt></ruby>", nameEn: 'Yinbao / LR9',
     who: 'LR9',
     location: '大腿部の内側で薄筋と縫工筋の間、膝蓋骨底から上方に4寸。股関節をやや屈曲・外転させ筋を緊張させると縫工筋がより明確になる。縫工筋の後方にある。',
     locationTip: '💡 膝の内側上端から指5本分上、大腿内側の縫工筋と薄筋の間。股を少し開いて押すと見つけやすいです。',
@@ -2052,7 +2050,7 @@ const TSUBO = {
     illus: 'thigh_inner',
   },
   inmon: {
-    name: '殷門', nameRuby: `<ruby>殷<rt>いん</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Yinmen / BL37',
+    name: '殷門', nameRuby: "<ruby>殷<rt>いん</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Yinmen / BL37',
     who: 'BL37',
     location: '大腿部の後面、大腿二頭筋と半腱様筋の間で殷溝から下方に6寸。承扶と委中を結ぶ線の中点から上に1寸。',
     locationTip: '💡 お尻の下のシワ（承扶）と膝裏（委中）の中点より1寸上。大腿後面の筋肉の間を押してみてください。',
@@ -2062,7 +2060,7 @@ const TSUBO = {
   },
 
   idou: {
-    name: '維道', nameRuby: `<ruby>維<rt>い</rt></ruby><ruby>道<rt>どう</rt></ruby>`, nameEn: 'Weidao / GB28',
+    name: '維道', nameRuby: "<ruby>維<rt>い</rt></ruby><ruby>道<rt>どう</rt></ruby>", nameEn: 'Weidao / GB28',
     who: 'GB28',
     location: '下腹部、上前腸骨棘の内下方0.5寸。五枢の内下方0.5寸にある。',
     locationTip: '💡 骨盤前面の出っ張り（上前腸骨棘）から内側下方0.5寸。五枢のすぐ下内側です。',
@@ -2071,7 +2069,7 @@ const TSUBO = {
     illus: 'hip_lateral',
   },
   iyu: {
-    name: '胃兪', nameRuby: `<ruby>胃<rt>い</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>`, nameEn: 'Weishu / BL21',
+    name: '胃兪', nameRuby: "<ruby>胃<rt>い</rt></ruby><ruby>兪<rt>ゆ</rt></ruby>", nameEn: 'Weishu / BL21',
     who: 'BL21',
     location: '上背部、第12胸椎棘突起の下縁と同じ高さで、後正中線から外側に1.5寸。',
     locationTip: '💡 背中の下部、背骨から指2本分外側。胃の不調に広く使われる代表的な背部兪穴です。',
@@ -2080,7 +2078,7 @@ const TSUBO = {
     illus: 'back_lumbar',
   },
   iyou: {
-    name: '委陽', nameRuby: `<ruby>委<rt>い</rt></ruby><ruby>陽<rt>よう</rt></ruby>`, nameEn: 'Weiyang / BL39',
+    name: '委陽', nameRuby: "<ruby>委<rt>い</rt></ruby><ruby>陽<rt>よう</rt></ruby>", nameEn: 'Weiyang / BL39',
     who: 'BL39',
     location: '膝の後外側、大腿二頭筋腱の内縁で、膝窩横紋上。',
     locationTip: '💡 膝の裏の横ジワ上、外側の腱（大腿二頭筋腱）のすぐ内側。委中より外側にあります。',
@@ -2090,7 +2088,7 @@ const TSUBO = {
   },
 
   iki: {
-    name: '譩譆', nameRuby: `<ruby>譩<rt>い</rt></ruby><ruby>譆<rt>き</rt></ruby>`, nameEn: 'Yixi / BL45',
+    name: '譩譆', nameRuby: "<ruby>譩<rt>い</rt></ruby><ruby>譆<rt>き</rt></ruby>", nameEn: 'Yixi / BL45',
     who: 'BL45',
     location: '上背部、第6胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。',
     locationTip: '💡 肩甲骨の内側下部、背骨から指4本分外側。押すと思わず声が出るほど響く部位です（譩譆＝声を出す意）。',
@@ -2099,7 +2097,7 @@ const TSUBO = {
     illus: 'back_shoulder',
   },
   ikuchuu: {
-    name: '或中', nameRuby: `<ruby>或<rt>わく</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>`, nameEn: 'Yuzhong / KI26',
+    name: '或中', nameRuby: "<ruby>或<rt>わく</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>", nameEn: 'Yuzhong / KI26',
     who: 'KI26',
     location: '前胸部、第1肋間で、前正中線から外側に2寸。',
     locationTip: '💡 鎖骨のすぐ下の第1肋間、胸骨から指3本分外側。胸のつかえや咳に効果的です。',
@@ -2108,7 +2106,7 @@ const TSUBO = {
     illus: 'chest_front',
   },
   isha: {
-    name: '意舎', nameRuby: `<ruby>意<rt>い</rt></ruby><ruby>舎<rt>しゃ</rt></ruby>`, nameEn: 'Yishe / BL49',
+    name: '意舎', nameRuby: "<ruby>意<rt>い</rt></ruby><ruby>舎<rt>しゃ</rt></ruby>", nameEn: 'Yishe / BL49',
     who: 'BL49',
     location: '上背部、第11胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。脾俞・脊中と同じ高さ。',
     locationTip: '💡 背中の中央やや下、背骨から指4本分外側。脾俞と同じ高さにあります。',
@@ -2117,7 +2115,7 @@ const TSUBO = {
     illus: 'back_mid',
   },
   isou: {
-    name: '胃倉', nameRuby: `<ruby>胃<rt>い</rt></ruby><ruby>倉<rt>そう</rt></ruby>`, nameEn: 'Weicang / BL50',
+    name: '胃倉', nameRuby: "<ruby>胃<rt>い</rt></ruby><ruby>倉<rt>そう</rt></ruby>", nameEn: 'Weicang / BL50',
     who: 'BL50',
     location: '上背部、第12胸椎棘突起の下縁と同じ高さで、後正中線から外側に3寸。胃兪と同じ高さ。',
     locationTip: '💡 意舎のすぐ下、背骨から指4本分外側。胃兪と同じ高さにある胃の背部反応点です。',
@@ -2127,7 +2125,7 @@ const TSUBO = {
   },
 
   ashirinkyuu: {
-    name: '足臨泣', nameRuby: `<ruby>足<rt>あし</rt></ruby><ruby>臨<rt>りん</rt></ruby><ruby>泣<rt>きゅう</rt></ruby>`, nameEn: 'Zulinqi / GB41',
+    name: '足臨泣', nameRuby: "<ruby>足<rt>あし</rt></ruby><ruby>臨<rt>りん</rt></ruby><ruby>泣<rt>きゅう</rt></ruby>", nameEn: 'Zulinqi / GB41',
     who: 'GB41',
     location: '足の甲、第4中足骨底と第5中足骨底の接合部の遠位、第5指の長指伸筋腱の外側のくぼみ。',
     locationTip: '💡 足の薬指と小指の間を足首方向になぞり、骨がぶつかる少し手前の長指伸筋腱の外側のくぼみを押してみてください。',
@@ -2136,7 +2134,7 @@ const TSUBO = {
     illus: 'foot_dorsum',
   },
   atamakyouin: {
-    name: '頭竅陰', nameRuby: `<ruby>頭<rt>あたま</rt></ruby><ruby>竅<rt>きょう</rt></ruby><ruby>陰<rt>いん</rt></ruby>`, nameEn: 'Touqiaoyin / GB11',
+    name: '頭竅陰', nameRuby: "<ruby>頭<rt>あたま</rt></ruby><ruby>竅<rt>きょう</rt></ruby><ruby>陰<rt>いん</rt></ruby>", nameEn: 'Touqiaoyin / GB11',
     who: 'GB11',
     location: '頭部の乳様突起の後上方、天衝と完骨を結ぶ耳の輪郭に沿った曲線上で天衝から2/3のところ。',
     locationTip: '💡 耳の後ろの出っ張り（乳様突起）の後上方。天衝（耳の上後方）と完骨（耳後下方）を結ぶ線の上から2/3の位置。',
@@ -2145,7 +2143,7 @@ const TSUBO = {
     illus: 'head_side',
   },
   atamarinkyuu: {
-    name: '頭臨泣', nameRuby: `<ruby>頭<rt>あたま</rt></ruby><ruby>臨<rt>りん</rt></ruby><ruby>泣<rt>きゅう</rt></ruby>`, nameEn: 'Toulinqi / GB15',
+    name: '頭臨泣', nameRuby: "<ruby>頭<rt>あたま</rt></ruby><ruby>臨<rt>りん</rt></ruby><ruby>泣<rt>きゅう</rt></ruby>", nameEn: 'Toulinqi / GB15',
     who: 'GB15',
     location: '頭部の前髪際から上に0.5寸、瞳孔線上。正視して瞳孔中央の上方、神庭と頭維を結ぶ前髪際に沿った線上の中点。',
     locationTip: '💡 おでこの生え際から指半本分上、正面を向いたときの瞳孔の延長線上。神庭（正中）と頭維（こめかみ）のちょうど中間です。',
@@ -2154,7 +2152,7 @@ const TSUBO = {
     illus: 'head_front',
   },
   amon: {
-    name: '瘂門', nameRuby: `<ruby>瘂<rt>あ</rt></ruby><ruby>門<rt>もん</rt></ruby>`, nameEn: 'Yamen / GV15',
+    name: '瘂門', nameRuby: "<ruby>瘂<rt>あ</rt></ruby><ruby>門<rt>もん</rt></ruby>", nameEn: 'Yamen / GV15',
     who: 'GV15',
     location: '後頭部の後正中線上、第2頸椎棘突起の上にあるくぼみ。風府から下に0.5寸。',
     locationTip: '💡 後頭部の髪の生え際の真ん中から少し下、首の付け根の正中のくぼみ。風府のすぐ下。深く刺激しすぎないよう注意してください。',
@@ -2164,7 +2162,7 @@ const TSUBO = {
   },
 
   ashigoori: {
-    name: '足五里', nameRuby: `<ruby>足<rt>あし</rt></ruby><ruby>五<rt>ご</rt></ruby><ruby>里<rt>り</rt></ruby>`, nameEn: 'Zuwuli / LR10',
+    name: '足五里', nameRuby: "<ruby>足<rt>あし</rt></ruby><ruby>五<rt>ご</rt></ruby><ruby>里<rt>り</rt></ruby>", nameEn: 'Zuwuli / LR10',
     who: 'LR10',
     location: '大腿部内側、気衝（恥骨結合上縁の高さで正中から2寸外側）から下へ3寸の動脈拍動部。',
     locationTip: '💡 鼠径部の少し下、内腿のつけ根で動脈の拍動を感じる場所。押す際は強く押しすぎないよう注意してください。',
@@ -2173,7 +2171,7 @@ const TSUBO = {
     illus: 'leg_groin',
   },
   ashitsukoku: {
-    name: '足通谷', nameRuby: `<ruby>足<rt>あし</rt></ruby><ruby>通<rt>つう</rt></ruby><ruby>谷<rt>こく</rt></ruby>`, nameEn: 'Zutonggu / BL66',
+    name: '足通谷', nameRuby: "<ruby>足<rt>あし</rt></ruby><ruby>通<rt>つう</rt></ruby><ruby>谷<rt>こく</rt></ruby>", nameEn: 'Zutonggu / BL66',
     who: 'BL66',
     location: '足の第5中足指節関節（小趾のつけ根）の遠位外側のくぼみ、赤白肉際。',
     locationTip: '💡 小趾のつけ根の関節より少し指先側、外側のくぼみ（肌の色が変わる境目）を押してみてください。',
@@ -2190,323 +2188,323 @@ const TSUBO = {
 const ILLUS = {
 
   // ---- 手の甲 (hand) ----
-  hand: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/hand.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  hand: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/hand.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 前腕内側 (arm) ----
-  arm: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/arm.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  arm: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/arm.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 手首内側 (wrist) ----
-  wrist: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/wrist.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  wrist: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/wrist.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 顔 (face) ----
-  face: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/face.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="顔（正面）経穴図" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  face: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/face.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="顔（正面）経穴図" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 鼠径部・下肢近位 (leg_groin) ----
-  leg_groin: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_groin.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_groin: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_groin.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足外側（小趾側）(foot_lateral) ----
-  foot_lateral: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/foot_lateral.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  foot_lateral: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="data:image/png;base64,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" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背中 (back) ----
-  back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 膝裏 (leg_back) ----
-  leg_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 肩 (shoulder) ----
-  shoulder: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/shoulder.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  shoulder: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/shoulder.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頭部側面 (head_side) ----
-  head_side: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_side.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_side: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_side.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頭部前面 (head_front) ----
-  head_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 後頭部・項部 (back_head2) ----
-  back_head2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_head2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_head2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_head2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部上中（肩甲骨下） (back_shoulder) ----
-  back_shoulder: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_shoulder.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_shoulder: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_shoulder.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部前面 (chest_front) ----
-  chest_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部中（第11胸椎） (back_mid) ----
-  back_mid: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_mid.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_mid: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_mid.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部下（第12胸椎） (back_lower) ----
-  back_lower: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_lower.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_lower: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_lower.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 骨盤外側（維道） (hip_lateral) ----
-  hip_lateral: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/hip_lateral.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  hip_lateral: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/hip_lateral.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 腰背部（胃兪レベル） (back_lumbar) ----
-  back_lumbar: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_lumbar.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_lumbar: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_lumbar.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 膝裏外側（委陽） (leg_back2) ----
-  leg_back2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_back2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_back2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_back2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 腹部前面（陰都） (abdomen_front) ----
-  abdomen_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/abdomen_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  abdomen_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/abdomen_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足趾内側（隠白） (toe_medial) ----
-  toe_medial: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/toe_medial.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  toe_medial: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/toe_medial.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 大腿内側（陰包） (thigh_inner) ----
-  thigh_inner: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/thigh_inner.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  thigh_inner: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/thigh_inner.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 大腿後面（殷門） (thigh_back) ----
-  thigh_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/thigh_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  thigh_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/thigh_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腿内側（陰陵泉） (leg_inner2) ----
-  leg_inner2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_inner2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_inner2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_inner2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 鼠径部内側（陰廉） (leg_groin2) ----
-  leg_groin2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_groin2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_groin2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_groin2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部上（雲門） (chest_upper) ----
-  chest_upper: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_upper.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_upper: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_upper.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 耳後部（翳風） (head_ear) ----
-  head_ear: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_ear.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_ear: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_ear.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 会陰部（会陰） (perineum) ----
-  perineum: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/perineum.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  perineum: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/perineum.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 手背（液門） (hand_dorsum) ----
-  hand_dorsum: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/hand_dorsum.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  hand_dorsum: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/hand_dorsum.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 前腕背側（会宗） (forearm_back) ----
-  forearm_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/forearm_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  forearm_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/forearm_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 仙骨部（会陽） (sacrum) ----
-  sacrum: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/sacrum.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  sacrum: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/sacrum.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部側面（淵腋） (chest_side) ----
-  chest_side: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_side.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_side: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_side.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腹部（横骨） (lower_abd) ----
-  lower_abd: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/lower_abd.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  lower_abd: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/lower_abd.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部上（屋翳） (back_upper2) ----
-  back_upper2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_upper2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_upper2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_upper2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 前腕外側（温溜） (forearm_lat) ----
-  forearm_lat: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/forearm_lat.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  forearm_lat: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/forearm_lat.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 手首背側（外関） (wrist_back) ----
-  wrist_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/wrist_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  wrist_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/wrist_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腿外側（外丘） (leg_outer2) ----
-  leg_outer2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/leg_outer2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  leg_outer2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/leg_outer2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足関節前面（解渓） (ankle_front) ----
-  ankle_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/ankle_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  ankle_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/ankle_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腹部（外陵） (abd_lower2) ----
-  abd_lower2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/abd_lower2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  abd_lower2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/abd_lower2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部前面中央（華蓋） (chest_mid) ----
-  chest_mid: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_mid.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_mid: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_mid.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部中（膈関） (back_mid2) ----
-  back_mid2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_mid2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_mid2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_mid2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頭部側頭（角孫） (head_temple) ----
-  head_temple: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_temple.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_temple: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_temple.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部上（膈兪） (back_upper3) ----
-  back_upper3: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_upper3.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_upper3: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_upper3.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 上腹部（滑肉門） (abd_upper2) ----
-  abd_upper2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/abd_upper2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  abd_upper2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/abd_upper2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 顔面鼻部（禾髎） (face_nose) ----
-  face_nose: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/face_nose.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  face_nose: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/face_nose.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頭部側頭前（顳厭） (head_side2) ----
-  head_side2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_side2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_side2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_side2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 腰背部・骨盤（関元兪） (back_pelvis) ----
-  back_pelvis: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_pelvis.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_pelvis: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_pelvis.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足背（陥谷） (foot_dorsum2) ----
-  foot_dorsum2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/foot_dorsum2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  foot_dorsum2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/foot_dorsum2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 耳後部・完骨（完骨） (head_mastoid) ----
-  head_mastoid: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_mastoid.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_mastoid: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_mastoid.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 手背薬指側（関衝） (hand_ring) ----
-  hand_ring: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/hand_ring.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  hand_ring: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/hand_ring.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 臀部・大転子（環跳） (hip_back) ----
-  hip_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/hip_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  hip_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/hip_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 上腹部（関門） (abd_mid) ----
-  abd_mid: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/abd_mid.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  abd_mid: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/abd_mid.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 背部・肝兪レベル（肝兪） (back_liver) ----
-  back_liver: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_liver.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_liver: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_liver.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 腰部（気海兪） (back_lumbar2) ----
-  back_lumbar2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/back_lumbar2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  back_lumbar2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/back_lumbar2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腹部（気穴） (lower_abd2) ----
-  lower_abd2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/lower_abd2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  lower_abd2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/lower_abd2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 前胸部上（気戸） (chest_upper2) ----
-  chest_upper2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_upper2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_upper2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_upper2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頸部前面（気舎） (neck_front) ----
-  neck_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/neck_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  neck_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/neck_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腹部・鼠径（気衝） (lower_abd3) ----
-  lower_abd3: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/lower_abd3.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  lower_abd3: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/lower_abd3.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 大腿内側前（箕門） (thigh_inner2) ----
-  thigh_inner2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/thigh_inner2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  thigh_inner2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/thigh_inner2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 前胸部側面（期門） (chest_lat) ----
-  chest_lat: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_lat.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_lat: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_lat.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頸部前面（気舎） (neck_front) ----
-  neck_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/neck_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  neck_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/neck_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 下腹部（気衝） (lower_abd3) ----
-  lower_abd3: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/lower_abd3.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  lower_abd3: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/lower_abd3.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 大腿内側（箕門） (thigh_inner2) ----
-  thigh_inner2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/thigh_inner2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  thigh_inner2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/thigh_inner2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部側面（期門） (chest_side2) ----
-  chest_side2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_side2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_side2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_side2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足関節外側（丘墟） (ankle_lat) ----
-  ankle_lat: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/ankle_lat.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  ankle_lat: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/ankle_lat.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部上部（鳩尾） (chest_upper3) ----
-  chest_upper3: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_upper3.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_upper3: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_upper3.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 鼠径部（急脈） (groin_front) ----
-  groin_front: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/groin_front.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  groin_front: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/groin_front.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 後頭部（強間） (head_back2) ----
-  head_back2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_back2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_back2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_back2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸部側面（胸郷） (chest_side3) ----
-  chest_side3: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/chest_side3.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  chest_side3: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/chest_side3.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 足趾間（侠渓） (foot_toe) ----
-  foot_toe: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/foot_toe.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  foot_toe: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/foot_toe.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 顔面下顎（頬車） (face_jaw) ----
-  face_jaw: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/face_jaw.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  face_jaw: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/face_jaw.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 上腕内側（侠白） (arm_upper) ----
-  arm_upper: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/arm_upper.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  arm_upper: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/arm_upper.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 肩甲部（曲垣） (shoulder_back) ----
-  shoulder_back: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/shoulder_back.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  shoulder_back: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/shoulder_back.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 頭部前面（曲差） (head_front2) ----
-  head_front2: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/head_front2.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  head_front2: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/head_front2.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 膝内側（曲泉） (knee_inner) ----
-  knee_inner: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/knee_inner.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  knee_inner: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/knee_inner.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 腋窩（極泉） (axilla) ----
-  axilla: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/axilla.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  axilla: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/axilla.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 肘窩内側（曲沢） (elbow_inner) ----
-  elbow_inner: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/elbow_inner.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  elbow_inner: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/elbow_inner.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 肘外側（曲池） (elbow_outer) ----
-  elbow_outer: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/elbow_outer.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  elbow_outer: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/elbow_outer.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 後頭部（玉枕） (occiput) ----
-  occiput: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/occiput.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  occiput: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/occiput.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 胸骨部（玉堂） (sternum) ----
-  sternum: (label) => `<div style="text-align:center; display:inline-block; width:100%;"><img src="images/sternum.jpg" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;" onerror="this.style.display='none'"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
+  sternum: (label) => `<div style="text-align:center;display:inline-block;width:100%;"><img src="images/sternum.jpg" alt="" style="width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:8px;" onerror="this.style.display='none'"/></div>" alt="" style="width:100%; max-width:260px; height:auto; display:block; margin:0 auto; border-radius:8px;"/><div style="font-size:11px; color:#c0392b; font-weight:500; margin-top:4px; letter-spacing:0.06em;">${label}</div></div>`,
 
 
   // ---- 後頭部 (back_head) ----
@@ -2559,11 +2557,15 @@ const ILLUS = {
 };
 
 // ツボkeyに対応するイラストを返す
-function getTsuboIllus(t) {
+function getTsuboIllus(t, key) {
+  const imgPath = `images/${key}.jpg`;
   const fn = ILLUS[t.illus];
-  if (!fn) return '';
+  const svgFallback = fn ? fn(t.name) : '';
   return `<div class="tsubo-illus-wrap">
-    ${fn(t.name)}
+    <img src="${imgPath}" alt="${t.name}"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+         style="width:100%;max-width:260px;height:auto;display:block;border-radius:8px;">
+    <div style="display:none;">${svgFallback}</div>
     <div class="illus-label">● 赤点がツボの目安位置</div>
   </div>`;
 }
@@ -2692,7 +2694,7 @@ function goToStep3() {
         </div>
         <div class="location-box">
           <div class="location-title">📌 ツボの場所</div>
-          ${getTsuboIllus(t)}
+          ${getTsuboIllus(t, key)}
           <div class="location-text">${t.location}</div>
           <div class="location-tip">${t.locationTip}</div>
         </div>
@@ -2750,7 +2752,8 @@ function printSheet() {
     const t = TSUBO[key];
     if (!t) return '';
     const fn = ILLUS[t.illus];
-    const illusSvg = fn ? `<div style="text-align:center;margin:8px 0 4px;">${fn(t.name).replace(/class="tsubo-pt"/g, 'fill="#c0392b"').replace(/class="tsubo-pt-ring"/g, 'fill="#c0392b" opacity="0.2"')}</div>` : '';
+    const svgFallback = fn ? fn(t.name).replace(/class="tsubo-pt"/g, 'fill="#c0392b"').replace(/class="tsubo-pt-ring"/g, 'fill="#c0392b" opacity="0.2"') : '';
+    const illusSvg = `<div style="text-align:center;margin:8px 0 4px;"><img src="images/${key}.jpg" alt="${t.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" style="max-width:180px;height:auto;border-radius:6px;"><div style="display:none;">${svgFallback}</div></div>`;
     return `
       <div style="border:1px solid #c8b89a; border-radius:10px; padding:14px 16px; margin-bottom:12px; page-break-inside:avoid;">
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:8px;">
