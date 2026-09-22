@@ -14,7 +14,7 @@
     --bg: #f9faf8;
     --card: #ffffff;
     --text: #2c3e30;
-    --text-muted: #6b7c70;
+    --text-muted: #5f7065;
     --border: #d4e6d9;
     --type-bg: #ff8c42;
     --check-bg: #f97316;
@@ -30,7 +30,9 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
   }
 
   /* ヘッダー */
@@ -45,8 +47,8 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   }
   .header-icon { font-size: 28px; margin-bottom: 4px; }
-  .header h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.05em; }
-  .header p { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; }
+  .header p { font-size: 13px; opacity: 0.85; margin-top: 2px; }
 
   /* ステップナビ */
   .step-nav {
@@ -61,9 +63,9 @@
     flex: 1;
     min-width: 60px;
     text-align: center;
-    padding: 6px 4px;
+    padding: 8px 4px;
     border-radius: 8px;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text-muted);
     cursor: default;
     transition: all 0.2s;
@@ -79,14 +81,14 @@
   }
   .step-num {
     display: block;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--border);
     color: var(--text-muted);
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    line-height: 22px;
+    line-height: 24px;
     margin: 0 auto 2px;
   }
   .step-item.active .step-num {
@@ -103,13 +105,13 @@
 
   /* セクションタイトル */
   .section-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text);
     margin-bottom: 6px;
   }
   .section-sub {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-muted);
     margin-bottom: 14px;
   }
@@ -124,13 +126,16 @@
     background: var(--card);
     border: 2px solid var(--border);
     border-radius: var(--radius);
-    padding: 14px 12px;
+    padding: 16px 12px;
+    min-height: 68px;
     cursor: pointer;
     transition: all 0.18s;
     text-align: left;
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: inherit;
+    width: 100%;
   }
   .symptom-card:active, .symptom-card:hover {
     border-color: var(--primary);
@@ -142,10 +147,10 @@
     border-color: var(--primary);
     background: var(--primary-light);
   }
-  .symptom-emoji { font-size: 26px; flex-shrink: 0; }
+  .symptom-emoji { font-size: 28px; flex-shrink: 0; }
   .symptom-info { flex: 1; min-width: 0; }
-  .symptom-name { font-size: 14px; font-weight: 700; color: var(--text); }
-  .symptom-desc { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+  .symptom-name { font-size: 16px; font-weight: 700; color: var(--text); }
+  .symptom-desc { font-size: 13px; color: var(--text-muted); margin-top: 1px; }
 
   /* 体質チェック */
   .constitution-card {
@@ -158,15 +163,21 @@
   .constitution-label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 14px;
+    gap: 12px;
+    padding: 14px;
+    min-height: 56px;
     cursor: pointer;
     transition: background 0.15s;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: inherit;
   }
   .constitution-label:active { background: var(--primary-light); }
   .constitution-checkbox {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 6px;
     border: 2px solid var(--border);
     background: white;
@@ -183,12 +194,12 @@
   .constitution-label.checked .constitution-checkbox::after {
     content: '✓';
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
   }
-  .constitution-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .constitution-text { font-size: 15px; color: var(--text); line-height: 1.65; }
   .constitution-subgroup {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--primary);
     font-weight: 600;
     display: block;
@@ -204,7 +215,7 @@
     margin-bottom: 12px;
   }
   .tsubo-section-title {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--primary-dark);
     margin-bottom: 10px;
@@ -224,7 +235,7 @@
   .tokukoketsu-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
     margin-bottom: 4px;
   }
   .tsubo-tag {
@@ -267,15 +278,15 @@
     background: var(--type-bg);
     color: white;
     border-radius: 20px;
-    padding: 2px 10px;
-    font-size: 11px;
+    padding: 5px 12px;
+    font-size: 13px;
     font-weight: 700;
     margin-bottom: 8px;
   }
   .result-tsubo-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
     margin-top: 6px;
   }
   .honchi-tag {
@@ -293,15 +304,15 @@
   }
   .honchi-tag.checkable:active { background: var(--primary); color: white; }
   .honchi-tag.checked-tag { background: var(--primary); color: white; }
-  .arrow-label { font-size: 11px; color: var(--text-muted); align-self: center; }
+  .arrow-label { font-size: 13px; color: var(--text-muted); align-self: center; }
 
   /* 注意書き */
   .note-box {
     background: #fffbf0;
     border: 1px solid #f0d070;
     border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
     color: #7a6020;
     margin-bottom: 14px;
     line-height: 1.6;
@@ -332,9 +343,11 @@
   .btn-row { display: flex; gap: 10px; margin-top: 16px; }
   .btn {
     flex: 1;
-    padding: 13px;
+    padding: 15px 12px;
+    min-height: 52px;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 16px;
+    font-family: inherit;
     font-weight: 700;
     cursor: pointer;
     border: none;
@@ -368,40 +381,40 @@
   .howto-num {
     background: var(--primary);
     color: white;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     flex-shrink: 0;
   }
   .howto-text { flex: 1; }
-  .howto-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-  .howto-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .howto-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .howto-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
 
   /* 安全警告 */
   .safety-box {
     background: #f0f9f4;
     border: 1px solid var(--primary);
     border-radius: 8px;
-    padding: 12px;
-    font-size: 12px;
+    padding: 14px;
+    font-size: 14px;
     color: var(--primary-dark);
     margin-top: 12px;
-    line-height: 1.7;
+    line-height: 1.8;
   }
-  .safety-box::before { content: '⚕️ '; font-size: 14px; }
+  .safety-box::before { content: '⚕️ '; font-size: 16px; }
 
   /* 選択数バッジ */
   .selected-count {
     background: var(--primary);
     color: white;
     border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 13px;
+    padding: 6px 16px;
+    font-size: 15px;
     font-weight: 700;
     display: inline-block;
     margin-bottom: 12px;
@@ -418,9 +431,9 @@
     align-items: center;
     gap: 12px;
   }
-  .symptom-header-emoji { font-size: 32px; }
-  .symptom-header-name { font-size: 18px; font-weight: 700; }
-  .symptom-header-desc { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  .symptom-header-emoji { font-size: 34px; }
+  .symptom-header-name { font-size: 20px; font-weight: 700; }
+  .symptom-header-desc { font-size: 14px; opacity: 0.9; margin-top: 2px; }
 
   @media print {
     .header, .step-nav, .btn-row, .print-btn { display: none !important; }
@@ -439,9 +452,10 @@
     background: var(--primary-light);
     color: var(--primary-dark);
     border: 1.5px solid var(--primary);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 13px;
+    border-radius: 22px;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     display: inline-flex;
@@ -449,6 +463,7 @@
     gap: 6px;
     transition: all 0.15s;
     user-select: none;
+    font-family: inherit;
   }
   .tsubo-tag-btn:active { background: var(--primary); color: white; }
   .tsubo-tag-btn.open {
@@ -462,7 +477,7 @@
     border-color: var(--primary-dark);
   }
   .tsubo-tag-btn .tag-arrow {
-    font-size: 10px;
+    font-size: 12px;
     transition: transform 0.2s;
   }
   .tsubo-tag-btn.open .tag-arrow { transform: rotate(180deg); }
@@ -477,12 +492,6 @@
     margin-top: -2px;
   }
   .tsubo-detail.open { display: block; animation: fadeIn 0.18s ease-out; }
-  .tsubo-who {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
   .tsubo-img {
     width: 100%;
     max-width: 220px;
@@ -492,20 +501,22 @@
     margin: 0 auto 8px;
   }
   .tsubo-location-text {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--text);
-    line-height: 1.7;
+    line-height: 1.8;
   }
   .tsubo-check-btn {
-    margin-top: 10px;
+    margin-top: 12px;
     width: 100%;
-    padding: 8px;
+    padding: 13px 10px;
+    min-height: 48px;
     border-radius: 8px;
     border: 1.5px solid var(--primary);
     background: white;
     color: var(--primary);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
+    font-family: inherit;
     cursor: pointer;
     transition: all 0.15s;
   }
@@ -520,15 +531,17 @@
     background: white;
     border: 1.5px solid var(--primary);
     color: var(--primary-dark);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
+    border-radius: 22px;
+    padding: 10px 16px;
+    min-height: 44px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     transition: all 0.15s;
+    font-family: inherit;
   }
   .honchi-tag-btn.open {
     background: var(--primary-light);
@@ -539,8 +552,115 @@
     color: white;
     border-color: var(--primary-dark);
   }
-  .honchi-tag-btn .tag-arrow { font-size: 10px; transition: transform 0.2s; }
+  .honchi-tag-btn .tag-arrow { font-size: 12px; transition: transform 0.2s; }
   .honchi-tag-btn.open .tag-arrow { transform: rotate(180deg); }
+
+  /* ===== 第1弾改良で追加 ===== */
+  /* 体質が分からない人向けのボタン */
+  .btn-ghost {
+    width: 100%;
+    background: #fff8f2;
+    border: 2px dashed var(--accent);
+    color: #a8501f;
+    border-radius: 10px;
+    padding: 14px 12px;
+    min-height: 52px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .btn-ghost:active { background: var(--accent-light); }
+  .btn-ghost small { display: block; font-size: 13px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+
+  /* 「寸」の説明 */
+  .sun-note {
+    background: #fffdf7;
+    border: 1px solid #e3d9b8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #6b5a24;
+    margin-bottom: 12px;
+  }
+  .sun-note b { color: #4d4118; }
+
+  /* 体質チェックがない・選ばれていないときの案内 */
+  .empty-hint {
+    background: var(--primary-light);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 16px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--primary-dark);
+    margin-bottom: 14px;
+  }
+
+  /* ステップナビ：スキップされたステップ */
+  .step-item.skipped { opacity: 0.45; }
+
+  /* 今日貼るツボの一覧（ステップ4） */
+  .chosen-box {
+    background: var(--card);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .chosen-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+  }
+  .chosen-item {
+    border-top: 1px solid var(--border);
+    padding: 12px 0 14px;
+  }
+  .chosen-item:first-of-type { border-top: none; padding-top: 0; }
+  .chosen-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .chosen-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    flex: 1;
+  }
+  .chosen-remove {
+    background: white;
+    border: 1.5px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 8px;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .chosen-remove:active { background: var(--bg); }
+  .chosen-loc { font-size: 16px; line-height: 1.8; color: var(--text); }
+  .chosen-img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: block;
+    margin: 8px auto 0;
+  }
+  .chosen-empty {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
 </style>
 </head>
 <body>
@@ -650,7 +770,7 @@ const symptoms = [
     ]
   },
   {
-    id: "backache", emoji: "🔙", name: "腰痛", description: "腰が痛い・重い",
+    id: "backache", emoji: "🦴", name: "腰痛", description: "腰が痛い・重い",
     note: "急に強い腰痛が起きた場合はまず医療機関の診察を受け、激しい痛みが落ち着いてからツボ刺激を行いましょう。",
     tokukoketsu: ["養老","腰痛点","腰眼"],
     types: [
@@ -1078,78 +1198,75 @@ const tsuboInfo = {
 };
 
 // ===================== ツボアイテム生成ヘルパー =====================
-// tsuboName: "合谷" など。複合名（"合谷＋太衝"）は個別に分割して表示
-// checkKey: checkedTsuboのキー文字列
-// styleType: 'primary'（特効穴）or 'honchi'（本治穴）
-function makeTsuboItems(container, tsuboNames, checkKeyPrefix, styleType) {
-  // ＋区切りの複合名を分割
+// tsuboName: "合谷" など。複合名（"合谷＋太衝"）は個別に分割して表示。
+// checkedTsubo のキーは「ツボ名そのもの」。体質チェックを変えても
+// チェックが別のツボへ付け替わらないようにするため（監査2）。
+function makeTsuboItems(container, tsuboNames, styleType) {
   const names = tsuboNames.split(/[＋+・]/).map(n => n.trim()).filter(Boolean);
 
-  names.forEach((name, idx) => {
+  names.forEach((name) => {
     const info = tsuboInfo[name];
-    const checkKey = checkKeyPrefix + '_' + idx;
     const wrapper = document.createElement('div');
     wrapper.className = 'tsubo-item';
 
     const btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = styleType === 'honchi' ? 'honchi-tag-btn' : 'tsubo-tag-btn';
-    if (checkedTsubo.has(checkKey)) btn.classList.add('checked-tag');
-
+    btn.dataset.tsubo = name;
+    btn.setAttribute('aria-expanded', 'false');
+    if (checkedTsubo.has(name)) btn.classList.add('checked-tag');
     btn.innerHTML = `${name} <span class="tag-arrow">▼</span>`;
 
     const detail = document.createElement('div');
     detail.className = 'tsubo-detail';
 
+    const checked = checkedTsubo.has(name);
+    const checkBtnHtml = `<button type="button" class="tsubo-check-btn${checked ? ' checked' : ''}" data-tsubo="${name}">
+          ${checked ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加'}
+        </button>`;
+
     if (info) {
-      // 画像（images/WHO_CODE.png）
-      const imgPath = `images/${info.who}.png`;
-      const imgHtml = `<img class="tsubo-img" src="${imgPath}" alt="${name}" onerror="this.style.display='none'">`;
-      detail.innerHTML = `
-        <div class="tsubo-who">WHO: ${info.who}</div>
-        ${imgHtml}
+      const imgHtml = `<img class="tsubo-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">`;
+      detail.innerHTML = `${imgHtml}
         <div class="tsubo-location-text">📍 ${info.loc}</div>
-        <button class="tsubo-check-btn${checkedTsubo.has(checkKey) ? ' checked' : ''}" data-key="${checkKey}">
-          ${checkedTsubo.has(checkKey) ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加'}
-        </button>
-      `;
+        ${checkBtnHtml}`;
     } else {
-      detail.innerHTML = `
-        <div class="tsubo-location-text">取穴の詳細情報は準備中です。</div>
-        <button class="tsubo-check-btn${checkedTsubo.has(checkKey) ? ' checked' : ''}" data-key="${checkKey}">
-          ${checkedTsubo.has(checkKey) ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加'}
-        </button>
-      `;
+      detail.innerHTML = `<div class="tsubo-location-text">取穴の詳細情報は準備中です。</div>
+        ${checkBtnHtml}`;
     }
 
-    // タップで展開
-    btn.onclick = (e) => {
+    btn.onclick = () => {
       const isOpen = detail.classList.contains('open');
-      // 同一セクション内の他を閉じる（任意）
       detail.classList.toggle('open', !isOpen);
       btn.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
     };
 
-    // チェックボタン
     detail.querySelector('.tsubo-check-btn').onclick = (e) => {
-      const key = e.target.dataset.key;
-      if (checkedTsubo.has(key)) {
-        checkedTsubo.delete(key);
-        e.target.classList.remove('checked');
-        e.target.textContent = '＋ 今日貼るツボに追加';
-        btn.classList.remove('checked-tag');
-      } else {
-        checkedTsubo.add(key);
-        e.target.classList.add('checked');
-        e.target.textContent = '✓ 今日貼る（選択済み）';
-        btn.classList.add('checked-tag');
-      }
-      updateCount();
+      const key = e.currentTarget.dataset.tsubo;
+      if (checkedTsubo.has(key)) checkedTsubo.delete(key);
+      else checkedTsubo.add(key);
+      syncTsuboUI(key);
     };
 
     wrapper.appendChild(btn);
     wrapper.appendChild(detail);
     container.appendChild(wrapper);
   });
+}
+
+// 同じツボが特効穴と本治穴の両方に出ることがあるため、画面上の同名の表示をまとめて更新する
+function syncTsuboUI(name) {
+  const on = checkedTsubo.has(name);
+  const sel = `[data-tsubo="${CSS.escape(name)}"]`;
+  document.querySelectorAll('.tsubo-tag-btn' + sel + ', .honchi-tag-btn' + sel).forEach(b => {
+    b.classList.toggle('checked-tag', on);
+  });
+  document.querySelectorAll('.tsubo-check-btn' + sel).forEach(b => {
+    b.classList.toggle('checked', on);
+    b.textContent = on ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加';
+  });
+  updateCount();
 }
 
 // ===================== 状態 =====================
@@ -1173,12 +1290,19 @@ function render() {
   window.scrollTo(0, 0);
 }
 
+// この症状に体質チェックがあるか（ない症状ではステップ2を飛ばす）
+function hasTypes() {
+  return !!(selectedSymptom && selectedSymptom.types && selectedSymptom.types.length > 0);
+}
+
 function updateStepNav() {
+  const skip2 = selectedSymptom && !hasTypes();
   for (let i = 1; i <= 4; i++) {
     const el = document.getElementById(`step${i}nav`);
     el.className = 'step-item';
     if (i === currentStep) el.className += ' active';
     else if (i < currentStep) el.className += ' done';
+    if (i === 2 && skip2) el.className += ' skipped';
   }
 }
 
@@ -1189,37 +1313,59 @@ function renderStep1(main) {
     <p class="section-sub">今いちばんつらい症状を選んでください。当てはまるものを1つ選んでください。</p>
     <div class="symptom-grid" id="symptomGrid"></div>
     <div class="btn-row">
-      <button class="btn btn-primary" id="toStep2Btn" disabled onclick="goToStep2()">次へ：体質チェック →</button>
+      <button type="button" class="btn btn-primary" id="toStep2Btn" onclick="goToStep2()">次へ →</button>
     </div>
     <div class="safety-box">円皮鍼は補助的なセルフケアです。強い痛みや長く続く症状は必ず医師にご相談ください。</div>
   `;
+  const nextBtn = document.getElementById('toStep2Btn');
+  // 戻ってきたときに選択が残っていれば、そのまま次へ進めるようにする（監査1）
+  nextBtn.disabled = !selectedSymptom;
+  updateNextLabel();
+
   const grid = document.getElementById('symptomGrid');
   symptoms.forEach(s => {
-    const card = document.createElement('div');
+    const card = document.createElement('button');
+    card.type = 'button';
     card.className = 'symptom-card' + (selectedSymptom?.id === s.id ? ' selected' : '');
+    card.setAttribute('aria-pressed', String(selectedSymptom?.id === s.id));
     card.innerHTML = `<span class="symptom-emoji">${s.emoji}</span><div class="symptom-info"><div class="symptom-name">${s.name}</div><div class="symptom-desc">${s.description}</div></div>`;
     card.onclick = () => {
+      // 同じ症状を選び直したときは、体質チェックと選んだツボを消さない（監査1）
+      if (!selectedSymptom || selectedSymptom.id !== s.id) {
+        selectedTypes.clear();
+        checkedTsubo.clear();
+      }
       selectedSymptom = s;
-      selectedTypes.clear();
-      checkedTsubo.clear();
-      document.querySelectorAll('.symptom-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.symptom-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
       card.classList.add('selected');
-      document.getElementById('toStep2Btn').disabled = false;
+      card.setAttribute('aria-pressed', 'true');
+      nextBtn.disabled = false;
+      updateNextLabel();
     };
     grid.appendChild(card);
   });
 }
 
+function updateNextLabel() {
+  const b = document.getElementById('toStep2Btn');
+  if (!b) return;
+  b.textContent = hasTypes() ? '次へ：体質チェック →' : 'ツボを見つける →';
+}
+
 function goToStep2() {
   if (!selectedSymptom) return;
-  currentStep = 2;
+  // 体質チェックのない症状はステップ2を飛ばす（監査4）
+  currentStep = hasTypes() ? 2 : 3;
   render();
 }
 
 // ---- ステップ2: 体質チェック ----
 function renderStep2(main) {
   const s = selectedSymptom;
-  let html = `
+  main.innerHTML = `
     <div class="symptom-header">
       <span class="symptom-header-emoji">${s.emoji}</span>
       <div>
@@ -1230,20 +1376,25 @@ function renderStep2(main) {
     <p class="section-title">体質チェック</p>
     <p class="section-sub">当てはまるものをすべて選んでください。より自分に近いものを選ぶと、ぴったりのツボが見つかります。</p>
     <div id="constitutionList"></div>
+    <button type="button" class="btn-ghost" onclick="skipConstitution()">
+      わからない・当てはまらない
+      <small>体質を選ばずに、まず試すツボ（特効穴）だけを見る</small>
+    </button>
     <div class="btn-row">
-      <button class="btn btn-secondary" onclick="goBack()">← 症状を選び直す</button>
-      <button class="btn btn-primary" onclick="goToStep3()">ツボを見つける →</button>
+      <button type="button" class="btn btn-secondary" onclick="goBack()">← 症状を選び直す</button>
+      <button type="button" class="btn btn-primary" onclick="goToStep3()">ツボを見つける →</button>
     </div>
   `;
-  main.innerHTML = html;
 
   const list = document.getElementById('constitutionList');
   s.types.forEach((t, i) => {
     const card = document.createElement('div');
     card.className = 'constitution-card';
     const isChecked = selectedTypes.has(i);
-    const label = document.createElement('div');
+    const label = document.createElement('button');
+    label.type = 'button';
     label.className = 'constitution-label' + (isChecked ? ' checked' : '');
+    label.setAttribute('aria-pressed', String(isChecked));
     label.innerHTML = `
       <div class="constitution-checkbox"></div>
       <div class="constitution-text">${t.check}</div>
@@ -1252,14 +1403,23 @@ function renderStep2(main) {
       if (selectedTypes.has(i)) {
         selectedTypes.delete(i);
         label.classList.remove('checked');
+        label.setAttribute('aria-pressed', 'false');
       } else {
         selectedTypes.add(i);
         label.classList.add('checked');
+        label.setAttribute('aria-pressed', 'true');
       }
     };
     card.appendChild(label);
     list.appendChild(card);
   });
+}
+
+// 体質が分からない人向け：選択をやめて特効穴だけに進む（監査6）
+function skipConstitution() {
+  selectedTypes.clear();
+  currentStep = 3;
+  render();
 }
 
 function goToStep3() {
@@ -1272,7 +1432,7 @@ function renderStep3(main) {
   const s = selectedSymptom;
   const selectedTypeList = s.types.filter((_, i) => selectedTypes.has(i));
 
-  let html = `
+  main.innerHTML = `
     <div class="symptom-header">
       <span class="symptom-header-emoji">${s.emoji}</span>
       <div>
@@ -1282,10 +1442,10 @@ function renderStep3(main) {
     </div>
     <div class="note-box">${s.note}</div>
     <p class="section-title">✦ あなたへのおすすめツボ</p>
-    <p class="section-sub">☑️ 今日貼りたいツボにチェックを入れてください</p>
+    <p class="section-sub">ツボの名前をタップすると、位置の図と説明が開きます。今日貼るツボを選んでおくと、次の「貼り方」の画面にまとまって出ます。</p>
+    <div class="sun-note">📏 <b>「寸」は指の幅で測ります。</b><br>1寸＝親指の幅、3寸＝人差し指〜小指の4本をそろえた幅（ご本人の指で測ってください）。</div>
     <div id="selectedCountBadge" class="selected-count">0か所 選択中</div>
   `;
-  main.innerHTML = html;
 
   // 特効穴
   const tSection = document.createElement('div');
@@ -1293,9 +1453,7 @@ function renderStep3(main) {
   tSection.innerHTML = `<div class="tsubo-section-title">特効穴（まず試すツボ）</div>`;
   const tList = document.createElement('div');
   tList.className = 'tokukoketsu-list';
-  s.tokukoketsu.forEach((t, idx) => {
-    makeTsuboItems(tList, t, 't_' + idx, 'primary');
-  });
+  s.tokukoketsu.forEach(t => makeTsuboItems(tList, t, 'primary'));
   tSection.appendChild(tList);
   main.appendChild(tSection);
 
@@ -1304,24 +1462,24 @@ function renderStep3(main) {
     const hSection = document.createElement('div');
     hSection.className = 'tsubo-section';
     hSection.innerHTML = `<div class="tsubo-section-title">本治穴（体質に合わせたツボ）</div>`;
-    selectedTypeList.forEach((t, ti) => {
+    selectedTypeList.forEach(t => {
       const card = document.createElement('div');
       card.className = 'result-constitution-card';
       card.innerHTML = `<div class="result-type-badge">${t.type}</div>`;
 
       const row1 = document.createElement('div');
       row1.className = 'result-tsubo-row';
-      row1.innerHTML = '<span class="arrow-label" style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px;">本治穴①</span>';
-      makeTsuboItems(row1, t.h1, `h1_${ti}`, 'honchi');
+      row1.innerHTML = '<span class="arrow-label" style="display:block;width:100%;margin-bottom:2px;">本治穴①</span>';
+      makeTsuboItems(row1, t.h1, 'honchi');
 
       const arrow = document.createElement('div');
       arrow.className = 'arrow-label';
-      arrow.style.cssText = 'font-size:11px;color:var(--text-muted);margin:6px 0 4px;';
+      arrow.style.cssText = 'margin:8px 0 4px;';
       arrow.textContent = '↓ 効果が弱い場合は本治穴②も';
 
       const row2 = document.createElement('div');
       row2.className = 'result-tsubo-row';
-      makeTsuboItems(row2, t.h2, `h2_${ti}`, 'honchi');
+      makeTsuboItems(row2, t.h2, 'honchi');
 
       card.appendChild(row1);
       card.appendChild(arrow);
@@ -1330,18 +1488,25 @@ function renderStep3(main) {
     });
     main.appendChild(hSection);
   } else if (s.types.length > 0) {
+    // 体質を選ばずに来た場合（監査6）
     const hint = document.createElement('div');
-    hint.className = 'note-box';
-    hint.style.cssText = 'background:#e8f5ef;border-color:var(--primary);color:var(--primary-dark);';
-    hint.textContent = '体質チェックで当てはまるものを選ぶと、体質に合った本治穴も表示されます。';
+    hint.className = 'empty-hint';
+    hint.innerHTML = 'まずは上の<b>特効穴</b>からお試しください。<br>体質チェックで当てはまるものを選ぶと、体質に合わせたツボ（本治穴）も表示されます。';
+    main.appendChild(hint);
+  } else {
+    // 体質チェックのない症状（監査4）
+    const hint = document.createElement('div');
+    hint.className = 'empty-hint';
+    hint.textContent = 'この症状は体質を問わず、上のツボを使います。';
     main.appendChild(hint);
   }
 
   const btnRow = document.createElement('div');
   btnRow.className = 'btn-row';
+  const backLabel = hasTypes() ? '← 体質チェックに戻る' : '← 症状を選び直す';
   btnRow.innerHTML = `
-    <button class="btn btn-secondary" onclick="currentStep=2;render()">← 体質チェックに戻る</button>
-    <button class="btn btn-primary" onclick="currentStep=4;render()">円皮鍼の貼り方を確認する →</button>
+    <button type="button" class="btn btn-secondary" onclick="goBack()">${backLabel}</button>
+    <button type="button" class="btn btn-primary" onclick="currentStep=4;render()">貼り方を見る →</button>
   `;
   main.appendChild(btnRow);
 
@@ -1356,6 +1521,8 @@ function updateCount() {
 // ---- ステップ4: 貼り方 ----
 function renderStep4(main) {
   main.innerHTML = `
+    <div class="chosen-box" id="chosenBox"></div>
+
     <p class="section-title">円皮鍼の貼り方</p>
     <p class="section-sub">以下の手順でご自宅で安全に貼ることができます。</p>
 
@@ -1402,17 +1569,65 @@ function renderStep4(main) {
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-secondary" onclick="currentStep=3;render()">← ツボを確認する</button>
-      <button class="btn btn-primary" onclick="currentStep=1;selectedSymptom=null;selectedTypes.clear();checkedTsubo.clear();render()">最初から</button>
+      <button type="button" class="btn btn-secondary" onclick="currentStep=3;render()">← ツボを確認する</button>
+      <button type="button" class="btn btn-primary" onclick="restart()">最初から</button>
     </div>
   `;
+  renderChosenList();
+}
+
+// ステップ3で選んだツボを一覧表示する（監査3）
+function renderChosenList() {
+  const box = document.getElementById('chosenBox');
+  if (!box) return;
+  const names = Array.from(checkedTsubo);
+
+  if (names.length === 0) {
+    box.innerHTML = `<div class="chosen-title">今日貼るツボ</div>
+      <div class="chosen-empty">まだ選ばれていません。<br>
+      「← ツボを確認する」から、貼りたいツボの「＋ 今日貼るツボに追加」を押すと、ここに位置の図とあわせて並びます。</div>`;
+    return;
+  }
+
+  box.innerHTML = `<div class="chosen-title">今日貼るツボ（${names.length}か所）</div>`;
+  names.forEach(name => {
+    const info = tsuboInfo[name];
+    const item = document.createElement('div');
+    item.className = 'chosen-item';
+    const img = info ? `<img class="chosen-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">` : '';
+    const loc = info ? `📍 ${info.loc}` : '取穴の詳細情報は準備中です。';
+    item.innerHTML = `
+      <div class="chosen-head">
+        <div class="chosen-name">${name}</div>
+        <button type="button" class="chosen-remove" data-tsubo="${name}">外す</button>
+      </div>
+      <div class="chosen-loc">${loc}</div>
+      ${img}
+    `;
+    item.querySelector('.chosen-remove').onclick = (e) => {
+      checkedTsubo.delete(e.currentTarget.dataset.tsubo);
+      renderChosenList();
+    };
+    box.appendChild(item);
+  });
+}
+
+function restart() {
+  currentStep = 1;
+  selectedSymptom = null;
+  selectedTypes.clear();
+  checkedTsubo.clear();
+  render();
 }
 
 function goBack() {
-  if (currentStep > 1) {
+  if (currentStep === 3 && !hasTypes()) {
+    // 体質チェックを飛ばしている症状では、ステップ3から直接ステップ1へ戻す（監査4）
+    currentStep = 1;
+  } else if (currentStep > 1) {
     currentStep--;
-    render();
   }
+  render();
 }
 
 // ===================== 初期化 =====================
