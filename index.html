@@ -606,6 +606,27 @@
   .care-list li { font-size: 15px; line-height: 1.85; margin-bottom: 4px; }
   .care-list li b { color: #9c4416; }
 
+  /* 症状一覧のグループ見出し */
+  .group-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .group-title:first-of-type { margin-top: 0; }
+  .group-title.clinic { color: #9c4416; border-bottom-color: var(--accent); }
+  .group-note {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #9c4416;
+    margin: -4px 0 12px;
+  }
+
   /* 「効かなければ次へ」のラベル */
   .tsubo-next-label {
     width: 100%;
@@ -975,7 +996,7 @@ const symptoms = [
   },
   {
     id: "sciatica", emoji: "🦵", name: "坐骨神経痛", description: "お尻・脚の痛み・しびれ",
-    note: "坐骨神経はたいへん長い神経なので、痛みが起きると片側の殿部、大腿の後面、ふくらはぎ、くるぶしまで痛むことがあります。安静にしていても弱い痛みが続くものです。",
+    note: "坐骨神経はたいへん長い神経なので、痛みが起きると片側の殿部、大腿の後面、ふくらはぎ、くるぶしまで痛むことがあります。安静にしていても弱い痛みが続くものです。足に力が入らない、しびれが強くなる、排尿・排便の異常がある場合は医療機関を受診してください。",
     tokukoketsu: ["環跳"],
     types: [
       { check: "とくに大腿部後面が痛む", type:"太陽経型", h1:"委中", h2:"崑崙" },
@@ -1257,6 +1278,9 @@ const tsuboInfo = {
 };
 
 // ===================== 安全情報（医学的内容は院長の指示による） =====================
+// 医療機関で治療を受けながら、補助として使う症状
+const clinicSymptomIds = ["tonsillitis", "arrhythmia", "palpitation", "dyslipidemia", "cough", "toothache", "morning_sickness", "breech"];
+
 // 妊娠中・妊娠の可能性がある方が使う前に医師への相談が必要なツボ
 const pregnancyCautionTsubo = ["三陰交", "合谷", "肩井", "至陰"];
 const PREGNANCY_ALERT = "妊娠中・妊娠の可能性がある方は、このツボを使う前に必ず医師にご相談ください。";
@@ -1395,7 +1419,11 @@ function renderStep1(main) {
     <div class="alert-box"><b>妊娠中・妊娠の可能性がある方へ</b><br>円皮鍼を使う前に、必ず医師にご相談ください。</div>
     <p class="section-title">気になる症状を選んでください</p>
     <p class="section-sub">今いちばんつらい症状を選んでください。当てはまるものを1つ選んでください。</p>
-    <div class="symptom-grid" id="symptomGrid"></div>
+    <div class="group-title">🏠 自分で試せる症状</div>
+    <div class="symptom-grid" id="symptomGridSelf"></div>
+    <div class="group-title clinic">🏥 受診しながら使う症状</div>
+    <p class="group-note">医師・歯科医師の診察や治療を受けたうえで、補助としてお使いください</p>
+    <div class="symptom-grid" id="symptomGridClinic"></div>
     <div class="btn-row">
       <button type="button" class="btn btn-primary" id="toStep2Btn" onclick="goToStep2()">次へ →</button>
     </div>
@@ -1406,7 +1434,8 @@ function renderStep1(main) {
   nextBtn.disabled = !selectedSymptom;
   updateNextLabel();
 
-  const grid = document.getElementById('symptomGrid');
+  const gridSelf = document.getElementById('symptomGridSelf');
+  const gridClinic = document.getElementById('symptomGridClinic');
   symptoms.forEach(s => {
     const card = document.createElement('button');
     card.type = 'button';
@@ -1429,7 +1458,7 @@ function renderStep1(main) {
       nextBtn.disabled = false;
       updateNextLabel();
     };
-    grid.appendChild(card);
+    (clinicSymptomIds.includes(s.id) ? gridClinic : gridSelf).appendChild(card);
   });
 }
 
