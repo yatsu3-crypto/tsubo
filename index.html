@@ -606,6 +606,83 @@
   .care-list li { font-size: 15px; line-height: 1.85; margin-bottom: 4px; }
   .care-list li b { color: #9c4416; }
 
+  /* 検索欄 */
+  .search-wrap { position: relative; margin-bottom: 16px; }
+  .search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 44px 14px 42px;
+    min-height: 52px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text);
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    -webkit-appearance: none;
+  }
+  .search-input:focus { outline: none; border-color: var(--primary); }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-icon {
+    position: absolute;
+    left: 13px; top: 50%; transform: translateY(-50%);
+    font-size: 17px; pointer-events: none;
+  }
+  .search-clear {
+    position: absolute;
+    right: 4px; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border: none; background: none;
+    color: var(--text-muted);
+    font-size: 20px; font-family: inherit;
+    cursor: pointer; border-radius: 50%;
+  }
+  .search-clear:active { background: var(--bg); }
+  .search-count { font-size: 14px; color: var(--text-muted); margin: -8px 0 12px; }
+  .search-empty {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .symptom-hit {
+    font-size: 13px;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-top: 3px;
+    display: inline-block;
+  }
+
+  /* 選択中に画面下へ固定するバー */
+  .fixed-bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 200;
+    background: rgba(255,255,255,0.97);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 14px rgba(42,122,90,0.12);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .fixed-bar-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    flex-shrink: 0;
+    max-width: 38%;
+  }
+  .fixed-bar-label b { display: block; font-size: 16px; color: var(--text); font-weight: 700; }
+  .fixed-bar .btn { flex: 1; margin: 0; }
+  body.has-fixed-bar { padding-bottom: 88px; }
+
   /* 症状一覧のグループ見出し */
   .group-title {
     font-size: 16px;
@@ -1304,6 +1381,22 @@ function makeTsuboItems(container, tsuboNames, styleType) {
   });
 }
 
+// 「合谷＋太衝」「養老→承山」などをツボ名の配列にする
+function splitTsuboNames(str) {
+  return String(str).split(/[＋+・→]/).map(n => n.trim()).filter(Boolean);
+}
+
+// その症状で使うツボの名前をすべて集める
+function tsuboNamesOf(s) {
+  const set = new Set();
+  s.tokukoketsu.forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
+  s.types.forEach(t => {
+    splitTsuboNames(t.h1).forEach(n => set.add(n));
+    splitTsuboNames(t.h2).forEach(n => set.add(n));
+  });
+  return Array.from(set);
+}
+
 function makeTsuboGroup(container, tsuboNames, styleType) {
   const names = tsuboNames.split(/[＋+・]/).map(n => n.trim()).filter(Boolean);
 
@@ -1379,6 +1472,7 @@ function syncTsuboUI(name) {
 // ===================== 状態 =====================
 let currentStep = 1;
 let selectedSymptom = null;
+let searchQuery = '';
 let selectedTypes = new Set();
 let checkedTsubo = new Set();
 
@@ -1394,6 +1488,7 @@ function render() {
   else if (currentStep === 3) renderStep3(main);
   else if (currentStep === 4) renderStep4(main);
 
+  if (currentStep !== 1) updateFixedBar();
   window.scrollTo(0, 0);
 }
 
@@ -1419,29 +1514,80 @@ function renderStep1(main) {
     <div class="alert-box"><b>妊娠中・妊娠の可能性がある方へ</b><br>円皮鍼を使う前に、必ず医師にご相談ください。</div>
     <p class="section-title">気になる症状を選んでください</p>
     <p class="section-sub">今いちばんつらい症状を選んでください。当てはまるものを1つ選んでください。</p>
-    <div class="group-title">🏠 自分で試せる症状</div>
-    <div class="symptom-grid" id="symptomGridSelf"></div>
-    <div class="group-title clinic">🏥 受診しながら使う症状</div>
-    <p class="group-note">医師・歯科医師の診察や治療を受けたうえで、補助としてお使いください</p>
-    <div class="symptom-grid" id="symptomGridClinic"></div>
-    <div class="btn-row">
-      <button type="button" class="btn btn-primary" id="toStep2Btn" onclick="goToStep2()">次へ →</button>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" class="search-input" id="searchInput" value="${searchQuery}"
+             placeholder="症状やツボの名前で探す" autocomplete="off"
+             enterkeyhint="search" aria-label="症状やツボの名前で探す">
+      <button type="button" class="search-clear" id="searchClear" aria-label="入力を消す" style="display:${searchQuery ? 'block' : 'none'}">✕</button>
     </div>
+    <div id="symptomResults"></div>
     <div class="safety-box">円皮鍼は補助的なセルフケアです。強い痛みや長く続く症状は必ず医師にご相談ください。</div>
   `;
-  const nextBtn = document.getElementById('toStep2Btn');
-  // 戻ってきたときに選択が残っていれば、そのまま次へ進めるようにする（監査1）
-  nextBtn.disabled = !selectedSymptom;
-  updateNextLabel();
+
+  const input = document.getElementById('searchInput');
+  const clear = document.getElementById('searchClear');
+  input.oninput = () => {
+    searchQuery = input.value.trim();
+    clear.style.display = searchQuery ? 'block' : 'none';
+    renderSymptomResults();
+  };
+  clear.onclick = () => {
+    searchQuery = '';
+    input.value = '';
+    clear.style.display = 'none';
+    input.focus();
+    renderSymptomResults();
+  };
+
+  renderSymptomResults();
+  updateFixedBar();
+}
+
+// 検索語で症状をしぼり込む。症状名・説明・ツボ名のいずれかに含まれていればヒット（監査5）
+function matchSymptom(s, q) {
+  if (!q) return { hit: true, tsubo: [] };
+  if (s.name.includes(q) || s.description.includes(q)) return { hit: true, tsubo: [] };
+  const tsubo = tsuboNamesOf(s).filter(n => n.includes(q));
+  return { hit: tsubo.length > 0, tsubo };
+}
+
+function renderSymptomResults() {
+  const box = document.getElementById('symptomResults');
+  if (!box) return;
+  const q = searchQuery;
+
+  const rows = symptoms
+    .map(s => ({ s, m: matchSymptom(s, q) }))
+    .filter(r => r.m.hit);
+
+  if (rows.length === 0) {
+    box.innerHTML = `<div class="search-empty">「${q}」に当てはまる症状は見つかりませんでした。<br>
+      別の言葉でお試しください（例：頭痛、かゆみ、合谷）。</div>`;
+    return;
+  }
+
+  const selfRows = rows.filter(r => !clinicSymptomIds.includes(r.s.id));
+  const clinicRows = rows.filter(r => clinicSymptomIds.includes(r.s.id));
+
+  box.innerHTML = `
+    ${q ? `<p class="search-count">${rows.length}件見つかりました</p>` : ''}
+    ${selfRows.length ? `<div class="group-title">🏠 自分で試せる症状</div><div class="symptom-grid" id="symptomGridSelf"></div>` : ''}
+    ${clinicRows.length ? `<div class="group-title clinic">🏥 受診しながら使う症状</div>
+      <p class="group-note">医師・歯科医師の診察や治療を受けたうえで、補助としてお使いください</p>
+      <div class="symptom-grid" id="symptomGridClinic"></div>` : ''}
+  `;
 
   const gridSelf = document.getElementById('symptomGridSelf');
   const gridClinic = document.getElementById('symptomGridClinic');
-  symptoms.forEach(s => {
+  rows.forEach(({ s, m }) => {
     const card = document.createElement('button');
     card.type = 'button';
-    card.className = 'symptom-card' + (selectedSymptom?.id === s.id ? ' selected' : '');
-    card.setAttribute('aria-pressed', String(selectedSymptom?.id === s.id));
-    card.innerHTML = `<span class="symptom-emoji">${s.emoji}</span><div class="symptom-info"><div class="symptom-name">${s.name}</div><div class="symptom-desc">${s.description}</div></div>`;
+    const isSel = selectedSymptom?.id === s.id;
+    card.className = 'symptom-card' + (isSel ? ' selected' : '');
+    card.setAttribute('aria-pressed', String(isSel));
+    const hit = m.tsubo.length ? `<div class="symptom-hit">${m.tsubo.join('・')}を使います</div>` : '';
+    card.innerHTML = `<span class="symptom-emoji">${s.emoji}</span><div class="symptom-info"><div class="symptom-name">${s.name}</div><div class="symptom-desc">${s.description}</div>${hit}</div>`;
     card.onclick = () => {
       // 同じ症状を選び直したときは、体質チェックと選んだツボを消さない（監査1）
       if (!selectedSymptom || selectedSymptom.id !== s.id) {
@@ -1455,17 +1601,28 @@ function renderStep1(main) {
       });
       card.classList.add('selected');
       card.setAttribute('aria-pressed', 'true');
-      nextBtn.disabled = false;
-      updateNextLabel();
+      updateFixedBar();
     };
     (clinicSymptomIds.includes(s.id) ? gridClinic : gridSelf).appendChild(card);
   });
 }
 
-function updateNextLabel() {
-  const b = document.getElementById('toStep2Btn');
-  if (!b) return;
-  b.textContent = hasTypes() ? '次へ：体質チェック →' : 'ツボを見つける →';
+// 選択したら画面下に「次へ」を固定表示する。42件をスクロールし切らなくても進める（監査5）
+function updateFixedBar() {
+  const old = document.getElementById('fixedBar');
+  if (old) old.remove();
+  document.body.classList.remove('has-fixed-bar');
+  if (currentStep !== 1 || !selectedSymptom) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'fixed-bar';
+  bar.id = 'fixedBar';
+  bar.innerHTML = `
+    <div class="fixed-bar-label">選択中<b>${selectedSymptom.name}</b></div>
+    <button type="button" class="btn btn-primary" onclick="goToStep2()">${hasTypes() ? '次へ：体質チェック →' : 'ツボを見つける →'}</button>
+  `;
+  document.body.appendChild(bar);
+  document.body.classList.add('has-fixed-bar');
 }
 
 function goToStep2() {
@@ -1771,6 +1928,7 @@ function renderChosenList() {
 function restart() {
   currentStep = 1;
   selectedSymptom = null;
+  searchQuery = '';
   selectedTypes.clear();
   checkedTsubo.clear();
   render();
