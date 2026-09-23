@@ -492,13 +492,58 @@
     margin-top: -2px;
   }
   .tsubo-detail.open { display: block; animation: fadeIn 0.18s ease-out; }
-  .tsubo-img {
+  .tsubo-img, .chosen-img {
     width: 100%;
-    max-width: 220px;
+    max-width: 300px;
     border-radius: 8px;
     border: 1px solid var(--border);
     display: block;
     margin: 0 auto 8px;
+    cursor: zoom-in;
+    background: white;
+  }
+  .img-hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: -4px 0 10px;
+  }
+
+  /* 図の全画面拡大 */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(28,40,32,0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 14px;
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 76vh;
+    border-radius: 10px;
+    background: white;
+  }
+  .lightbox-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .lightbox-close {
+    background: white;
+    color: var(--text);
+    border: none;
+    border-radius: 10px;
+    min-height: 52px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
   }
   .tsubo-location-text {
     font-size: 16px;
@@ -805,14 +850,6 @@
   }
   .chosen-remove:active { background: var(--bg); }
   .chosen-loc { font-size: 16px; line-height: 1.8; color: var(--text); }
-  .chosen-img {
-    width: 100%;
-    max-width: 220px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    display: block;
-    margin: 8px auto 0;
-  }
   .chosen-empty {
     font-size: 15px;
     line-height: 1.8;
@@ -1426,7 +1463,10 @@ function makeTsuboGroup(container, tsuboNames, styleType) {
       ? `<div class="tsubo-warn">${PREGNANCY_ALERT}</div>` : '';
 
     if (info) {
-      const imgHtml = `<img class="tsubo-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">`;
+      const imgHtml = `<img class="tsubo-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy"
+             onclick="openLightbox(this)" data-name="${name}"
+             onerror="this.style.display='none';const h=this.nextElementSibling;if(h&&h.classList.contains('img-hint'))h.style.display='none';">
+        <div class="img-hint">図をタップすると大きく表示します</div>`;
       detail.innerHTML = `${warnHtml}${imgHtml}
         <div class="tsubo-location-text">📍 ${info.loc}</div>
         ${checkBtnHtml}`;
@@ -1476,6 +1516,26 @@ let searchQuery = '';
 let selectedTypes = new Set();
 let checkedTsubo = new Set();
 
+// ===================== 図の全画面拡大（監査13） =====================
+function openLightbox(img) {
+  closeLightbox();
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.id = 'lightbox';
+  box.innerHTML = `
+    <div class="lightbox-name">${img.dataset.name || ''}</div>
+    <img src="${img.getAttribute('src')}" alt="${img.alt}">
+    <button type="button" class="lightbox-close">閉じる</button>
+  `;
+  box.onclick = closeLightbox;
+  document.body.appendChild(box);
+}
+
+function closeLightbox() {
+  const box = document.getElementById('lightbox');
+  if (box) box.remove();
+}
+
 // ===================== 画面の履歴（監査17） =====================
 // iPhone のスワイプバックやブラウザの戻るで、アプリから出てしまわないように
 // 各ステップを履歴に積む。履歴が使えない環境では従来どおりの動きにする。
@@ -1521,6 +1581,7 @@ window.addEventListener('popstate', function (e) {
 
 // ===================== レンダリング =====================
 function render() {
+  closeLightbox();
   updateStepNav();
   const main = document.getElementById('mainContent');
   main.innerHTML = '';
@@ -1944,7 +2005,8 @@ function renderChosenList() {
     const info = tsuboInfo[name];
     const item = document.createElement('div');
     item.className = 'chosen-item';
-    const img = info ? `<img class="chosen-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">` : '';
+    const img = info ? `<img class="chosen-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy"
+        onclick="openLightbox(this)" data-name="${name}" onerror="this.style.display='none'">` : '';
     const loc = info ? `📍 ${info.loc}` : '取穴の詳細情報は準備中です。';
     const warnHtml = pregnancyCautionTsubo.includes(name)
       ? `<div class="tsubo-warn">${PREGNANCY_ALERT}</div>` : '';
