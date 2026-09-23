@@ -555,6 +555,65 @@
   .honchi-tag-btn .tag-arrow { font-size: 12px; transition: transform 0.2s; }
   .honchi-tag-btn.open .tag-arrow { transform: rotate(180deg); }
 
+  /* ===== 安全情報（医学的内容は院長の指示による） ===== */
+  /* 妊娠に関する警告 */
+  .alert-box {
+    background: #fff4ef;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #9c4416;
+    font-weight: 600;
+  }
+  .alert-box b { color: #82360f; }
+  .alert-box::before { content: '⚠️ '; }
+
+  /* ツボごとの警告 */
+  .tsubo-warn {
+    background: #fff4ef;
+    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #9c4416;
+    font-weight: 600;
+  }
+  .tsubo-warn::before { content: '⚠️ '; }
+  .tag-warn { font-size: 14px; }
+
+  /* 貼る前の確認・中止の目安 */
+  .care-box {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .care-box.danger { border-color: var(--accent); background: #fffaf7; }
+  .care-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .care-box.danger .care-title { color: #9c4416; }
+  .care-list { margin: 0; padding-left: 1.3em; }
+  .care-list li { font-size: 15px; line-height: 1.85; margin-bottom: 4px; }
+  .care-list li b { color: #9c4416; }
+
+  /* 「効かなければ次へ」のラベル */
+  .tsubo-next-label {
+    width: 100%;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 6px 0 2px;
+  }
+
   /* ===== 第1弾改良で追加 ===== */
   /* 体質が分からない人向けのボタン */
   .btn-ghost {
@@ -770,7 +829,7 @@ const symptoms = [
     ]
   },
   {
-    id: "backache", emoji: "🦴", name: "腰痛", description: "腰が痛い・重い",
+    id: "backache", emoji: "💢", name: "腰痛", description: "腰が痛い・重い",
     note: "急に強い腰痛が起きた場合はまず医療機関の診察を受け、激しい痛みが落ち着いてからツボ刺激を行いましょう。",
     tokukoketsu: ["養老","腰痛点","腰眼"],
     types: [
@@ -1030,7 +1089,7 @@ const symptoms = [
   },
   {
     id: "breech", emoji: "🤱", name: "逆子", description: "胎位異常（逆子）",
-    note: "至陰への刺激は逆子矯正に伝統的に用いられてきましたが、必ず産婦人科医の管理のもとで行ってください。妊娠28〜32週頃が有効とされています。",
+    note: "【必ず医師の指示のもとでのみ行ってください】至陰への刺激は逆子矯正に伝統的に用いられてきましたが、必ず産婦人科医の管理のもとで行ってください。妊娠28〜32週頃が有効とされています。",
     tokukoketsu: ["至陰"],
     types: []
   },
@@ -1197,11 +1256,31 @@ const tsuboInfo = {
   "風門":    { who:"BL12",  loc:"第2胸椎棘突起の下縁から外方1.5寸。肺兪のすぐ上。" },
 };
 
+// ===================== 安全情報（医学的内容は院長の指示による） =====================
+// 妊娠中・妊娠の可能性がある方が使う前に医師への相談が必要なツボ
+const pregnancyCautionTsubo = ["三陰交", "合谷", "肩井", "至陰"];
+const PREGNANCY_ALERT = "妊娠中・妊娠の可能性がある方は、このツボを使う前に必ず医師にご相談ください。";
+
 // ===================== ツボアイテム生成ヘルパー =====================
 // tsuboName: "合谷" など。複合名（"合谷＋太衝"）は個別に分割して表示。
 // checkedTsubo のキーは「ツボ名そのもの」。体質チェックを変えても
 // チェックが別のツボへ付け替わらないようにするため（監査2）。
 function makeTsuboItems(container, tsuboNames, styleType) {
+  // 「→」は「効かなければ次のツボへ」の意味（監査G）
+  const groups = tsuboNames.split('→').map(g => g.trim()).filter(Boolean);
+
+  groups.forEach((group, gi) => {
+    if (gi > 0) {
+      const lbl = document.createElement('div');
+      lbl.className = 'tsubo-next-label';
+      lbl.textContent = '↓ 効果が弱い場合はこちらのツボへ';
+      container.appendChild(lbl);
+    }
+    makeTsuboGroup(container, group, styleType);
+  });
+}
+
+function makeTsuboGroup(container, tsuboNames, styleType) {
   const names = tsuboNames.split(/[＋+・]/).map(n => n.trim()).filter(Boolean);
 
   names.forEach((name) => {
@@ -1215,7 +1294,8 @@ function makeTsuboItems(container, tsuboNames, styleType) {
     btn.dataset.tsubo = name;
     btn.setAttribute('aria-expanded', 'false');
     if (checkedTsubo.has(name)) btn.classList.add('checked-tag');
-    btn.innerHTML = `${name} <span class="tag-arrow">▼</span>`;
+    const warnMark = pregnancyCautionTsubo.includes(name) ? '<span class="tag-warn" aria-label="妊娠中は注意">⚠️</span> ' : '';
+    btn.innerHTML = `${warnMark}${name} <span class="tag-arrow">▼</span>`;
 
     const detail = document.createElement('div');
     detail.className = 'tsubo-detail';
@@ -1225,13 +1305,16 @@ function makeTsuboItems(container, tsuboNames, styleType) {
           ${checked ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加'}
         </button>`;
 
+    const warnHtml = pregnancyCautionTsubo.includes(name)
+      ? `<div class="tsubo-warn">${PREGNANCY_ALERT}</div>` : '';
+
     if (info) {
       const imgHtml = `<img class="tsubo-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">`;
-      detail.innerHTML = `${imgHtml}
+      detail.innerHTML = `${warnHtml}${imgHtml}
         <div class="tsubo-location-text">📍 ${info.loc}</div>
         ${checkBtnHtml}`;
     } else {
-      detail.innerHTML = `<div class="tsubo-location-text">取穴の詳細情報は準備中です。</div>
+      detail.innerHTML = `${warnHtml}<div class="tsubo-location-text">取穴の詳細情報は準備中です。</div>
         ${checkBtnHtml}`;
     }
 
@@ -1309,6 +1392,7 @@ function updateStepNav() {
 // ---- ステップ1: 症状選択 ----
 function renderStep1(main) {
   main.innerHTML = `
+    <div class="alert-box"><b>妊娠中・妊娠の可能性がある方へ</b><br>円皮鍼を使う前に、必ず医師にご相談ください。</div>
     <p class="section-title">気になる症状を選んでください</p>
     <p class="section-sub">今いちばんつらい症状を選んでください。当てはまるものを1つ選んでください。</p>
     <div class="symptom-grid" id="symptomGrid"></div>
@@ -1523,6 +1607,23 @@ function renderStep4(main) {
   main.innerHTML = `
     <div class="chosen-box" id="chosenBox"></div>
 
+    <p class="section-title">貼る前に確認してください</p>
+    <div class="care-box danger">
+      <div class="care-title">次に当てはまる方は、使う前に医師・鍼灸師にご相談ください</div>
+      <ul class="care-list">
+        <li><b>金属アレルギー</b>のある方（円皮鍼の鍼は金属です）</li>
+        <li>ばんそうこうや湿布で<b>かぶれたことがある</b>方（テープを使います）</li>
+        <li><b>妊娠中・妊娠の可能性がある</b>方</li>
+      </ul>
+    </div>
+    <div class="care-box">
+      <div class="care-title">貼らない場所</div>
+      <ul class="care-list">
+        <li>傷・炎症・湿疹など<b>皮膚トラブルのある部位</b></li>
+        <li>前回貼って<b>赤みやかゆみが出た部位</b></li>
+      </ul>
+    </div>
+
     <p class="section-title">円皮鍼の貼り方</p>
     <p class="section-sub">以下の手順でご自宅で安全に貼ることができます。</p>
 
@@ -1558,13 +1659,36 @@ function renderStep4(main) {
       <div class="howto-num">5</div>
       <div class="howto-text">
         <div class="howto-title">効果を確認する</div>
-        <div class="howto-desc">貼った後は軽く押してみて、適度な刺激感があれば正しく貼れています。1〜3日を目安に交換しましょう。</div>
+        <div class="howto-desc">貼った後は軽く押してみて、適度な刺激感があれば正しく貼れています。</div>
       </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">6</div>
+      <div class="howto-text">
+        <div class="howto-title">1〜3日を目安にはずす</div>
+        <div class="howto-desc">貼りっぱなしにせず、1〜3日を目安にはがしてください。はずした円皮鍼は家庭ごみに出せます。鍼の先で手を傷つけないよう、はがした面を内側に折ってから捨ててください。</div>
+      </div>
+    </div>
+
+    <div class="care-box danger">
+      <div class="care-title">こんなときは、すぐにはがしてください</div>
+      <ul class="care-list">
+        <li><b>かゆみ</b>が出たとき</li>
+        <li>貼った部分が<b>赤くなった</b>とき</li>
+        <li><b>水ぶくれ</b>ができたとき</li>
+      </ul>
+    </div>
+    <div class="care-box danger">
+      <div class="care-title">こんなときは、医療機関を受診してください</div>
+      <ul class="care-list">
+        <li>貼った部分が<b>化膿した</b>とき</li>
+        <li><b>発熱</b>したとき</li>
+        <li>はがしても<b>数日たって治らない</b>とき</li>
+      </ul>
     </div>
 
     <div class="safety-box">
       円皮鍼は補助的なセルフケアです。強い痛みや長く続く症状は必ず医師にご相談ください。<br>
-      皮膚トラブルがある部位や、傷・炎症のある部位には使用しないでください。<br>
       入浴時は剥がれやすいため、貼り替えをお勧めします。
     </div>
 
@@ -1596,11 +1720,14 @@ function renderChosenList() {
     item.className = 'chosen-item';
     const img = info ? `<img class="chosen-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy" onerror="this.style.display='none'">` : '';
     const loc = info ? `📍 ${info.loc}` : '取穴の詳細情報は準備中です。';
+    const warnHtml = pregnancyCautionTsubo.includes(name)
+      ? `<div class="tsubo-warn">${PREGNANCY_ALERT}</div>` : '';
     item.innerHTML = `
       <div class="chosen-head">
         <div class="chosen-name">${name}</div>
         <button type="button" class="chosen-remove" data-tsubo="${name}">外す</button>
       </div>
+      ${warnHtml}
       <div class="chosen-loc">${loc}</div>
       ${img}
     `;
