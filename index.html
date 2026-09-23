@@ -1476,6 +1476,49 @@ let searchQuery = '';
 let selectedTypes = new Set();
 let checkedTsubo = new Set();
 
+// ===================== 画面の履歴（監査17） =====================
+// iPhone のスワイプバックやブラウザの戻るで、アプリから出てしまわないように
+// 各ステップを履歴に積む。履歴が使えない環境では従来どおりの動きにする。
+let historyOK = true;
+
+function initHistory() {
+  try {
+    history.replaceState({ step: 1, symptomId: null }, '');
+  } catch (e) {
+    historyOK = false;
+  }
+}
+
+function pushHistory() {
+  if (!historyOK) return;
+  try {
+    history.pushState({ step: currentStep, symptomId: selectedSymptom ? selectedSymptom.id : null }, '');
+  } catch (e) {
+    historyOK = false;
+  }
+}
+
+// 前へ進むときは履歴に積んでから描画する
+function goTo(step) {
+  currentStep = step;
+  pushHistory();
+  render();
+}
+
+window.addEventListener('popstate', function (e) {
+  const st = e.state;
+  if (st && typeof st.step === 'number') {
+    currentStep = st.step;
+    if (st.symptomId) {
+      const found = symptoms.find(x => x.id === st.symptomId);
+      if (found) selectedSymptom = found;
+    }
+  } else {
+    currentStep = 1;
+  }
+  render();
+});
+
 // ===================== レンダリング =====================
 function render() {
   updateStepNav();
@@ -1628,8 +1671,7 @@ function updateFixedBar() {
 function goToStep2() {
   if (!selectedSymptom) return;
   // 体質チェックのない症状はステップ2を飛ばす（監査4）
-  currentStep = hasTypes() ? 2 : 3;
-  render();
+  goTo(hasTypes() ? 2 : 3);
 }
 
 // ---- ステップ2: 体質チェック ----
@@ -1688,13 +1730,11 @@ function renderStep2(main) {
 // 体質が分からない人向け：選択をやめて特効穴だけに進む（監査6）
 function skipConstitution() {
   selectedTypes.clear();
-  currentStep = 3;
-  render();
+  goTo(3);
 }
 
 function goToStep3() {
-  currentStep = 3;
-  render();
+  goTo(3);
 }
 
 // ---- ステップ3: ツボ表示 ----
@@ -1776,7 +1816,7 @@ function renderStep3(main) {
   const backLabel = hasTypes() ? '← 体質チェックに戻る' : '← 症状を選び直す';
   btnRow.innerHTML = `
     <button type="button" class="btn btn-secondary" onclick="goBack()">${backLabel}</button>
-    <button type="button" class="btn btn-primary" onclick="currentStep=4;render()">貼り方を見る →</button>
+    <button type="button" class="btn btn-primary" onclick="goTo(4)">貼り方を見る →</button>
   `;
   main.appendChild(btnRow);
 
@@ -1879,7 +1919,7 @@ function renderStep4(main) {
     </div>
 
     <div class="btn-row">
-      <button type="button" class="btn btn-secondary" onclick="currentStep=3;render()">← ツボを確認する</button>
+      <button type="button" class="btn btn-secondary" onclick="goBack()">← ツボを確認する</button>
       <button type="button" class="btn btn-primary" onclick="restart()">最初から</button>
     </div>
   `;
@@ -1926,15 +1966,20 @@ function renderChosenList() {
 }
 
 function restart() {
-  currentStep = 1;
   selectedSymptom = null;
   searchQuery = '';
   selectedTypes.clear();
   checkedTsubo.clear();
-  render();
+  goTo(1);
 }
 
 function goBack() {
+  // ブラウザの戻る・スワイプバックと同じ動きにそろえる（監査17）
+  if (historyOK) {
+    history.back();
+    return;
+  }
+  // 履歴が使えない環境のときだけ、自前で1つ前の画面に戻す
   if (currentStep === 3 && !hasTypes()) {
     // 体質チェックを飛ばしている症状では、ステップ3から直接ステップ1へ戻す（監査4）
     currentStep = 1;
@@ -1945,6 +1990,7 @@ function goBack() {
 }
 
 // ===================== 初期化 =====================
+initHistory();
 render();
 </script>
 </body>
