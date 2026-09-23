@@ -1463,7 +1463,7 @@ function makeTsuboGroup(container, tsuboNames, styleType) {
       ? `<div class="tsubo-warn">${PREGNANCY_ALERT}</div>` : '';
 
     if (info) {
-      const imgHtml = `<img class="tsubo-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy"
+      const imgHtml = `<img class="tsubo-img" src="images/${info.who}.webp" alt="${name}の位置" loading="lazy"
              onclick="openLightbox(this)" data-name="${name}"
              onerror="this.style.display='none';const h=this.nextElementSibling;if(h&&h.classList.contains('img-hint'))h.style.display='none';">
         <div class="img-hint">図をタップすると大きく表示します</div>`;
@@ -2005,7 +2005,7 @@ function renderChosenList() {
     const info = tsuboInfo[name];
     const item = document.createElement('div');
     item.className = 'chosen-item';
-    const img = info ? `<img class="chosen-img" src="images/${info.who}.png" alt="${name}の位置" loading="lazy"
+    const img = info ? `<img class="chosen-img" src="images/${info.who}.webp" alt="${name}の位置" loading="lazy"
         onclick="openLightbox(this)" data-name="${name}" onerror="this.style.display='none'">` : '';
     const loc = info ? `📍 ${info.loc}` : '取穴の詳細情報は準備中です。';
     const warnHtml = pregnancyCautionTsubo.includes(name)
