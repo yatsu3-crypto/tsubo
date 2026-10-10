@@ -1238,6 +1238,15 @@ const symptoms = [
       { check: "空咳が多い、痰が少ない、のどが乾く、夜になると手足がほてる、寝汗をかきやすい、舌のひび割れ", type:"陰虚タイプ", h1:"太渓", h2:"照海" },
       { check: "咳が長引く、息切れがある、疲れやすい、倦怠感、汗をかきやすい、舌に歯形がつく、脈が弱い", type:"気虚タイプ", h1:"中府＋肺兪", h2:"気海＋足三里" }
     ]
+  },
+  {
+    // スタッフへの施術用（staffSymptomIds）。局所穴＝tokukoketsu、遠隔穴＝distal
+    id: "facial_lift", emoji: "✨", name: "顔のたるみ（美容鍼）", description: "スタッフへの施術用",
+    note: "加齢に伴う顔面のたるみに用いられる代表的なツボです。顔面の局所穴に、合谷・足三里などの遠隔穴を組み合わせます。ただし美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験で、エビデンスはサイズ・質ともに限定的です。",
+    tokukoketsu: ["迎香","地倉","顴髎","四白","太陽","攅竹","糸竹空","下関"],
+    distal: ["合谷","足三里"],
+    localLabel: "顔面局所穴（顔のツボ）",
+    types: []
   }
 ];
 
@@ -1389,11 +1398,18 @@ const tsuboInfo = {
   "中府":    { who:"LU1",   loc:"前胸部、鎖骨下窩の外側のくぼみ、前正中線から外方6寸。鎖骨の下、肩の前側のくぼみ。" },
   "肺兪":    { who:"BL13",  loc:"第3胸椎棘突起の下縁から外方1.5寸。背中の上部、左右の肩甲骨の上端よりやや内側。" },
   "風門":    { who:"BL12",  loc:"第2胸椎棘突起の下縁から外方1.5寸。肺兪のすぐ上。" },
+  // 美容鍼で追加
+  "地倉":    { who:"ST4",   loc:"口角の外方0.4寸。口角のすぐ横。口角のたるみ・表情筋のトーン改善に用いる。" },
+  "顴髎":    { who:"SI18",  loc:"外眼角（目尻）の直下、頬骨下縁の陥凹部。頬のたるみへの局所穴。" },
+  "糸竹空":  { who:"TE23",  loc:"眉毛外端（眉尻）の陥凹部。目尻のたるみへの局所穴。" },
 };
 
 // ===================== 安全情報（医学的内容は院長の指示による） =====================
 // 医療機関で治療を受けながら、補助として使う症状
 const clinicSymptomIds = ["tonsillitis", "arrhythmia", "palpitation", "dyslipidemia", "cough", "toothache", "morning_sickness", "breech"];
+
+// スタッフが施術する目的の項目（患者さんのセルフケア用とは分けて表示）
+const staffSymptomIds = ["facial_lift"];
 
 // 妊娠中・妊娠の可能性がある方が使う前に医師への相談が必要なツボ
 const pregnancyCautionTsubo = ["三陰交", "合谷", "肩井", "至陰"];
@@ -1427,6 +1443,7 @@ function splitTsuboNames(str) {
 function tsuboNamesOf(s) {
   const set = new Set();
   s.tokukoketsu.forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
+  (s.distal || []).forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
   s.types.forEach(t => {
     splitTsuboNames(t.h1).forEach(n => set.add(n));
     splitTsuboNames(t.h2).forEach(n => set.add(n));
@@ -1671,8 +1688,9 @@ function renderSymptomResults() {
     return;
   }
 
-  const selfRows = rows.filter(r => !clinicSymptomIds.includes(r.s.id));
+  const selfRows = rows.filter(r => !clinicSymptomIds.includes(r.s.id) && !staffSymptomIds.includes(r.s.id));
   const clinicRows = rows.filter(r => clinicSymptomIds.includes(r.s.id));
+  const staffRows = rows.filter(r => staffSymptomIds.includes(r.s.id));
 
   box.innerHTML = `
     ${q ? `<p class="search-count">${rows.length}件見つかりました</p>` : ''}
@@ -1680,10 +1698,14 @@ function renderSymptomResults() {
     ${clinicRows.length ? `<div class="group-title clinic">🏥 受診しながら使う症状</div>
       <p class="group-note">医師・歯科医師の診察や治療を受けたうえで、補助としてお使いください</p>
       <div class="symptom-grid" id="symptomGridClinic"></div>` : ''}
+    ${staffRows.length ? `<div class="group-title">💆 施術用（スタッフ向け）</div>
+      <p class="group-note">院内でスタッフに施術する際の参考です</p>
+      <div class="symptom-grid" id="symptomGridStaff"></div>` : ''}
   `;
 
   const gridSelf = document.getElementById('symptomGridSelf');
   const gridClinic = document.getElementById('symptomGridClinic');
+  const gridStaff = document.getElementById('symptomGridStaff');
   rows.forEach(({ s, m }) => {
     const card = document.createElement('button');
     card.type = 'button';
@@ -1707,7 +1729,7 @@ function renderSymptomResults() {
       card.setAttribute('aria-pressed', 'true');
       updateFixedBar();
     };
-    (clinicSymptomIds.includes(s.id) ? gridClinic : gridSelf).appendChild(card);
+    (staffSymptomIds.includes(s.id) ? gridStaff : clinicSymptomIds.includes(s.id) ? gridClinic : gridSelf).appendChild(card);
   });
 }
 
@@ -1821,12 +1843,24 @@ function renderStep3(main) {
   // 特効穴
   const tSection = document.createElement('div');
   tSection.className = 'tsubo-section';
-  tSection.innerHTML = `<div class="tsubo-section-title">特効穴（まず試すツボ）</div>`;
+  tSection.innerHTML = `<div class="tsubo-section-title">${s.localLabel || '特効穴（まず試すツボ）'}</div>`;
   const tList = document.createElement('div');
   tList.className = 'tokukoketsu-list';
   s.tokukoketsu.forEach(t => makeTsuboItems(tList, t, 'primary'));
   tSection.appendChild(tList);
   main.appendChild(tSection);
+
+  // 遠隔穴（局所穴と併用するツボ）
+  if (s.distal && s.distal.length > 0) {
+    const dSection = document.createElement('div');
+    dSection.className = 'tsubo-section';
+    dSection.innerHTML = `<div class="tsubo-section-title">遠隔穴（あわせて使うツボ）</div>`;
+    const dList = document.createElement('div');
+    dList.className = 'tokukoketsu-list';
+    s.distal.forEach(t => makeTsuboItems(dList, t, 'honchi'));
+    dSection.appendChild(dList);
+    main.appendChild(dSection);
+  }
 
   // 体質ごとのツボ
   if (selectedTypeList.length > 0) {
@@ -1864,7 +1898,7 @@ function renderStep3(main) {
     hint.className = 'empty-hint';
     hint.innerHTML = 'まずは上の<b>特効穴</b>からお試しください。<br>体質チェックで当てはまるものを選ぶと、体質に合わせたツボ（本治穴）も表示されます。';
     main.appendChild(hint);
-  } else {
+  } else if (!(s.distal && s.distal.length > 0)) {
     // 体質チェックのない症状（監査4）
     const hint = document.createElement('div');
     hint.className = 'empty-hint';
