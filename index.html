@@ -651,6 +651,13 @@
   .care-list li { font-size: 15px; line-height: 1.85; margin-bottom: 4px; }
   .care-list li b { color: #9c4416; }
 
+  /* 毫鍼の規格表（美容鍼・ステップ4） */
+  .needle-table { width: 100%; border-collapse: collapse; margin: 4px 0 6px; font-size: 15px; }
+  .needle-table th, .needle-table td { border: 1px solid var(--border); padding: 8px 6px; text-align: left; vertical-align: top; line-height: 1.6; }
+  .needle-table th { background: #f6f1e8; font-weight: 700; white-space: nowrap; }
+  .needle-table td:first-child, .needle-table td:nth-child(2) { white-space: nowrap; font-size: 14px; }
+  .needle-note { font-size: 14px; line-height: 1.7; color: var(--text-sub, #666); margin: 6px 0 0; }
+
   /* 検索欄 */
   .search-wrap { position: relative; margin-bottom: 16px; }
   .search-input {
@@ -876,7 +883,7 @@
     <span class="step-num">3</span>ツボ
   </div>
   <div class="step-item" id="step4nav">
-    <span class="step-num">4</span>貼り方
+    <span class="step-num">4</span><span id="step4label">貼り方</span>
   </div>
 </div>
 
@@ -1242,7 +1249,8 @@ const symptoms = [
   {
     // スタッフへの施術用（staffSymptomIds）。局所穴＝tokukoketsu、遠隔穴＝distal
     id: "facial_lift", emoji: "✨", name: "顔のたるみ（美容鍼）", description: "スタッフへの施術用",
-    note: "加齢に伴う顔面のたるみに用いられる代表的なツボです。顔面の局所穴に、合谷・足三里などの遠隔穴を組み合わせます。ただし美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験で、エビデンスはサイズ・質ともに限定的です。",
+    method: "goshin", // 円皮鍼ではなく、滅菌済み単回使用の毫鍼を使う（ステップ4が刺鍼手順になる）
+    note: "加齢に伴う顔面のたるみに用いられる代表的なツボです。顔面の局所穴に、合谷・足三里などの遠隔穴を組み合わせます。<b>円皮鍼ではなく、細く短い使い捨ての毫鍼（フィリフォーム鍼）を使います。</b>十分な訓練を受けた施術者が行ってください。なお美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験で、エビデンスはサイズ・質ともに限定的です。",
     tokukoketsu: ["迎香","地倉","顴髎","四白","太陽","攅竹","糸竹空","下関"],
     distal: ["合谷","足三里"],
     localLabel: "顔面局所穴（顔のツボ）",
@@ -1415,6 +1423,15 @@ const staffSymptomIds = ["facial_lift"];
 const pregnancyCautionTsubo = ["三陰交", "合谷", "肩井", "至陰"];
 const PREGNANCY_ALERT = "妊娠中・妊娠の可能性がある方は、このツボを使う前に必ず医師にご相談ください。";
 
+// 毫鍼で施術する項目か（美容鍼など）。円皮鍼の「貼る」文言を「施術する」に切り替える
+function isGoshin() {
+  return !!(selectedSymptom && selectedSymptom.method === 'goshin');
+}
+function checkLabel(on) {
+  if (isGoshin()) return on ? '✓ 施術する（選択済み）' : '＋ 施術するツボに追加';
+  return on ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加';
+}
+
 // ===================== ツボアイテム生成ヘルパー =====================
 // tsuboName: "合谷" など。複合名（"合谷＋太衝"）は個別に分割して表示。
 // checkedTsubo のキーは「ツボ名そのもの」。体質チェックを変えても
@@ -1473,7 +1490,7 @@ function makeTsuboGroup(container, tsuboNames, styleType) {
 
     const checked = checkedTsubo.has(name);
     const checkBtnHtml = `<button type="button" class="tsubo-check-btn${checked ? ' checked' : ''}" data-tsubo="${name}">
-          ${checked ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加'}
+          ${checkLabel(checked)}
         </button>`;
 
     const warnHtml = pregnancyCautionTsubo.includes(name)
@@ -1521,7 +1538,7 @@ function syncTsuboUI(name) {
   });
   document.querySelectorAll('.tsubo-check-btn' + sel).forEach(b => {
     b.classList.toggle('checked', on);
-    b.textContent = on ? '✓ 今日貼る（選択済み）' : '＋ 今日貼るツボに追加';
+    b.textContent = checkLabel(on);
   });
   updateCount();
 }
@@ -1620,6 +1637,7 @@ function hasTypes() {
 
 function updateStepNav() {
   const skip2 = selectedSymptom && !hasTypes();
+  document.getElementById('step4label').textContent = isGoshin() ? '刺し方' : '貼り方';
   for (let i = 1; i <= 4; i++) {
     const el = document.getElementById(`step${i}nav`);
     el.className = 'step-item';
@@ -1834,8 +1852,10 @@ function renderStep3(main) {
       </div>
     </div>
     <div class="note-box">${s.note}</div>
-    <p class="section-title">✦ あなたへのおすすめツボ</p>
-    <p class="section-sub">ツボの名前をタップすると、位置の図と説明が開きます。今日貼るツボを選んでおくと、次の「貼り方」の画面にまとまって出ます。</p>
+    <p class="section-title">${isGoshin() ? '✦ 施術に使うツボ' : '✦ あなたへのおすすめツボ'}</p>
+    <p class="section-sub">${isGoshin()
+      ? 'ツボの名前をタップすると、位置の図と説明が開きます。施術するツボを選んでおくと、次の「刺し方」の画面にまとまって出ます。'
+      : 'ツボの名前をタップすると、位置の図と説明が開きます。今日貼るツボを選んでおくと、次の「貼り方」の画面にまとまって出ます。'}</p>
     <div class="sun-note">📏 <b>「寸」は指の幅で測ります。</b><br>1寸＝親指の幅、3寸＝人差し指〜小指の4本をそろえた幅（ご本人の指で測ってください）。</div>
     <div id="selectedCountBadge" class="selected-count">0か所 選択中</div>
   `;
@@ -1911,7 +1931,7 @@ function renderStep3(main) {
   const backLabel = hasTypes() ? '← 体質チェックに戻る' : '← 症状を選び直す';
   btnRow.innerHTML = `
     <button type="button" class="btn btn-secondary" onclick="goBack()">${backLabel}</button>
-    <button type="button" class="btn btn-primary" onclick="goTo(4)">貼り方を見る →</button>
+    <button type="button" class="btn btn-primary" onclick="goTo(4)">${isGoshin() ? '刺し方を見る →' : '貼り方を見る →'}</button>
   `;
   main.appendChild(btnRow);
 
@@ -1925,6 +1945,7 @@ function updateCount() {
 
 // ---- ステップ4: 貼り方 ----
 function renderStep4(main) {
+  if (isGoshin()) { renderStep4Goshin(main); return; }
   main.innerHTML = `
     <div class="chosen-box" id="chosenBox"></div>
 
@@ -2021,6 +2042,98 @@ function renderStep4(main) {
   renderChosenList();
 }
 
+// ---- ステップ4（毫鍼）: 美容鍼の刺し方。スタッフへの施術用 ----
+// 鍼の規格は文献で報告された一例。実際の太さ・長さ・深度は施術者が個別に判断する。
+function renderStep4Goshin(main) {
+  main.innerHTML = `
+    <div class="chosen-box" id="chosenBox"></div>
+
+    <div class="care-box danger">
+      <div class="care-title">美容鍼は円皮鍼ではなく「毫鍼」で行います</div>
+      <ul class="care-list">
+        <li><b>滅菌済みの使い捨て鍼</b>（単回使用）を使う</li>
+        <li>顔面は皮膚が薄く、血管・神経が豊富なため、体幹・四肢より<b>細く短い鍼を浅く</b>刺す</li>
+        <li>眼窩や主要な血管・神経に近いため、<b>十分な訓練を受けた施術者</b>が行う</li>
+      </ul>
+    </div>
+
+    <p class="section-title">鍼の選び方（文献で報告された規格の例）</p>
+    <div class="care-box">
+      <table class="needle-table">
+        <tr><th>部位</th><th>太さ×長さ</th><th>使い方の例</th></tr>
+        <tr><td>顔面穴<br>（極細鍼）</td><td>0.16mm×15mm</td><td>顔面穴に10分間置鍼（セイリン製の使い捨て鍼を用いた美容鍼のパイロット試験）</td></tr>
+        <tr><td>顔面穴</td><td>0.20mm×15mm</td><td>顴髎・頬車・下関など。遠隔穴より細く短い鍼に使い分け</td></tr>
+        <tr><td>遠隔穴</td><td>0.25mm×30mm</td><td>合谷・足三里など</td></tr>
+        <tr><td>顔面穴<br>（参考）</td><td>0.25mm×40mm</td><td>深さ5mmと浅く刺入し30分間置鍼（顔面神経麻痺後の表情筋萎縮の臨床試験）</td></tr>
+      </table>
+      <p class="needle-note">これらはあくまで研究で使われた一例です。実際の太さ・長さ・刺入の深さは、施術部位の皮膚の厚さ、受ける人の感受性、全身状態に応じて施術者が判断してください。</p>
+    </div>
+
+    <p class="section-title">刺し方の手順</p>
+    <div class="howto-step">
+      <div class="howto-num">1</div>
+      <div class="howto-text">
+        <div class="howto-title">体調と皮膚の状態を確認する</div>
+        <div class="howto-desc">施術部位の皮膚の厚さや状態、受ける人の感受性、その日の全身状態を確認します。傷・炎症・湿疹のある部位には刺しません。</div>
+      </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">2</div>
+      <div class="howto-text">
+        <div class="howto-title">鍼を選んで準備する</div>
+        <div class="howto-desc">滅菌済みの使い捨て鍼を、上の表を目安に部位ごとに選びます。顔面穴は細く短い鍼、遠隔穴（合谷・足三里）はそれより太く長い鍼です。</div>
+      </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">3</div>
+      <div class="howto-text">
+        <div class="howto-title">皮膚を消毒する</div>
+        <div class="howto-desc">刺鍼する前に、アルコール等で刺鍼部位の皮膚を消毒します。</div>
+      </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">4</div>
+      <div class="howto-text">
+        <div class="howto-title">浅く刺入する</div>
+        <div class="howto-desc">顔面穴は浅い深度で刺入します。血管・神経の損傷や感染を避けるため、解剖学的に安全な深度・角度を守ってください。目の周り（攅竹・四白など）は眼窩に近いので特に注意します。</div>
+      </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">5</div>
+      <div class="howto-text">
+        <div class="howto-title">置鍼する</div>
+        <div class="howto-desc">文献では10分間（美容鍼のパイロット試験）〜30分間（表情筋萎縮の臨床試験）の置鍼が報告されています。</div>
+      </div>
+    </div>
+    <div class="howto-step">
+      <div class="howto-num">6</div>
+      <div class="howto-text">
+        <div class="howto-title">抜鍼し、鍼を廃棄する</div>
+        <div class="howto-desc">抜鍼後、出血があれば清潔な綿花で軽く押さえます。使用済みの鍼は再使用せず、医療用の鋭利物廃棄容器に捨てます。</div>
+      </div>
+    </div>
+
+    <div class="care-box">
+      <div class="care-title">参考：糸埋没鍼（thread embedding acupuncture）</div>
+      <ul class="care-list">
+        <li>たるみ・筋萎縮に対して、毫鍼に加えて<b>吸収性の糸を埋め込む</b>手技も検討されています</li>
+        <li>より持続的な組織刺激・リフトアップ効果を狙う方法として報告されています（この画面の手順の対象外です）</li>
+      </ul>
+    </div>
+
+    <div class="safety-box">
+      美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験で、エビデンスは限定的です。<br>
+      この画面は院内でスタッフに施術する際の参考です。患者さんのセルフケアには使いません。
+    </div>
+
+    <div class="btn-row">
+      <button type="button" class="btn btn-secondary" onclick="goBack()">← ツボを確認する</button>
+      <button type="button" class="btn btn-primary" onclick="restart()">最初から</button>
+    </div>
+  `;
+  renderChosenList();
+}
+
 // ステップ3で選んだツボを一覧表示する（監査3）
 function renderChosenList() {
   const box = document.getElementById('chosenBox');
@@ -2028,13 +2141,17 @@ function renderChosenList() {
   const names = Array.from(checkedTsubo);
 
   if (names.length === 0) {
-    box.innerHTML = `<div class="chosen-title">今日貼るツボ</div>
+    box.innerHTML = isGoshin()
+      ? `<div class="chosen-title">施術するツボ</div>
+      <div class="chosen-empty">まだ選ばれていません。<br>
+      「← ツボを確認する」から、施術するツボの「＋ 施術するツボに追加」を押すと、ここに位置の図とあわせて並びます。</div>`
+      : `<div class="chosen-title">今日貼るツボ</div>
       <div class="chosen-empty">まだ選ばれていません。<br>
       「← ツボを確認する」から、貼りたいツボの「＋ 今日貼るツボに追加」を押すと、ここに位置の図とあわせて並びます。</div>`;
     return;
   }
 
-  box.innerHTML = `<div class="chosen-title">今日貼るツボ（${names.length}か所）</div>`;
+  box.innerHTML = `<div class="chosen-title">${isGoshin() ? '施術するツボ' : '今日貼るツボ'}（${names.length}か所）</div>`;
   names.forEach(name => {
     const info = tsuboInfo[name];
     const item = document.createElement('div');
