@@ -1255,6 +1255,20 @@ const symptoms = [
     distal: ["合谷","足三里"],
     localLabel: "顔面局所穴（顔のツボ）",
     types: []
+  },
+  {
+    // スタッフへの施術用。主な顔のツボ＝tokukoketsu、組み合わせる顔のツボ＝extra、遠隔穴＝distal
+    id: "facial_slim", emoji: "💧", name: "小顔・むくみ（美容鍼）", description: "スタッフへの施術用",
+    method: "goshin",
+    note: "顔のむくみ軽減や、顔の筋緊張・血流の改善を目的に美容鍼灸で用いられるツボです。<b>円皮鍼ではなく、細く短い使い捨ての毫鍼を使います。</b>顔面の血流・リンパ循環を促してむくみを減らし、見た目の「引き締まり」感を得る機序が想定されています。ただし「小顔になる」ことを主要評価項目とした大規模な臨床試験はなく、顔面浮腫や美容鍼灸の予備的研究・症例報告が中心です。骨格や脂肪の恒久的な変化を裏付ける質の高いエビデンスは限定的です。<b>出血傾向のある人、施術部位に皮膚感染がある人には行いません。</b>",
+    tokukoketsu: ["頬車","下関","迎香","地倉","攅竹","翳風","承漿"],
+    localLabel: "顔面局所穴（主なツボ）",
+    extra: ["聴宮","顴髎","大迎","上星","四白","巨髎"],
+    extraLabel: "組み合わせて使う顔のツボ",
+    extraNote: "美容鍼灸の予備研究で、上の主なツボに加えて顔面部に置鍼されたツボです（四白・巨髎は顔面浮腫の症例報告で使われた局所穴）。",
+    distal: ["曲池","合谷","偏歴","陰陵泉","足三里","豊隆","太衝"],
+    distalNote: "COVID-19後の顔面浮腫の症例報告で、顔面の局所穴と併用された遠隔穴です（2か月間の治療で浮腫が軽減）。",
+    types: []
   }
 ];
 
@@ -1410,6 +1424,12 @@ const tsuboInfo = {
   "地倉":    { who:"ST4",   loc:"口角の外方0.4寸。口角のすぐ横。口角のたるみ・表情筋のトーン改善に用いる。" },
   "顴髎":    { who:"SI18",  loc:"外眼角（目尻）の直下、頬骨下縁の陥凹部。頬のたるみへの局所穴。" },
   "糸竹空":  { who:"TE23",  loc:"眉毛外端（眉尻）の陥凹部。目尻のたるみへの局所穴。" },
+  // 小顔・むくみ（美容鍼）で追加
+  "頬車":    { who:"ST6",   loc:"下顎角の前上方、約1横指。歯をかみしめると盛り上がる咬筋の上で、力を抜くとくぼむところ。" },
+  "承漿":    { who:"CV24",  loc:"オトガイ唇溝（下唇の下のくぼみ）の中央。" },
+  "大迎":    { who:"ST5",   loc:"下顎角の前方、咬筋付着部の前縁のくぼみ。顔面動脈の拍動を触れるところ。" },
+  "巨髎":    { who:"ST3",   loc:"瞳孔の直下、鼻翼下縁と同じ高さ。四白の下方。" },
+  "偏歴":    { who:"LI6",   loc:"前腕の親指側、陽渓（手首）と曲池を結ぶ線上で、手首のしわから上方3寸。" },
 };
 
 // ===================== 安全情報（医学的内容は院長の指示による） =====================
@@ -1417,7 +1437,7 @@ const tsuboInfo = {
 const clinicSymptomIds = ["tonsillitis", "arrhythmia", "palpitation", "dyslipidemia", "cough", "toothache", "morning_sickness", "breech"];
 
 // スタッフが施術する目的の項目（患者さんのセルフケア用とは分けて表示）
-const staffSymptomIds = ["facial_lift"];
+const staffSymptomIds = ["facial_lift", "facial_slim"];
 
 // 妊娠中・妊娠の可能性がある方が使う前に医師への相談が必要なツボ
 const pregnancyCautionTsubo = ["三陰交", "合谷", "肩井", "至陰"];
@@ -1461,6 +1481,7 @@ function tsuboNamesOf(s) {
   const set = new Set();
   s.tokukoketsu.forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
   (s.distal || []).forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
+  (s.extra || []).forEach(t => splitTsuboNames(t).forEach(n => set.add(n)));
   s.types.forEach(t => {
     splitTsuboNames(t.h1).forEach(n => set.add(n));
     splitTsuboNames(t.h2).forEach(n => set.add(n));
@@ -1870,11 +1891,25 @@ function renderStep3(main) {
   tSection.appendChild(tList);
   main.appendChild(tSection);
 
+  // 組み合わせて使う顔のツボ
+  if (s.extra && s.extra.length > 0) {
+    const eSection = document.createElement('div');
+    eSection.className = 'tsubo-section';
+    eSection.innerHTML = `<div class="tsubo-section-title">${s.extraLabel || '組み合わせて使うツボ'}</div>`
+      + (s.extraNote ? `<p class="section-sub">${s.extraNote}</p>` : '');
+    const eList = document.createElement('div');
+    eList.className = 'tokukoketsu-list';
+    s.extra.forEach(t => makeTsuboItems(eList, t, 'primary'));
+    eSection.appendChild(eList);
+    main.appendChild(eSection);
+  }
+
   // 遠隔穴（局所穴と併用するツボ）
   if (s.distal && s.distal.length > 0) {
     const dSection = document.createElement('div');
     dSection.className = 'tsubo-section';
-    dSection.innerHTML = `<div class="tsubo-section-title">遠隔穴（あわせて使うツボ）</div>`;
+    dSection.innerHTML = `<div class="tsubo-section-title">遠隔穴（あわせて使うツボ）</div>`
+      + (s.distalNote ? `<p class="section-sub">${s.distalNote}</p>` : '');
     const dList = document.createElement('div');
     dList.className = 'tokukoketsu-list';
     s.distal.forEach(t => makeTsuboItems(dList, t, 'honchi'));
@@ -2054,6 +2089,7 @@ function renderStep4Goshin(main) {
         <li><b>滅菌済みの使い捨て鍼</b>（単回使用）を使う</li>
         <li>顔面は皮膚が薄く、血管・神経が豊富なため、体幹・四肢より<b>細く短い鍼を浅く</b>刺す</li>
         <li>眼窩や主要な血管・神経に近いため、<b>十分な訓練を受けた施術者</b>が行う</li>
+        <li><b>出血傾向のある人</b>、施術部位に<b>皮膚感染がある人</b>には行わない</li>
       </ul>
     </div>
 
@@ -2074,7 +2110,7 @@ function renderStep4Goshin(main) {
       <div class="howto-num">1</div>
       <div class="howto-text">
         <div class="howto-title">体調と皮膚の状態を確認する</div>
-        <div class="howto-desc">施術部位の皮膚の厚さや状態、受ける人の感受性、その日の全身状態を確認します。傷・炎症・湿疹のある部位には刺しません。</div>
+        <div class="howto-desc">施術部位の皮膚の厚さや状態、受ける人の感受性、その日の全身状態を確認します。出血傾向のある人、施術部位に皮膚感染がある人には行いません。傷・炎症・湿疹のある部位にも刺しません。</div>
       </div>
     </div>
     <div class="howto-step">
@@ -2122,7 +2158,7 @@ function renderStep4Goshin(main) {
     </div>
 
     <div class="safety-box">
-      美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験で、エビデンスは限定的です。<br>
+      美容鍼の有効性を検証した研究の多くは症例数が少ない単群パイロット試験や症例報告で、エビデンスは限定的です。<br>
       この画面は院内でスタッフに施術する際の参考です。患者さんのセルフケアには使いません。
     </div>
 
